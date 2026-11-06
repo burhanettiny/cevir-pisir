@@ -1,0 +1,21 @@
+{
+  "name": "cevir-pisir",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Çevir Pişir: Ne yiyoruz? Çarkı çevir; tarif, kalori, makro, alışveriş listesi ve sofra menüleri (Android + PWA)",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "www": "node scripts/www.mjs",
+    "android": "node scripts/www.mjs && npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.6.0",
+    "@capacitor/core": "8.6.0",
+    "@capacitor/share": "8.0.3",
+    "@capacitor/clipboard": "8.0.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "appId": "io.github.burhanettiny.cevirpisir",
+  "appName": "Çevir Pişir",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#e4572e"
+  }
+}

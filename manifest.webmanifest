@@ -1,0 +1,17 @@
+{
+  "name": "Çevir Pişir",
+  "short_name": "Çevir Pişir",
+  "description": "Ne yiyoruz? Çarkı çevir; tarif, kalori, besin dengesi, alışveriş listesi ve sofra menüleri.",
+  "lang": "tr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff8f0",
+  "theme_color": "#e4572e",
+  "icons": [
+    { "src": "ikon/ikon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "ikon/ikon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "ikon/ikon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

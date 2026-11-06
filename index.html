@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e4572e">
+  <meta name="description" content="Ne yiyoruz? Çarkı çevir, yemeğini seç: tarif, kalori, protein–karbonhidrat dengesi, alışveriş listesi ve sofra menüleri.">
+  <title>Çevir Pişir</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="ikon/ikon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/stil.css">
+</head>
+<body>
+  <header class="ust">
+    <button class="geri" id="geri" aria-label="Geri" hidden>‹</button>
+    <h1 id="baslik"><span class="logo">🎡</span> Çevir Pişir</h1>
+    <span class="bosluk"></span>
+  </header>
+
+  <main id="ekran" tabindex="-1"></main>
+
+  <nav class="alt" aria-label="Ana menü">
+    <a href="#/" data-sekme="ana"><span>🎡</span>Çevir</a>
+    <a href="#/sofralar" data-sekme="sofralar"><span>🍽️</span>Sofralar</a>
+    <a href="#/favoriler" data-sekme="favoriler"><span>♥</span>Favoriler</a>
+    <a href="#/liste" data-sekme="liste"><span>🛒</span>Liste<b id="listeSayi" hidden></b></a>
+  </nav>
+
+  <div class="perde" id="perde" hidden></div>
+  <section class="cekmece" id="cekmece" hidden aria-modal="true" role="dialog"></section>
+  <div class="bildirim" id="bildirim" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/uygulama.js"></script>
+</body>
+</html>
