@@ -58,6 +58,11 @@ jobs:
           # Kopyalarken karışabilecek boşluk/satır sonlarını ve "Şifre (...): " önekini temizle.
           export YUKLEME_ANAHTARI_SIFRE="$(printf '%s' "$HAM_SIFRE" | tr -d '\r\n' | sed 's/^.*: *//; s/[[:space:]]*$//; s/^[[:space:]]*//')"
           printf '%s' "$ANAHTAR_B64" | tr -d '\r\n ' | base64 -d > "$RUNNER_TEMP/upload.jks"
+          # Şifrenin kendisi yazdırılmaz; yalnızca uzunluğu ve harf/rakam dışı karakter içerip içermediği.
+          echo "Şifre uzunluğu: ${#YUKLEME_ANAHTARI_SIFRE} (beklenen 24)"
+          case "$YUKLEME_ANAHTARI_SIFRE" in *[!A-Za-z0-9]*) echo "::warning::Şifrede harf/rakam dışı karakter var; ANAHTAR-BILGISI.txt'deki 24 karakteri yeniden kopyalayın.";; esac
+          keytool -list -keystore "$RUNNER_TEMP/upload.jks" -storepass "$YUKLEME_ANAHTARI_SIFRE" >/dev/null 2>&1 \
+            || { echo "::error::YUKLEME_ANAHTARI_SIFRE anahtarla eşleşmiyor. GitHub > Settings > Secrets'ta şifreyi ANAHTAR-BILGISI.txt'deki 24 karakterle güncelleyin."; exit 1; }
           export YUKLEME_ANAHTARI="$RUNNER_TEMP/upload.jks"
           ./gradlew bundleRelease --no-daemon --stacktrace
           cp app/build/outputs/bundle/release/app-release.aab ../cevir-pisir.aab
