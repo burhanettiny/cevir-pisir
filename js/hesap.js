@@ -151,6 +151,8 @@ export function rastgeleSec(liste, haric = [], rnd = Math.random) {
 // ── Diyabet uygunluğu ──
 // Porsiyon başı karbonhidrat ve eklenen şekere göre basit bir sınıflama. Tabak yöntemi (ADA) ve
 // Türkiye Beslenme Rehberi (TÜBER) ilkelerinden türetilmiş genel bir yol göstericidir, tıbbi öneri değildir.
+const RAFINE = ['pirinc', 'patates', 'makarna', 'sehriye', 'eriste', 'irmik', 'un', 'bayat_ekmek', 'galeta_unu', 'tel_kadayif', 'lavas', 'nisasta', 'pirinc_unu'];
+const SEKER = ['seker', 'pekmez'];
 const DUSUK_GI = ['bulgur', 'koftelik_bulgur', 'kirmizi_mercimek', 'kuru_fasulye', 'nohut_haslanmis', 'kuru_bakla'];
 export const DIYABET_ETIKET = {
   uygun: { ad: 'Diyabete uygun', renk: '#2e7d32', emoji: '🟢' },
@@ -159,7 +161,7 @@ export const DIYABET_ETIKET = {
 };
 export function diyabetDurumu(t) {
   const d = besinDegeri(t);
-  const seker = t.malz.filter(([k]) => k === 'seker').reduce((a, m) => a + (m[3] ?? m[1]), 0) / t.porsiyon;
+  const seker = t.malz.filter(([k]) => SEKER.includes(k)).reduce((a, m) => a + (m[3] ?? m[1]), 0) / t.porsiyon;
   const dusukGiKh = t.malz.filter(([k]) => DUSUK_GI.includes(k))
     .reduce((a, m) => a + (BESINLER[m[0]].kh * (m[3] ?? m[1])) / 100, 0) / t.porsiyon;
   const pay = d.k ? dusukGiKh / d.k : 0;
@@ -170,6 +172,11 @@ export function diyabetDurumu(t) {
   else if (seker >= 3) { durum = 'olculu'; neden.push(`porsiyonda ~${Math.round(seker)} g eklenmiş şeker`); }
   if (d.k > 60 + esik) { durum = 'dikkat'; neden.push(`porsiyonda ${d.k} g karbonhidrat`); }
   else if (d.k > 35 + esik) { if (durum === 'uygun') durum = 'olculu'; neden.push(`porsiyonda ${d.k} g karbonhidrat`); }
+  const rafineKh = t.malz.filter(([k]) => RAFINE.includes(k))
+    .reduce((a, m) => a + (BESINLER[m[0]].kh * (m[3] ?? m[1])) / 100, 0) / t.porsiyon;
+  if (durum === 'uygun' && d.k >= 20 && rafineKh / (d.k || 1) >= 0.5) {
+    durum = 'olculu'; neden.push(`karbonhidratın çoğu rafine nişastadan (${d.k} g)`);
+  }
   if (!neden.length) neden.push(`porsiyonda ${d.k} g karbonhidrat${t.sekersiz ? ', şeker eklenmemiş' : ''}`);
   return { durum, neden: neden.join(', '), seker: Math.round(seker), kh: d.k, ...DIYABET_ETIKET[durum] };
 }
@@ -202,6 +209,12 @@ const IKILILER = [
   ['mercimek-corbasi', 'izmir-kofte'], ['ezogelin-corbasi', 'tavuk-sis'], ['tavuklu-pilav', 'cacik'],
   ['tavuklu-pilav', 'coban-salata'], ['ispanak-yemegi', 'cacik'], ['etli-kuru-fasulye', 'kabak-tatlisi'],
   ['tavuk-guvec', 'bulgur-pilavi'], ['kremali-mantarli-tavuk', 'pirinc-pilavi'],
+  ['izmir-kofte', 'piyaz'], ['kadinbudu-kofte', 'piyaz'], ['tepsi-kebabi', 'gavurdagi-salatasi'],
+  ['etli-nohut', 'pirinc-pilavi'], ['etli-nohut', 'cacik'], ['kuzu-tandir', 'pirinc-pilavi'], ['ali-nazik', 'coban-salata'],
+  ['et-sote', 'patates-puresi'], ['kuzu-guvec', 'bulgur-pilavi'], ['ev-usulu-tavuk-doner', 'coban-salata'],
+  ['izgara-tavuk-pirzola', 'gavurdagi-salatasi'], ['tavuk-kavurma', 'bulgur-pilavi'], ['kori-soslu-tavuk', 'pirinc-pilavi'],
+  ['etli-taze-fasulye', 'pirinc-pilavi'], ['eksili-kofte', 'mevsim-salata'], ['mercimek-koftesi', 'acili-ezme'],
+  ['zeytinyagli-barbunya', 'kisir'], ['tavuk-sis', 'kisir'],
 ];
 const ikili = (a, b) => IKILILER.some(([x, y]) => (x === a && y === b) || (x === b && y === a));
 

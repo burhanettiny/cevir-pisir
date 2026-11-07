@@ -2,6 +2,8 @@
 // "Yenen gram" yalnızca kızartmada tavada kalan yağ gibi durumlar için kullanılır: alışverişte tam
 // miktar, besin hesabında yemeğe geçen miktar sayılır.
 // wiki: görsel ve kaynak için Türkçe Vikipedi madde adı.
+import { EK_TARIFLER } from './tarifler-ek.js';
+import { EK_TARIFLER_2 } from './tarifler-ek2.js';
 
 export const KATEGORILER = [
   { id: 'corba', ad: 'Çorba', emoji: '🍲', renk: '#e8833a' },
@@ -13,7 +15,7 @@ export const KATEGORILER = [
   { id: 'tatli', ad: 'Tatlı', emoji: '🍮', renk: '#c2577a' },
 ];
 
-export const TARIFLER = [
+const ANA_TARIFLER = [
   // ───────────── ÇORBALAR ─────────────
   {
     id: 'mercimek-corbasi', ad: 'Mercimek Çorbası', kat: 'corba', emoji: '🥣', sure: 40, porsiyon: 4,
@@ -929,6 +931,8 @@ export const TARIFLER = [
     ],
   },
 ];
+
+export const TARIFLER = [...ANA_TARIFLER, ...EK_TARIFLER, ...EK_TARIFLER_2];
 
 // Sofra menüleri: her satır bir yemek yuvası; uygun kategorilerden rastgele seçilir.
 export const SOFRALAR = [

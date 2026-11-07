@@ -75,7 +75,26 @@ export const BESINLER = {
   nar_eksisi: B('Nar ekşisi', 280, 0.5, 70, 0, 'temel'),
   seker: B('Toz şeker', 387, 0, 100, 0, 'temel', true),
 
+  // — Ek sebze ve bakliyat
+  yesil_mercimek: B('Yeşil mercimek', 352, 24.6, 63, 1.1, 'bakliyat'),
+  kuru_barbunya: B('Kuru barbunya', 333, 23, 60, 1.2, 'bakliyat'),
+  brokoli: B('Brokoli', 34, 2.8, 6.6, 0.4, 'sebze'),
+  karnabahar: B('Karnabahar', 25, 1.9, 5, 0.3, 'sebze'),
+  kereviz: B('Kereviz (kök)', 42, 1.5, 9.2, 0.3, 'sebze'),
+  dolmalik_biber: B('Dolmalık biber', 20, 0.9, 4.6, 0.2, 'sebze'),
+  asma_yapragi: B('Asma yaprağı (salamura)', 93, 5.6, 17, 2.1, 'temel'),
+  semizotu: B('Semizotu', 20, 2, 3.4, 0.4, 'sebze'),
+  kuru_biber: B('Kuru kırmızı biber', 282, 12, 54, 13, 'temel'),
+
   // — Tatlı malzemeleri
+  kakao: B('Kakao', 228, 20, 58, 14, 'temel'),
+  cilek: B('Çilek', 32, 0.7, 7.7, 0.3, 'sebze'),
+  armut: B('Armut', 57, 0.4, 15, 0.1, 'sebze'),
+  pekmez: B('Üzüm pekmezi', 290, 0, 72, 0, 'temel'),
+  pancar: B('Kırmızı pancar', 43, 1.6, 10, 0.2, 'sebze'),
+  lahana: B('Beyaz lahana', 25, 1.3, 5.8, 0.1, 'sebze'),
+  makarna: B('Makarna', 371, 13, 75, 1.5, 'bakliyat'),
+  tel_kadayif: B('Tel kadayıf', 340, 8, 74, 1.5, 'temel'),
   irmik: B('İrmik', 360, 12.7, 73, 1, 'bakliyat'),
   pirinc_unu: B('Pirinç unu', 366, 6, 80, 1.4, 'temel'),
   nisasta: B('Buğday nişastası', 381, 0.3, 91, 0.1, 'temel'),
@@ -101,6 +120,11 @@ export const BESINLER = {
   vanilin: B('Vanilin', 0, 0, 0, 0, 'baharat'),
   karanfil: B('Karanfil', 0, 0, 0, 0, 'baharat'),
   gul_suyu: B('Gül suyu', 0, 0, 0, 0, 'baharat'),
+  kabartma_tozu: B('Kabartma tozu', 0, 0, 0, 0, 'baharat', true),
+  maya: B('Kuru maya', 0, 0, 0, 0, 'baharat'),
+  sirke: B('Sirke', 0, 0, 0, 0, 'baharat', true),
+  sumak: B('Sumak', 0, 0, 0, 0, 'baharat'),
+  kori: B('Köri', 0, 0, 0, 0, 'baharat'),
 
   // — Sıvılar (listeye girmez)
   su: B('Su', 0, 0, 0, 0, 'su', true),

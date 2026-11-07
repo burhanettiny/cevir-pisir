@@ -216,14 +216,16 @@ function cevirEkrani(katId) {
     const yemekler = liste.filter((x) => x !== JOKER);
     const hedef = Math.random() < 1 / 12 && sonId !== 'joker' ? JOKER : rastgeleSec(yemekler, sonId ? [sonId] : []);
     const hedefI = liste.indexOf(hedef);
-    // Yavaşlayarak hedefe varır: en az 8 adım, sonra hedefe kadar.
-    let kalan = 8 + ((hedefI - (i + 8)) % liste.length + liste.length) % liste.length;
-    let gecikme = 70;
+    // Liste uzunluğundan bağımsız, ~3 sn'lik yavaşlama: hızlı dönüş sırasında (göz fark etmez)
+    // hedefin 14 adım gerisine geçilir, sonra adım adım yavaşlayarak hedefte durulur.
+    let kalan = 14;
+    i = ((hedefI - kalan) % liste.length + liste.length) % liste.length;
+    let gecikme = 60;
     const yavasla = () => {
       adim(); titret(6);
       kalan--;
       if (kalan <= 0) return bitti(hedef);
-      gecikme *= kalan < 4 ? 1.35 : 1.12;
+      gecikme *= 1.18;
       zaman = setTimeout(yavasla, gecikme);
     };
     yavasla();
@@ -716,7 +718,7 @@ function hakkindaEkrani() {
       </ul>
       <p>En iyi birkaç menüden biri seçilir; böylece her çevirişte farklı ama dengeli bir sofra çıkar.</p>
       <h3>Diyabet etiketleri</h3>
-      <p>🟢 <b>Uygun</b>: porsiyonda en fazla ~35 g karbonhidrat ve eklenmiş şeker yok denecek kadar az. 🟡 <b>Ölçülü</b>: 35–60 g karbonhidrat ya da biraz eklenmiş şeker. 🔴 <b>Dikkat</b>: 60 g'ı aşan karbonhidrat ya da porsiyonda 10 g'dan fazla eklenmiş şeker. Mercimek, bulgur, kuru fasulye gibi glisemik indeksi düşük kaynaklarda sınırlar 15 g daha esnektir.</p>
+      <p>🟢 <b>Uygun</b>: porsiyonda en fazla ~35 g karbonhidrat ve eklenmiş şeker yok denecek kadar az. 🟡 <b>Ölçülü</b>: 35–60 g karbonhidrat ya da biraz eklenmiş şeker. 🔴 <b>Dikkat</b>: 60 g'ı aşan karbonhidrat ya da porsiyonda 10 g'dan fazla eklenmiş şeker. Mercimek, bulgur, kuru fasulye gibi glisemik indeksi düşük kaynaklarda sınırlar 15 g daha esnektir; karbonhidratın çoğu pirinç, patates, makarna gibi rafine nişastadan geliyorsa yemek en az 🟡 sayılır. Pekmez de eklenmiş şeker gibi değerlendirilir.</p>
       <p>Diyabetli misafir için tabak yöntemi (Amerikan Diyabet Derneği): tabağın yarısı nişastasız sebze/salata, çeyreği protein, çeyreği pilav/ekmek/patates. Etiketler genel yol göstericidir; kişisel karbonhidrat hedefi ve ilaç kullanımı için hekim ya da diyetisyen önerisi esastır.</p>
       <h3>Tarifler</h3>
       <p>Tarifler Türk mutfağının yaygın, geleneksel hazırlanışını izler; ölçüler uygulamada hesap yapılabilmesi için grama çevrilip standartlaştırılmıştır. Her tarifte farklı yorumları karşılaştırabileceğin bir arama bağlantısı vardır.</p>

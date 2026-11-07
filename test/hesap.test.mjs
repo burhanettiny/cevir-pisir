@@ -146,3 +146,22 @@ test('puanlı menü, tekrarlı menüden yüksek puan alır', async () => {
   assert.ok(iyi.puan > kotu.puan, `${iyi.puan} > ${kotu.puan}`);
   assert.ok(kotu.notlar.some((n) => /patlıcan/.test(n.metin)));
 });
+
+test('klasik ikililerdeki her tarif kimliği gerçekten var', async () => {
+  const { readFileSync } = await import('node:fs');
+  const src = readFileSync(new URL('../js/hesap.js', import.meta.url), 'utf8');
+  const blok = src.slice(src.indexOf('const IKILILER'), src.indexOf('const ikili ='));
+  const ids = new Set(TARIFLER.map((t) => t.id));
+  for (const [, id] of blok.matchAll(/'([a-z-]+)'/g)) assert.ok(ids.has(id), `bilinmeyen ikili: ${id}`);
+});
+
+test('besin tablosu tutarlı: makrolardan hesaplanan enerji beyan edilenle uyumlu', () => {
+  for (const [k, b] of Object.entries(BESINLER)) {
+    assert.ok(b.ad && typeof b.kcal === 'number', k);
+    // USDA karbonhidrat değeri lifi içerir; lifli sebzelerde ve kakao/kuru biberde makrodan hesaplanan
+    // enerji doğal olarak yüksek çıkar. Yazım hatalarını yakalamak için yoğun besinler kontrol edilir.
+    if (b.kcal < 100 || ['kakao', 'kuru_biber'].includes(k)) continue;
+    const atwater = b.p * 4 + b.kh * 4 + b.y * 9;
+    assert.ok(Math.abs(atwater - b.kcal) / b.kcal < 0.2, `${k}: ${b.kcal} kcal ↔ ${Math.round(atwater)}`);
+  }
+});
