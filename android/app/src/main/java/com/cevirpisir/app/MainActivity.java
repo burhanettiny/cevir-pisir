@@ -1,4 +1,4 @@
-package io.github.burhanettiny.cevirpisir;
+package com.cevirpisir.app;
 
 import com.getcapacitor.BridgeActivity;
 

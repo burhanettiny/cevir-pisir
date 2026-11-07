@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace = "io.github.burhanettiny.cevirpisir"
+    namespace = "com.cevirpisir.app"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "io.github.burhanettiny.cevirpisir"
+        applicationId "com.cevirpisir.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         // GitHub Actions her derlemede sürüm numarasını artırır; böylece yeni APK eskisinin üzerine kurulur.
