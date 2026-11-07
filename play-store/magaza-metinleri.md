@@ -62,7 +62,7 @@ Tarifler, Yemek planlama, Alışveriş listesi
 ## İletişim
 - E-posta: (Play Console'da geliştirici e-postanız)
 - Web sitesi: boş bırakın (zorunlu değil)
-- Gizlilik politikası URL'si: Google Drive'daki "Çevir Pişir — Gizlilik Politikası" dokümanının **Web'de yayınla** adresi (docs.google.com/document/d/e/…/pub biçiminde; sahibin adını göstermez)
+- Gizlilik politikası URL'si: https://docs.google.com/document/d/e/2PACX-1vQxUrGB0b-bzoYG0epzfQbkriecKW6-AjEIWcPvlrsZ_imxQW-sPEFZ0Kf4hC_rWerRD4O1-DLTtlCr/pub
 
 ## Sürüm notları (en fazla 500 karakter) — güncelleme (1.0.x, yeni tasarım)
 Yeni görünüm ve yeni özellikler! 🎡
