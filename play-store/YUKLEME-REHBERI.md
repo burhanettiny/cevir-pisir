@@ -47,7 +47,7 @@ Depoya her değişiklik gönderildiğinde Actions yeni bir sürüm numarasıyla 
 
 ## Notlar
 
-- Paket adı: `com.cevirpisir.app` (yayından sonra değiştirilemez).
+- Paket adı: `io.github.burhanettiny.cevirpisir` (yayından sonra değiştirilemez).
 - En düşük Android sürümü: 7.0 (API 24) · Hedef API: 36.
 - Yükleme anahtarını kaybederseniz: Play Console → *Test ve yayınla > Uygulama bütünlüğü > Uygulama imzalama* → **Yükleme anahtarını sıfırlama isteği**.
 - Ekran görüntüleri ve öne çıkan görseldeki yemek fotoğrafları Wikimedia Commons'tan, özgür lisanslarla alındı; kaynak satırı tam açıklamanın sonunda.

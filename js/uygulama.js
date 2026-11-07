@@ -69,7 +69,7 @@ async function marketAc(marketId, aranan) {
   setTimeout(() => disAc(m.url(aranan)), 350);
 }
 
-const MAGAZA = 'https://play.google.com/store/apps/details?id=com.cevirpisir.app';
+const MAGAZA = 'https://play.google.com/store/apps/details?id=io.github.burhanettiny.cevirpisir';
 function tarifOzeti(t) {
   const d = besinDegeri(t);
   return `${t.ad} · ${d.kcal} kcal/porsiyon · ${t.sure} dk`;
