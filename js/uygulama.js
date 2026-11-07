@@ -69,6 +69,22 @@ async function marketAc(marketId, aranan) {
   setTimeout(() => disAc(m.url(aranan)), 350);
 }
 
+const MAGAZA = 'https://play.google.com/store/apps/details?id=io.github.burhanettiny.cevirpisir';
+function tarifOzeti(t) {
+  const d = besinDegeri(t);
+  return `${t.ad} · ${d.kcal} kcal/porsiyon · ${t.sure} dk`;
+}
+function tarifMetni(t, kisi = t.porsiyon) {
+  const asil = kisi === t.porsiyon;
+  const malz = olcekle(t, kisi).map((m, j) => ({ ...m, olcu: asil ? t.malz[j][2] : '' })).filter((m) => m.r !== 'su');
+  return `${t.ad} (${kisi} kişilik)\n${tarifOzeti(t)}\n\nMalzemeler\n` +
+    malz.map((m) => {
+      const g = gramYaz(m.g);
+      return `• ${m.ad}: ${m.olcu && m.olcu !== g ? `${m.olcu} (${g})` : g}`;
+    }).join('\n') +
+    `\n\nHazırlanışı\n${t.adim.map((a, i) => `${i + 1}. ${a}`).join('\n')}\n\nÇevir Pişir ile paylaşıldı · ${MAGAZA}`;
+}
+
 /** Uygulama içi onay penceresi. Promise<boolean> döner. */
 function onayla({ baslik, metin = '', evet = 'Tamam', hayir = 'Vazgeç', tehlike = false }) {
   const o = $('#onay');
@@ -293,8 +309,13 @@ function cevirEkrani(katId) {
       <div class="dugme-satir">
         <button class="dugme ikincil" id="tekrar">${ikon('rotate-cw', 18)} Tekrar çevir</button>
         <a class="dugme ana" href="#/tarif/${t.id}">Tarife git ${ikon('chevron-right', 18)}</a>
-      </div>`;
+      </div>
+      <button class="dugme duz tam" id="sonucPaylas">${ikon('share-2', 18)} Çarkın seçimini paylaş</button>`;
     $('#tekrar').onclick = (e) => { e.stopPropagation(); baslat(); };
+    $('#sonucPaylas').onclick = (e) => {
+      e.stopPropagation();
+      paylas('Çarkın seçimi', `Çevir Pişir çarkı bugün bana "${t.ad}" dedi! 🎡\n${tarifOzeti(t)}\n\nSen de çevir: ${MAGAZA}`);
+    };
   };
   const jokerSonuc = () => {
     const o = SIPARIS_ONERILERI[Math.floor(Math.random() * SIPARIS_ONERILERI.length)];
@@ -309,7 +330,14 @@ function cevirEkrani(katId) {
           <p class="kucuk">"${esc(o.ad)}" panoya kopyalanır; uygulamada arama kutusuna yapıştırman yeterli.</p>
         </div>
       </div>
-      <button class="dugme ikincil tam" id="tekrar">${ikon('rotate-cw', 18)} Yemek yapacağım, tekrar çevir</button>`;
+      <div class="dugme-satir">
+        <button class="dugme ikincil" id="tekrar">${ikon('rotate-cw', 18)} Tekrar çevir</button>
+        <button class="dugme ikincil" id="sonucPaylas">${ikon('share-2', 18)} Paylaş</button>
+      </div>`;
+    $('#sonucPaylas').onclick = (e) => {
+      e.stopPropagation();
+      paylas('Bugün mutfak kapalı', `Çevir Pişir çarkı konuştu: bugün mutfak kapalı, ${o.ad.toLocaleLowerCase('tr')} söylüyoruz! 🛵\n\nSen de çevir: ${MAGAZA}`);
+    };
     $('#sonuc').querySelectorAll('[data-sip]').forEach((b) => (b.onclick = async (e) => {
       e.stopPropagation();
       const x = SIPARIS_SITELERI.find((y) => y.id === b.dataset.sip);
@@ -335,7 +363,7 @@ function tarifEkrani(id) {
   const dy = diyabetDurumu(t);
   let kisi = D.kisi[t.id] ?? t.porsiyon;
   const fav = () => D.fav.includes(t.id);
-  const favDugme = () => `<button class="ust-dugme ${fav() ? 'fav-acik' : ''}" id="fav" aria-label="${fav() ? 'Favorilerden çıkar' : 'Favorilere ekle'}">${ikon('heart', 22)}</button>`;
+  const favDugme = () => `<button class="ust-dugme" id="paylas" aria-label="Tarifi paylaş">${ikon('share-2', 21)}</button><button class="ust-dugme ${fav() ? 'fav-acik' : ''}" id="fav" aria-label="${fav() ? 'Favorilerden çıkar' : 'Favorilere ekle'}">${ikon('heart', 22)}</button>`;
   $('#ustSag').innerHTML = favDugme();
   const g = GORSELLER[t.id];
 
@@ -406,6 +434,7 @@ function tarifEkrani(id) {
     </article>`;
 
   $('#ustSag').onclick = (e) => {
+    if (e.target.closest('#paylas')) return paylas(t.ad, tarifMetni(t, kisi));
     if (!e.target.closest('#fav')) return;
     D.fav = fav() ? D.fav.filter((x) => x !== t.id) : [...D.fav, t.id];
     kaydet(); $('#ustSag').innerHTML = favDugme(); titret();

@@ -73,11 +73,13 @@ small { color: var(--soluk); }
   background: color-mix(in srgb, var(--zemin) 88%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--cizgi);
 }
-.ust h1 { font-size: 18px; font-weight: 800; flex: 1; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ust h1 { font-size: 18px; font-weight: 800; position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%);
+  max-width: calc(100% - 210px); line-height: 44px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ust .ust-sag { margin-left: auto; }
 .ust-dugme, .ust-sag { width: 44px; height: 44px; flex: none; }
 .ust-dugme { display: grid; place-items: center; background: none; border: 0; border-radius: 50%; color: var(--metin); }
 .ust-dugme:active { background: var(--yuzey2); }
-.ust-sag { display: grid; place-items: center; }
+.ust-sag { display: flex; align-items: center; justify-content: flex-end; width: auto; min-width: 44px; }
 .ust-dugme.fav-acik { color: #e0245e; }
 .ust-dugme.fav-acik svg { fill: currentColor; animation: kalp .35s; }
 @keyframes kalp { 50% { transform: scale(1.3); } }
