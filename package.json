@@ -11,11 +11,14 @@
   },
   "dependencies": {
     "@capacitor/android": "8.6.0",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/clipboard": "8.0.1",
     "@capacitor/core": "8.6.0",
-    "@capacitor/share": "8.0.3",
-    "@capacitor/clipboard": "8.0.1"
+    "@capacitor/share": "8.0.3"
   },
   "devDependencies": {
-    "@capacitor/cli": "8.6.0"
+    "@capacitor/cli": "8.6.0",
+    "@fontsource/manrope": "^5.3.0",
+    "lucide-static": "^1.70.0"
   }
 }

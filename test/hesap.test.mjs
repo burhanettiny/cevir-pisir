@@ -165,3 +165,52 @@ test('besin tablosu tutarlı: makrolardan hesaplanan enerji beyan edilenle uyuml
     assert.ok(Math.abs(atwater - b.kcal) / b.kcal < 0.2, `${k}: ${b.kcal} kcal ↔ ${Math.round(atwater)}`);
   }
 });
+
+test('dolap: baharat ve su eksik sayılmaz, tam eşleşme bulunur', async () => {
+  const { tarifEslesmesi, elimdekilerle, tarifBul, onemliMalzemeler } = await import('../js/hesap.js');
+  const t = tarifBul('cacik');
+  assert.deepEqual(onemliMalzemeler(t).sort(), ['salatalik', 'sarimsak', 'yogurt', 'zeytinyagi'].sort());
+  const evde = new Set(['yogurt', 'salatalik', 'sarimsak', 'zeytinyagi']);
+  assert.deepEqual(tarifEslesmesi(t, evde).eksik, []);
+  assert.ok(elimdekilerle(evde, 0).some((x) => x.t.id === 'cacik'));
+  const bir = elimdekilerle(new Set(['yogurt', 'salatalik', 'sarimsak']), 1);
+  assert.equal(bir.find((x) => x.t.id === 'cacik').eksik[0], 'zeytinyagi');
+  // sıralama: eksik sayısı artan
+  for (let i = 1; i < bir.length; i++) assert.ok(bir[i - 1].eksik.length <= bir[i].eksik.length);
+});
+
+test('dolap malzemeleri reyonlara ayrılır, su listelenmez', async () => {
+  const { dolapMalzemeleri } = await import('../js/hesap.js');
+  const g = dolapMalzemeleri();
+  assert.ok(g.length >= 5);
+  assert.ok(!g.flatMap((x) => x.malzemeler).some((m) => m.k === 'su' || m.k === 'et_suyu'));
+});
+
+test('elimdekilerle menü: eksik malzemesi az olan yemekler seçilir', async () => {
+  const { sofraOlustur, menuAnalizi, tarifEslesmesi, tarifBul, SOFRALAR, BESINLER } = await import('../js/hesap.js');
+  const evde = ['yogurt', 'salatalik', 'sarimsak', 'zeytinyagi', 'kirmizi_mercimek', 'sogan', 'havuc', 'patates', 'tereyagi', 'un',
+    'domates', 'sivri_biber', 'dana_kiyma', 'pirinc', 'bulgur', 'domates_salcasi', 'sivi_yag', 'maydanoz', 'limon', 'yumurta'];
+  const s = SOFRALAR.find((x) => x.id === 'hafta-ici');
+  const set = new Set(evde);
+  const toplamEksik = (m) => new Set(m.flatMap((id) => tarifEslesmesi(tarifBul(id), set).eksik)).size;
+  const ileri = sofraOlustur(s, { evde });
+  const rastgele = Array.from({ length: 20 }, () => toplamEksik(sofraOlustur(s, {})));
+  assert.ok(toplamEksik(ileri) <= Math.min(...rastgele) + 1, `${toplamEksik(ileri)} eksik`);
+  assert.ok(menuAnalizi(ileri, { evde }).notlar.some((n) => /Elindekilerle|evde var/.test(n.metin)));
+  assert.ok(Object.keys(BESINLER).length > 50);
+});
+
+test('fotoğraflar: her kayıt gerçek bir tarife ve dosyaya karşılık gelir, lisans bilgisi tam', async () => {
+  const { existsSync, statSync } = await import('node:fs');
+  const { GORSELLER } = await import('../js/veri/gorseller.js');
+  const ids = new Set(TARIFLER.map((t) => t.id));
+  for (const [id, g] of Object.entries(GORSELLER)) {
+    assert.ok(ids.has(id), `bilinmeyen tarif: ${id}`);
+    const yol = new URL(`../gorseller/yemek/${id}.webp`, import.meta.url);
+    assert.ok(existsSync(yol), `dosya yok: ${id}`);
+    assert.ok(statSync(yol).size < 150_000, `çok büyük: ${id}`);
+    assert.ok(g.yazar && g.lisans && /^https:\/\/commons\.wikimedia\.org\//.test(g.sayfa), `eksik lisans bilgisi: ${id}`);
+    assert.ok(!/GFDL/.test(g.lisans), `GFDL lisansı kullanılmamalı: ${id}`);
+  }
+  assert.ok(Object.keys(GORSELLER).length >= 100);
+});

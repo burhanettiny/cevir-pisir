@@ -261,7 +261,17 @@ export function menuAnalizi(menu, secenek = {}) {
   }
   puan += Math.min(ikiliSay, 2) * 6;
 
-  // 5) Diyabet
+  // 5) Elimdekiler: eksik malzeme başına puan düşer
+  if (secenek.evde) {
+    const evde = new Set(secenek.evde);
+    const eksik = new Set(tarifler.flatMap((t) => tarifEslesmesi(t, evde).eksik));
+    puan -= eksik.size * 4;
+    notlar.push(eksik.size
+      ? { iyi: eksik.size <= 3, metin: `Elindekilerle kuruldu; alınması gereken ${eksik.size} malzeme var: ${[...eksik].map((k) => BESINLER[k].ad).join(', ')}.` }
+      : { iyi: true, metin: 'Bütün malzemeler evde var; markete gitmeye gerek yok!' });
+  }
+
+  // 6) Diyabet
   if (secenek.diyabet === 'uyarla') {
     let khKisi = 0;
     for (const t of tarifler) {
@@ -281,10 +291,21 @@ export function menuAnalizi(menu, secenek = {}) {
 
 function yuvaAdaylari(sofra, i, secenek = {}) {
   const l = TARIFLER.filter((t) => sofra.yuvalar[i].kat.includes(t.kat));
-  if (secenek.diyabet !== 'uyarla') return l;
   // Diyabete göre kurulan menüde "dikkat" etiketli yemek hiç aday olmaz.
-  const uygun = l.filter((t) => diyabetDurumu(t).durum !== 'dikkat');
-  return uygun.length ? uygun : l;
+  let aday = l;
+  if (secenek.diyabet === 'uyarla') {
+    const uygun = aday.filter((t) => diyabetDurumu(t).durum !== 'dikkat');
+    if (uygun.length) aday = uygun;
+  }
+  if (secenek.evde) {
+    // Elimdekiler modunda önce en az eksikli yemekler aday olur (her yuvada en az 3 seçenek kalır).
+    const evde = new Set(secenek.evde);
+    for (const sinir of [0, 1, 2]) {
+      const uygun = aday.filter((t) => tarifEslesmesi(t, evde).eksik.length <= sinir);
+      if (uygun.length >= 3) { aday = uygun; break; }
+    }
+  }
+  return aday;
 }
 
 /**
@@ -326,6 +347,41 @@ export function diyabetAlternatifi(sofra, menu, i) {
     .map((x) => ({ x, puan: menuAnalizi(menu.map((id, j) => (j === i ? x.id : id))).puan }))
     .sort((a, b) => b.puan - a.puan);
   return adaylar[0]?.x ?? null;
+}
+
+// ── Dolabım: evdeki malzemeler ──
+/** Tarifin "önemli" malzemeleri: su ve baharatlar hariç (onlar eksik sayılmaz). */
+export function onemliMalzemeler(t) {
+  return [...new Set(t.malz.map((m) => m[0]))].filter((k) => !['su', 'baharat'].includes(BESINLER[k].r));
+}
+
+/** Evdekilerle bir tarifin eşleşmesi: eksik malzemeler ve tamamlanma oranı. */
+export function tarifEslesmesi(t, evde) {
+  const onemli = onemliMalzemeler(t);
+  const eksik = onemli.filter((k) => !evde.has(k));
+  return { eksik, oran: onemli.length ? (onemli.length - eksik.length) / onemli.length : 1, toplam: onemli.length };
+}
+
+/** Elimdekilerle yapılabilecek tarifler: en az eksikliden başlayarak, en fazla `enFazlaEksik` eksikli. */
+export function elimdekilerle(evde, enFazlaEksik = 2, kat = null) {
+  return TARIFLER
+    .filter((t) => !kat || t.kat === kat)
+    .map((t) => ({ t, ...tarifEslesmesi(t, evde) }))
+    .filter((x) => x.eksik.length <= enFazlaEksik)
+    .sort((a, b) => a.eksik.length - b.eksik.length || b.oran - a.oran || a.t.ad.localeCompare(b.t.ad, 'tr'));
+}
+
+/** Dolap ekranı için malzemeler: reyona göre gruplu, kaç tarifte geçtiğiyle. */
+export function dolapMalzemeleri() {
+  const say = {};
+  for (const t of TARIFLER) for (const k of new Set(t.malz.map((m) => m[0]))) say[k] = (say[k] ?? 0) + 1;
+  const gruplar = {};
+  for (const [k, b] of Object.entries(BESINLER)) {
+    if (b.r === 'su') continue;
+    (gruplar[b.r] ??= []).push({ k, ad: b.ad, tarifSayisi: say[k] ?? 0 });
+  }
+  for (const g of Object.values(gruplar)) g.sort((a, b) => a.ad.localeCompare(b.ad, 'tr'));
+  return Object.keys(REYONLAR).filter((r) => gruplar[r]).map((r) => ({ r, ad: REYONLAR[r], malzemeler: gruplar[r] }));
 }
 
 // ── Joker: dışarıdan sipariş ──

@@ -26,8 +26,8 @@ URL: `https://github.com/burhanettiny/cevir-pisir/blob/main/play-store/gizlilik-
 
 ## 6. Veri güvenliği (Data safety)
 - **Uygulamanız gerekli kullanıcı verisi türlerinden herhangi birini topluyor veya paylaşıyor mu?** → **Hayır**
-  - Gerekçe: Favoriler, liste ve tercihler yalnızca cihazda saklanır ve cihazdan çıkmaz (Google'ın tanımına göre cihazda kalan veriler "toplanan veri" sayılmaz). Vikipedi'ye giden görsel isteği yalnızca yemek adını içerir; kullanıcı verisi içermez.
-- Veriler aktarım sırasında şifreleniyor mu? → **Evet** (tüm bağlantılar HTTPS)
+  - Gerekçe: Favoriler, liste, dolap ve tercihler yalnızca cihazda saklanır ve cihazdan çıkmaz (Google'ın tanımına göre cihazda kalan veriler "toplanan veri" sayılmaz). Uygulama kendi başına hiçbir sunucuya istek göndermez; fotoğraflar uygulamanın içindedir.
+- Veriler aktarım sırasında şifreleniyor mu? → **Evet** (veri aktarılmıyor; dış bağlantılar HTTPS)
 - Kullanıcılar verilerinin silinmesini isteyebilir mi? → Toplanan veri yok; cihazdaki veriler uygulama kaldırılınca ya da "Verileri temizle" ile silinir.
 
 ## 7. Sağlık uygulamaları beyanı (Health apps)

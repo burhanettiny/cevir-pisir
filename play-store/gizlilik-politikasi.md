@@ -1,6 +1,6 @@
 # Çevir Pişir — Gizlilik Politikası
 
-*Son güncelleme: 7 Kasım 2026*
+*Son güncelleme: 8 Kasım 2026*
 
 Çevir Pişir ("uygulama"), yemek seçimi, tarif, besin değeri ve alışveriş listesi uygulamasıdır. Bu politika uygulamanın hangi verileri nasıl kullandığını açıklar.
 
@@ -12,12 +12,13 @@
 
 ## Cihazda saklanan bilgiler
 
-Favorileriniz, alışveriş listeniz, "evde var" işaretleriniz, sofra menüleriniz ve kişi sayısı tercihleriniz **yalnızca telefonunuzda** (uygulamanın yerel depolamasında) tutulur. Uygulamayı kaldırdığınızda ya da uygulama verilerini temizlediğinizde silinir. Bu bilgilere uygulama geliştiricisi dahil kimse erişemez.
+Favorileriniz, alışveriş listeniz, dolabınızdaki ("evde var") malzemeler, sofra menüleriniz ve kişi sayısı tercihleriniz **yalnızca telefonunuzda** (uygulamanın yerel depolamasında) tutulur. Uygulamayı kaldırdığınızda ya da uygulama verilerini temizlediğinizde silinir. Bu bilgilere uygulama geliştiricisi dahil kimse erişemez.
 
 ## İnternet kullanımı
 
-- **Yemek görselleri:** Uygulama, yemek fotoğraflarını göstermek için Vikipedi'ye (tr.wikipedia.org) yemeğin adıyla bir istek gönderir. Bu istekte sizinle ilgili bir bilgi gönderilmez; ancak her internet isteğinde olduğu gibi Vikipedi sunucuları IP adresinizi görebilir. Vikipedi'nin gizlilik politikası: https://foundation.wikimedia.org/wiki/Policy:Privacy_policy
-- **Dış bağlantılar:** YouTube, Getir, Migros, Yemeksepeti, Trendyol Yemek, Google ve Vikipedi bağlantılarına dokunduğunuzda ilgili site ya da uygulama açılır. Oradan sonrası o hizmetlerin kendi gizlilik politikalarına tabidir. Uygulama bu hizmetlere sizin adınıza bilgi göndermez, sipariş vermez.
+Uygulama kendi başına internete hiçbir istek göndermez: tarifler, yemek fotoğrafları, ikonlar ve yazı tipi uygulamanın içinde gelir ve internetsiz çalışır.
+
+**Dış bağlantılar:** YouTube, Getir, Migros, Yemeksepeti, Trendyol Yemek, Google, Vikipedi ve Wikimedia Commons bağlantılarına dokunduğunuzda ilgili site ya da uygulama açılır. Oradan sonrası o hizmetlerin kendi gizlilik politikalarına tabidir. Uygulama bu hizmetlere sizin adınıza bilgi göndermez, sipariş vermez.
 
 ## Pano (kopyala) ve paylaşım
 
@@ -25,7 +26,7 @@ Market ya da sipariş düğmesine dokunduğunuzda ürün/yemek adı, kolayca yap
 
 ## İzinler
 
-Uygulama yalnızca **internet** iznini kullanır (görseller ve bağlantılar için). Konum, kamera, mikrofon, rehber gibi izinler istenmez.
+Uygulama yalnızca Android'in standart **internet** iznini taşır (dış bağlantıların açılabilmesi için); kendisi veri göndermez. Konum, kamera, mikrofon, rehber gibi izinler istenmez.
 
 ## Sağlık bilgisi uyarısı
 
@@ -38,3 +39,7 @@ Uygulama çocuklara yönelik değildir ve hiçbir yaş grubundan kişisel veri t
 ## Değişiklikler ve iletişim
 
 Bu politika değişirse güncel hali bu sayfada yayınlanır. Sorularınız için: https://github.com/burhanettiny/cevir-pisir/issues
+
+## Fotoğraflar
+
+Yemek fotoğrafları Wikimedia Commons'tan, her birinin yazarı ve özgür lisansı (CC BY, CC BY-SA, CC0 vb.) uygulamanın "Kaynaklar" ekranında belirtilerek kullanılmıştır.
