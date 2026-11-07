@@ -40,13 +40,13 @@ for kok, secim in ((sys.argv[1], SECIM), (sys.argv[2], SECIM2)):
     c = next(x for x in bilgi[tid] if x['n'] == n)
     assert not any(u in c['lisans'] for u in UYGUN_DEGIL), (tid, c['lisans'])
     im = ImageOps.exif_transpose(Image.open(os.path.join(kok, 'aday', tid, f'{n}.jpg'))).convert('RGB')
-    # 4:3'e ortadan kırp, 800x600'e küçült
+    # 4:3'e ortadan kırp, 720x540'a küçült (telefon ekranı için yeterli, paket boyutu küçük kalsın)
     w, h = im.size; hedef = 4 / 3
     if w / h > hedef: yeni = int(h * hedef); im = im.crop(((w - yeni) // 2, 0, (w - yeni) // 2 + yeni, h))
     else: yeni = int(w / hedef); im = im.crop((0, (h - yeni) // 2, w, (h - yeni) // 2 + yeni))
-    im = im.resize((800, 600), Image.LANCZOS)
+    im = im.resize((720, 540), Image.LANCZOS)
     yol = f'gorseller/yemek/{tid}.webp'
-    im.save(yol, 'WEBP', quality=74, method=6)
+    im.save(yol, 'WEBP', quality=68, method=6)
     toplam += os.path.getsize(yol)
     kayit[tid] = {'yazar': c['yazar'][:120], 'lisans': c['lisans'], 'lisansUrl': c['lisansUrl'], 'sayfa': c['sayfa']}
 js = ('// Yemek fotoğrafları: uygulamaya gömülü (gorseller/yemek/<id>.webp). Kaynak: Wikimedia Commons.\n'
