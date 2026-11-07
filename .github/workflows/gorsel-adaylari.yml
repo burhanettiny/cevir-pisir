@@ -1,12 +1,12 @@
 name: Yemek görseli adayları
 
 # Yalnızca elle çalıştırılır: Wikimedia'dan aday fotoğrafları ve lisans bilgilerini toplar,
-# seçim için artifact olarak yükler. Seçilenler depoya ayrıca eklenir.
+# seçim için geçici bir ön sürüme (gorsel-adaylari) zip olarak koyar. Seçim bitince bu sürüm silinir.
 on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   topla:
@@ -18,8 +18,11 @@ jobs:
           node-version: 22
       - name: Adayları topla
         run: node scripts/gorsel-adaylari.mjs
-      - uses: actions/upload-artifact@v4
-        with:
-          name: gorsel-adaylari
-          path: aday/
-          retention-days: 7
+      - name: Geçici ön sürüme yükle
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          zip -qr gorsel-adaylari.zip aday
+          gh release delete gorsel-adaylari --yes --cleanup-tag 2>/dev/null || true
+          gh release create gorsel-adaylari gorsel-adaylari.zip --prerelease --latest=false \
+            --title "Görsel adayları (geçici)" --notes "Seçim için geçici dosya; seçimden sonra silinir."
