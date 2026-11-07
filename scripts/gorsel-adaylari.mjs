@@ -1,7 +1,7 @@
 // Her tarif için Wikimedia'dan aday fotoğraflar toplar (GitHub Actions'ta çalışır; internet gerekir).
 // Çıktı: aday/<tarifId>/<n>.jpg ve aday/bilgi.json (kaynak, yazar, lisans).
 // Kullanım: node scripts/gorsel-adaylari.mjs
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { TARIFLER } from '../js/veri/tarifler.js';
 
 const UA = 'CevirPisirBuild/1.0 (https://github.com/burhanettiny/cevir-pisir)';
@@ -48,18 +48,25 @@ async function commonsAra(sorgu, adet = 2) {
   return (j?.query?.search ?? []).map((s) => s.title).filter((t) => /\.(jpe?g|png|webp)$/i.test(t)).slice(0, adet);
 }
 
+// EK_SORGULAR=dosya.json verilirse yalnızca o tarifler, verilen arama terimleriyle taranır (ikinci tur).
+const EK = process.env.EK_SORGULAR && existsSync(process.env.EK_SORGULAR) ? JSON.parse(readFileSync(process.env.EK_SORGULAR, 'utf8')) : null;
 const bilgi = {};
 mkdirSync('aday', { recursive: true });
 for (const t of TARIFLER) {
+  if (EK && !EK[t.id]) continue;
   const dosyalar = [];
-  const tr = await sayfaGorseli('tr.wikipedia.org', t.wiki || t.ad);
-  if (tr.dosya) dosyalar.push(['tr-vikipedi', tr.dosya]);
-  if (tr.en) {
-    const en = await sayfaGorseli('en.wikipedia.org', tr.en);
-    if (en.dosya) dosyalar.push(['en-wikipedia', en.dosya]);
+  if (EK) {
+    for (const sorgu of EK[t.id]) for (const d of await commonsAra(sorgu, 4)) dosyalar.push(['commons-arama', d]);
+  } else {
+    const tr = await sayfaGorseli('tr.wikipedia.org', t.wiki || t.ad);
+    if (tr.dosya) dosyalar.push(['tr-vikipedi', tr.dosya]);
+    if (tr.en) {
+      const en = await sayfaGorseli('en.wikipedia.org', tr.en);
+      if (en.dosya) dosyalar.push(['en-wikipedia', en.dosya]);
+    }
+    for (const d of await commonsAra(t.ad, 3)) dosyalar.push(['commons-arama', d]);
   }
-  for (const d of await commonsAra(t.ad, 3)) dosyalar.push(['commons-arama', d]);
-  const tekil = [...new Map(dosyalar.map(([k, d]) => [d, k])).entries()].slice(0, 5);
+  const tekil = [...new Map(dosyalar.map(([k, d]) => [d, k])).entries()].slice(0, EK ? 8 : 5);
   mkdirSync(`aday/${t.id}`, { recursive: true });
   bilgi[t.id] = [];
   let n = 0;
