@@ -52,10 +52,12 @@ jobs:
         if: env.ANAHTAR_B64 != ''
         working-directory: android
         env:
-          YUKLEME_ANAHTARI_SIFRE: ${{ secrets.YUKLEME_ANAHTARI_SIFRE }}
+          HAM_SIFRE: ${{ secrets.YUKLEME_ANAHTARI_SIFRE }}
           SURUM_KODU: ${{ github.run_number }}
         run: |
-          echo "$ANAHTAR_B64" | base64 -d > "$RUNNER_TEMP/upload.jks"
+          # Kopyalarken karışabilecek boşluk/satır sonlarını ve "Şifre (...): " önekini temizle.
+          export YUKLEME_ANAHTARI_SIFRE="$(printf '%s' "$HAM_SIFRE" | tr -d '\r\n' | sed 's/^.*: *//; s/[[:space:]]*$//; s/^[[:space:]]*//')"
+          printf '%s' "$ANAHTAR_B64" | tr -d '\r\n ' | base64 -d > "$RUNNER_TEMP/upload.jks"
           export YUKLEME_ANAHTARI="$RUNNER_TEMP/upload.jks"
           ./gradlew bundleRelease --no-daemon --stacktrace
           cp app/build/outputs/bundle/release/app-release.aab ../cevir-pisir.aab
