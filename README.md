@@ -12,9 +12,13 @@
 
 APK, `main` dalına yapılan her değişiklikte GitHub Actions ile otomatik derlenir ve [Sürümler](https://github.com/burhanettiny/cevir-pisir/releases) sayfasında yayınlanır.
 
+## Play Store
+
+Yüklemek için gereken her şey (mağaza metinleri, form yanıtları, gizlilik politikası, simge, öne çıkan görsel, ekran görüntüleri) ve adım adım rehber: [`play-store/`](play-store/YUKLEME-REHBERI.md). Play'e yüklenecek imzalı **AAB**, yükleme anahtarı GitHub'a eklendikten sonra her derlemede Sürümler sayfasına konur.
+
 ## Neler var
 
-- **Çark:** Çorba, et, tavuk, sebze, garnitür, meze ve tatlı — isimler döner, dokununca yavaşlayıp durur. "Şansıma" tüm kategorilerden seçer.
+- **Çark:** Çorba, et, tavuk, sebze, garnitür, meze ve tatlı — 124 tarif — isimler döner, dokununca yavaşlayıp durur. "Şansıma" tüm kategorilerden seçer.
   Arada bir 🛵 **joker** çıkar: *"Bugün senin günün, dışarıdan sipariş ver!"* (Yemeksepeti, Getir Yemek, Trendyol Yemek).
 - **Tarif sayfası:** görsel (Vikipedi), 1 porsiyonun ortalama kalorisi, protein–karbonhidrat–yağ dengesi ve yorumu,
   kişi sayısına göre ölçeklenen malzemeler, adım adım tarif, YouTube'da yapılış videoları, kaynaklar.

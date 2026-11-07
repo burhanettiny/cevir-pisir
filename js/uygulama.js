@@ -724,7 +724,9 @@ function hakkindaEkrani() {
       <p>Tarifler Türk mutfağının yaygın, geleneksel hazırlanışını izler; ölçüler uygulamada hesap yapılabilmesi için grama çevrilip standartlaştırılmıştır. Her tarifte farklı yorumları karşılaştırabileceğin bir arama bağlantısı vardır.</p>
       <h3>Market bağlantıları</h3>
       <p>Market düğmeleri ürün adını panoya kopyalar ve marketin arama sayfasını açar. Uygulama hiçbir siparişi senin adına vermez ve hiçbir veri göndermez; listelerin yalnızca bu cihazda saklanır.</p>
-      <p class="kucuk">Çevir Pişir · ${TARIFLER.length} tarif</p>
+      <h3>Gizlilik</h3>
+      <p>Hesap yok, reklam yok, veri toplama yok. Ayrıntılar: <a href="https://github.com/burhanettiny/cevir-pisir/blob/main/play-store/gizlilik-politikasi.md" data-dis>Gizlilik politikası</a></p>
+      <p class="kucuk">Çevir Pişir · ${TARIFLER.length} tarif · <a href="https://github.com/burhanettiny/cevir-pisir" data-dis>Kaynak kod</a></p>
     </article>`;
 }
 

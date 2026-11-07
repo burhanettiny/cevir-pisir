@@ -15,6 +15,9 @@ concurrency:
 jobs:
   apk:
     runs-on: ubuntu-latest
+    env:
+      # Play Store yükleme anahtarı (Settings > Secrets and variables > Actions). Yoksa yalnızca APK derlenir.
+      ANAHTAR_B64: ${{ secrets.YUKLEME_ANAHTARI_B64 }}
     steps:
       - uses: actions/checkout@v4
 
@@ -45,6 +48,30 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon --stacktrace
 
+      - name: Play Store paketi (AAB) derle
+        if: env.ANAHTAR_B64 != ''
+        working-directory: android
+        env:
+          YUKLEME_ANAHTARI_SIFRE: ${{ secrets.YUKLEME_ANAHTARI_SIFRE }}
+          SURUM_KODU: ${{ github.run_number }}
+        run: |
+          echo "$ANAHTAR_B64" | base64 -d > "$RUNNER_TEMP/upload.jks"
+          export YUKLEME_ANAHTARI="$RUNNER_TEMP/upload.jks"
+          ./gradlew bundleRelease --no-daemon --stacktrace
+          cp app/build/outputs/bundle/release/app-release.aab ../cevir-pisir.aab
+          rm -f "$RUNNER_TEMP/upload.jks"
+
+      - name: AAB derleme denemesi (yükleme anahtarı yokken, test anahtarıyla; yayınlanmaz)
+        if: env.ANAHTAR_B64 == ''
+        working-directory: android
+        env:
+          YUKLEME_ANAHTARI: ${{ github.workspace }}/android/cevir-pisir-debug.keystore
+          YUKLEME_ANAHTARI_SIFRE: android
+          YUKLEME_ANAHTARI_ADI: androiddebugkey
+        run: |
+          ./gradlew bundleRelease --no-daemon
+          ls -la app/build/outputs/bundle/release/
+
       - name: APK'yı adlandır
         run: cp android/app/build/outputs/apk/debug/app-debug.apk cevir-pisir.apk
 
@@ -53,11 +80,19 @@ jobs:
           name: cevir-pisir-apk
           path: cevir-pisir.apk
 
+      - uses: actions/upload-artifact@v4
+        if: hashFiles('cevir-pisir.aab') != ''
+        with:
+          name: cevir-pisir-aab-play-store
+          path: cevir-pisir.aab
+
       - name: Sürüm olarak yayınla
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "v1.0.${{ github.run_number }}" cevir-pisir.apk \
+          DOSYALAR="cevir-pisir.apk"
+          [ -f cevir-pisir.aab ] && DOSYALAR="$DOSYALAR cevir-pisir.aab"
+          gh release create "v1.0.${{ github.run_number }}" $DOSYALAR \
             --title "Çevir Pişir 1.0.${{ github.run_number }}" \
-            --notes "Android için Çevir Pişir. Telefonunuzda **cevir-pisir.apk** dosyasına dokunup indirin ve kurun (bilinmeyen kaynaklardan kuruluma izin vermeniz gerekebilir)." \
+            --notes "Android için Çevir Pişir. Telefonunuzda **cevir-pisir.apk** dosyasına dokunup indirin ve kurun (bilinmeyen kaynaklardan kuruluma izin vermeniz gerekebilir). **cevir-pisir.aab** (varsa) Play Console'a yüklenecek pakettir." \
             --latest

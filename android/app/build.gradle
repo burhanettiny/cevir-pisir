@@ -26,12 +26,24 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        // Play Store yükleme anahtarı: GitHub Actions'ta gizli değişkenlerden (secrets) okunur, depoda yoktur.
+        if (System.getenv("YUKLEME_ANAHTARI")) {
+            release {
+                storeFile file(System.getenv("YUKLEME_ANAHTARI"))
+                storePassword System.getenv("YUKLEME_ANAHTARI_SIFRE")
+                keyAlias System.getenv("YUKLEME_ANAHTARI_ADI") ?: "cevirpisir"
+                keyPassword System.getenv("YUKLEME_ANAHTARI_SIFRE")
+            }
+        }
     }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
         }
         release {
+            if (System.getenv("YUKLEME_ANAHTARI")) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
