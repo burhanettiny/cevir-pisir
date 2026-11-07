@@ -61,8 +61,8 @@ Tarifler, Yemek planlama, Alışveriş listesi
 
 ## İletişim
 - E-posta: (Play Console'da geliştirici e-postanız)
-- Web sitesi: https://github.com/burhanettiny/cevir-pisir
-- Gizlilik politikası URL'si: https://github.com/burhanettiny/cevir-pisir/blob/main/play-store/gizlilik-politikasi.md
+- Web sitesi: boş bırakın (zorunlu değil)
+- Gizlilik politikası URL'si: Google Drive'daki "Çevir Pişir — Gizlilik Politikası" dokümanının **Web'de yayınla** adresi (docs.google.com/document/d/e/…/pub biçiminde; sahibin adını göstermez)
 
 ## Sürüm notları (en fazla 500 karakter) — güncelleme (1.0.x, yeni tasarım)
 Yeni görünüm ve yeni özellikler! 🎡

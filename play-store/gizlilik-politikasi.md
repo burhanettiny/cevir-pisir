@@ -38,7 +38,7 @@ Uygulama çocuklara yönelik değildir ve hiçbir yaş grubundan kişisel veri t
 
 ## Değişiklikler ve iletişim
 
-Bu politika değişirse güncel hali bu sayfada yayınlanır. Sorularınız için: https://github.com/burhanettiny/cevir-pisir/issues
+Bu politika değişirse güncel hali bu sayfada yayınlanır. Sorularınız için Google Play'deki uygulama sayfasında yer alan geliştirici e-posta adresini kullanabilirsiniz.
 
 ## Fotoğraflar
 

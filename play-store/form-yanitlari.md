@@ -3,7 +3,7 @@
 Play Console > **Uygulama içeriği** (App content) bölümündeki formlar için hazır yanıtlar.
 
 ## 1. Gizlilik politikası
-URL: `https://github.com/burhanettiny/cevir-pisir/blob/main/play-store/gizlilik-politikasi.md`
+URL: Google Drive'daki "Çevir Pişir — Gizlilik Politikası" dokümanının **Dosya → Paylaş → Web'de yayınla** ile alınan adresi (`…/pub` ile biter).
 
 ## 2. Reklamlar
 **Uygulamanızda reklam var mı?** → Hayır

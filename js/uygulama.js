@@ -140,6 +140,7 @@ const rotalar = [
   [/^#\/favoriler$/, favorilerEkrani, 'favoriler'],
   [/^#\/liste$/, listeEkrani, 'liste'],
   [/^#\/hakkinda$/, hakkindaEkrani, null],
+  [/^#\/gizlilik$/, gizlilikEkrani, null],
 ];
 let temizle = null;
 const anaSayfada = () => ['', '#', '#/'].includes(location.hash);
@@ -914,13 +915,44 @@ function hakkindaEkrani() {
       <h3>Tarifler</h3>
       <p>Tarifler Türk mutfağının yaygın, geleneksel hazırlanışını izler; ölçüler hesap yapılabilmesi için grama çevrilip standartlaştırılmıştır.</p>
       <h3>Market bağlantıları ve gizlilik</h3>
-      <p>Market düğmeleri ürün adını panoya kopyalar ve marketin arama sayfasını açar. Uygulama hiçbir siparişi senin adına vermez. Hesap yok, reklam yok, veri toplama yok; listelerin yalnızca bu cihazda saklanır. <a href="https://github.com/burhanettiny/cevir-pisir/blob/main/play-store/gizlilik-politikasi.md" data-dis>Gizlilik politikası</a></p>
+      <p>Market düğmeleri ürün adını panoya kopyalar ve marketin arama sayfasını açar. Uygulama hiçbir siparişi senin adına vermez. Hesap yok, reklam yok, veri toplama yok; listelerin yalnızca bu cihazda saklanır. <a href="#/gizlilik">Gizlilik politikası</a></p>
       <h3>Fotoğraflar ve tasarım</h3>
       <p>Yemek fotoğrafları <a href="https://commons.wikimedia.org/" data-dis>Wikimedia Commons</a>'tan, belirtilen özgür lisanslarla kullanılmıştır; bazıları kırpılıp küçültülmüştür. İkonlar: <a href="https://lucide.dev/" data-dis>Lucide</a> (ISC lisansı). Yazı tipi: Manrope (SIL Open Font License).</p>
       ${fotolu.length ? `<details class="fotograf-kaynaklari"><summary>Fotoğraf kaynakları (${fotolu.length})</summary><ul>
         ${fotolu.map((t) => { const g = GORSELLER[t.id]; return `<li><b>${esc(t.ad)}</b>: ${esc(g.yazar)}, <a href="${esc(g.sayfa)}" data-dis>kaynak</a>, ${g.lisansUrl ? `<a href="${esc(g.lisansUrl)}" data-dis>${esc(g.lisans)}</a>` : esc(g.lisans)}</li>`; }).join('')}
       </ul></details>` : ''}
-      <p class="kucuk">Çevir Pişir · ${TARIFLER.length} tarif · <a href="https://github.com/burhanettiny/cevir-pisir" data-dis>Kaynak kod</a></p>
+      <p class="kucuk">Çevir Pişir · ${TARIFLER.length} tarif</p>
+    </article>`;
+}
+
+// ───────── Gizlilik politikası (uygulama içinde) ─────────
+function gizlilikEkrani() {
+  baslik('Gizlilik');
+  ekran.innerHTML = `
+    <article class="kart metin">
+      <h3>Gizlilik politikası</h3>
+      <p class="kucuk">Son güncelleme: 8 Kasım 2026</p>
+      <p>Çevir Pişir; yemek seçimi, tarif, besin değeri ve alışveriş listesi uygulamasıdır.</p>
+      <h3>Kısaca</h3>
+      <ul>
+        <li><b>Hesap yoktur, kayıt gerekmez.</b></li>
+        <li><b>Kişisel veri toplanmaz, sunucuya gönderilmez, kimseyle paylaşılmaz, satılmaz.</b></li>
+        <li>Reklam, analiz ya da izleme aracı yoktur.</li>
+      </ul>
+      <h3>Cihazda saklanan bilgiler</h3>
+      <p>Favorileriniz, alışveriş listeniz, dolabınızdaki malzemeler, sofra menüleriniz ve kişi sayısı tercihleriniz yalnızca bu telefonda tutulur. Uygulamayı kaldırdığınızda ya da uygulama verilerini temizlediğinizde silinir. Bu bilgilere uygulamanın geliştiricisi dahil kimse erişemez.</p>
+      <h3>İnternet kullanımı</h3>
+      <p>Uygulama kendi başına internete hiçbir istek göndermez: tarifler, fotoğraflar, ikonlar ve yazı tipi uygulamanın içinde gelir. YouTube, market, sipariş, Google, Vikipedi ve Wikimedia bağlantılarına dokunduğunuzda ilgili site ya da uygulama açılır; oradan sonrası o hizmetlerin kendi gizlilik politikalarına tabidir. Uygulama bu hizmetlere sizin adınıza bilgi göndermez, sipariş vermez.</p>
+      <h3>Pano ve paylaşım</h3>
+      <p>Market ya da sipariş düğmesine dokunduğunuzda ürün veya yemek adı panoya kopyalanır. "Paylaş" düğmesi, seçtiğiniz uygulamayla paylaşmak için Android'in paylaşım ekranını açar. Bunlar yalnızca siz dokunduğunuzda olur.</p>
+      <h3>İzinler</h3>
+      <p>Konum, kamera, mikrofon, rehber gibi izinler istenmez.</p>
+      <h3>Sağlık bilgisi</h3>
+      <p>Kalori, besin dengesi, diyabet etiketleri ve yemek sonrası öneriler genel bilgilendirme amaçlıdır; tıbbi tavsiye değildir. Uygulama sağlık verisi toplamaz.</p>
+      <h3>Çocuklar</h3>
+      <p>Uygulama çocuklara yönelik değildir ve hiçbir yaş grubundan kişisel veri toplamaz.</p>
+      <h3>İletişim</h3>
+      <p>Sorularınız için Google Play'deki uygulama sayfasında yer alan geliştirici e-posta adresini kullanabilirsiniz.</p>
     </article>`;
 }
 
