@@ -56,7 +56,11 @@ jobs:
           SURUM_KODU: ${{ github.run_number }}
         run: |
           # Kopyalarken karışabilecek boşluk/satır sonlarını ve "Şifre (...): " önekini temizle.
-          export YUKLEME_ANAHTARI_SIFRE="$(printf '%s' "$HAM_SIFRE" | tr -d '\r\n' | sed 's/^.*: *//; s/[[:space:]]*$//; s/^[[:space:]]*//')"
+          # Secret'a ANAHTAR-BILGISI.txt'nin tamamı yapıştırılmışsa şifre "Şifre ...:" satırından alınır;
+          # yalnızca şifre girilmişse etrafındaki boşluk/satır sonları temizlenir.
+          SATIR="$(printf '%s\n' "$HAM_SIFRE" | tr -d '\r' | grep -m1 '^[^:]*ifre[^:]*:' || true)"
+          [ -n "$SATIR" ] || SATIR="$(printf '%s' "$HAM_SIFRE" | tr -d '\r\n')"
+          export YUKLEME_ANAHTARI_SIFRE="$(printf '%s' "$SATIR" | sed 's/^.*: *//; s/[[:space:]]*$//; s/^[[:space:]]*//')"
           printf '%s' "$ANAHTAR_B64" | tr -d '\r\n ' | base64 -d > "$RUNNER_TEMP/upload.jks"
           # Şifrenin kendisi yazdırılmaz; yalnızca uzunluğu ve harf/rakam dışı karakter içerip içermediği.
           echo "Şifre uzunluğu: ${#YUKLEME_ANAHTARI_SIFRE} (beklenen 24)"
