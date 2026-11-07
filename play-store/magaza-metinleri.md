@@ -4,7 +4,7 @@
 Çevir Pişir: Bugün Ne Yesek?
 
 ## Kısa açıklama (en fazla 80 karakter)
-Çarkı çevir, yemeğini seç! 124 tarif, kalori, diyabet dostu menü, market listesi
+Çarkı çevir, yemeğini seç! 124 tarif, kalori, dolabındakilerle tarif ve menü
 
 ## Tam açıklama (en fazla 4000 karakter)
 "Akşama ne pişirsem?" sorusuna en eğlenceli cevap: Çevir Pişir! 🎡
@@ -18,14 +18,19 @@ Kategori seç, çark dönsün, ekrana dokun — yemeğin, tarifi, kalorisi ve al
 Çark arada bir mutfağı kapatır: dışarıdan sipariş ver! Lahmacun, pide, mantı… Tek dokunuşla sipariş uygulamasına geç.
 
 📖 HER TARİFTE
+• İştah açan yemek fotoğrafı
 • 1 porsiyonun ortalama kalorisi
 • Protein – karbonhidrat – yağ dengesi ve kısa yorum
 • Kişi sayısına göre otomatik ölçeklenen malzemeler
 • Adım adım tarif ve YouTube'da yapılış videoları
 • Kaynaklar: Vikipedi, besin veri tabanları (USDA, TÜRKOMP)
+• Tarifi ya da çarkın seçimini tek dokunuşla paylaş
 
-🛒 EVDE NE VAR, NE YOK?
-Evde olan malzemeleri işaretle, eksikler kendiliğinden listelensin. Tek dokunuşla alışveriş listesine ekle; birden çok yemeğin malzemeleri birleşir, reyonlara ayrılır. Listeyi WhatsApp'tan paylaş ya da Getir, Migros Hemen gibi marketlerde ara.
+🧊 DOLABIM: ELİMDEKİLERLE NE PİŞİRSEM?
+Evdeki malzemeleri bir kez işaretle; "hemen yapabileceklerin", "1 malzeme eksik" ve "2 malzeme eksik" tarifler listelensin. Sofra menüsünü de dolabındakilerle kurabilirsin.
+
+🛒 ALIŞVERİŞ LİSTESİ
+Eksik malzemeler kendiliğinden listelenir. Tek dokunuşla alışveriş listesine ekle; birden çok yemeğin malzemeleri birleşir, reyonlara ayrılır. Listeyi WhatsApp'tan paylaş ya da Getir, Migros Hemen gibi marketlerde ara.
 
 🎉 DAVET VE İFTAR SOFRASI
 Çorbadan tatlıya eksiksiz menü tek dokunuşla hazır. Menü rastgele değil, bilimsel ölçütlerle kurulur:
@@ -43,9 +48,10 @@ Her yemekte karbonhidrat ve eklenmiş şekere göre 🟢 uygun / 🟡 ölçülü
 Ne içmeli, nasıl hareket etmeli? Baklagilli yemekte rezene çayı, acılıda ayran; kısa yürüyüş ve esneme önerileri; "bu porsiyonu yakmak için kaç dakika yürümeli?" hesabı.
 
 🔒 GİZLİLİK
-Hesap yok, reklam yok, veri toplama yok. Listeleriniz ve favorileriniz yalnızca telefonunuzda saklanır.
+Hesap yok, reklam yok, veri toplama yok. İnternetsiz çalışır; listeleriniz, dolabınız ve favorileriniz yalnızca telefonunuzda saklanır.
 
 Not: Besin değerleri malzemelerden hesaplanan yaklaşık değerlerdir; diyabet etiketleri ve öneriler genel bilgilendirme amaçlıdır, tıbbi tavsiye yerine geçmez.
+Yemek fotoğrafları: Wikimedia Commons katkıcıları (CC BY / CC BY-SA ve diğer özgür lisanslar); yazar ve lisanslar uygulamanın Kaynaklar ekranında.
 
 ## Kategori
 Yeme ve İçme (Food & Drink)
@@ -58,7 +64,17 @@ Tarifler, Yemek planlama, Alışveriş listesi
 - Web sitesi: https://github.com/burhanettiny/cevir-pisir
 - Gizlilik politikası URL'si: https://github.com/burhanettiny/cevir-pisir/blob/main/play-store/gizlilik-politikasi.md
 
-## Sürüm notları (en fazla 500 karakter) — ilk yayın
+## Sürüm notları (en fazla 500 karakter) — güncelleme (1.0.x, yeni tasarım)
+Yeni görünüm ve yeni özellikler! 🎡
+• Tariflerde gerçek yemek fotoğrafları, yenilenen şık tasarım
+• Dolabım: evdekileri işaretle, "Elimdekilerle ne pişirsem?" ile yapabileceklerini gör
+• Sofrayı dolabındakilerle kur
+• Çarkın seçimini ve tarifleri paylaş
+• Tüm tariflerde arama
+• Geri tuşunda çıkış onayı
+• İnternetsiz çalışır
+
+## Sürüm notları — ilk yayın
 Çevir Pişir yayında! 🎡
 • 7 kategoride 124 tarif ve "dışarıdan sipariş" jokeri
 • Kalori, protein–karbonhidrat–yağ dengesi

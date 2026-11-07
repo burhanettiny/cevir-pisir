@@ -9,7 +9,7 @@ Bu klasörde Play Console'a yüklemek için gereken her şey var:
 | `gizlilik-politikasi.md` | Gizlilik politikası (Play'e bu dosyanın GitHub adresi verilir) |
 | `gorseller/simge-512.png` | Uygulama simgesi (512×512, 32 bit PNG) |
 | `gorseller/one-cikan-gorsel-1024x500.png` | Öne çıkan görsel (feature graphic) |
-| `gorseller/ekran-*.png` | 10 telefon ekran görüntüsü (1080×1920) |
+| `gorseller/ekran-*.png` | 8 telefon ekran görüntüsü (1080×1920; Play bir cihaz türü için en fazla 8 kabul eder) |
 
 Yüklenecek paket (**AAB**) GitHub Actions tarafından otomatik derlenir; bunun için bir kez aşağıdaki 1. adımı yapmanız yeterli.
 
@@ -50,4 +50,4 @@ Depoya her değişiklik gönderildiğinde Actions yeni bir sürüm numarasıyla 
 - Paket adı: `io.github.burhanettiny.cevirpisir` (yayından sonra değiştirilemez).
 - En düşük Android sürümü: 7.0 (API 24) · Hedef API: 36.
 - Yükleme anahtarını kaybederseniz: Play Console → *Test ve yayınla > Uygulama bütünlüğü > Uygulama imzalama* → **Yükleme anahtarını sıfırlama isteği**.
-- Ekran görüntülerinde yemek görselleri yerine çizimler görünüyor; uygulama internete bağlıyken Vikipedi fotoğraflarını gösterir. İsterseniz telefondan kendi ekran görüntülerinizi de yükleyebilirsiniz (9:16, en az 1080 px önerilir).
+- Ekran görüntüleri ve öne çıkan görseldeki yemek fotoğrafları Wikimedia Commons'tan, özgür lisanslarla alındı; kaynak satırı tam açıklamanın sonunda.
