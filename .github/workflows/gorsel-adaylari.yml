@@ -9,6 +9,10 @@ on:
         description: "Yalnızca scripts/gorsel-ek-sorgular.json'daki tarifleri tara"
         type: boolean
         default: false
+      eksik:
+        description: "Yalnızca fotoğrafı olmayan tarifleri tara"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -24,6 +28,7 @@ jobs:
       - name: Adayları topla
         env:
           EK_SORGULAR: ${{ inputs.ek && 'scripts/gorsel-ek-sorgular.json' || '' }}
+          EKSIK: ${{ inputs.eksik && '1' || '' }}
         run: node scripts/gorsel-adaylari.mjs
       - name: Geçici ön sürüme yükle
         env:

@@ -3,6 +3,7 @@
 // Kullanım: node scripts/gorsel-adaylari.mjs
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { TARIFLER } from '../js/veri/tarifler.js';
+import { GORSELLER } from '../js/veri/gorseller.js';
 
 const UA = 'CevirPisirBuild/1.0 (https://github.com/burhanettiny/cevir-pisir)';
 const GENISLIK = 800;
@@ -52,8 +53,11 @@ async function commonsAra(sorgu, adet = 2) {
 const EK = process.env.EK_SORGULAR && existsSync(process.env.EK_SORGULAR) ? JSON.parse(readFileSync(process.env.EK_SORGULAR, 'utf8')) : null;
 const bilgi = {};
 mkdirSync('aday', { recursive: true });
+// EKSIK=1 ise yalnızca henüz fotoğrafı olmayan tarifler taranır.
+const SADECE_EKSIK = process.env.EKSIK === '1';
 for (const t of TARIFLER) {
   if (EK && !EK[t.id]) continue;
+  if (SADECE_EKSIK && GORSELLER[t.id]) continue;
   const dosyalar = [];
   if (EK) {
     for (const sorgu of EK[t.id]) for (const d of await commonsAra(sorgu, 4)) dosyalar.push(['commons-arama', d]);
