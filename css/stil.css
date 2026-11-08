@@ -470,3 +470,19 @@ input:focus-visible + .kutucuk { outline: 2px solid var(--ana); outline-offset: 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Konsept (mutfak) seçici */
+.konsept-kart { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; margin-bottom: 10px; border: 1px solid var(--cizgi);
+  border-radius: var(--yaricap); background: var(--yuzey); box-shadow: var(--golge); text-align: left; color: var(--metin); }
+.konsept-kart .yuvarlak-ikon { width: 40px; height: 40px; }
+.konsept-yazi { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.konsept-yazi small { font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; font-weight: 800; color: var(--ana-koyu); }
+.konsept-yazi b { font-size: 16px; }
+.konsept-degistir { display: inline-flex; align-items: center; gap: 2px; font-size: 13.5px; font-weight: 700; color: var(--ana-koyu); }
+.konsept-satir { width: 100%; background: none; border: 0; border-bottom: 1px solid var(--cizgi); text-align: left; font: inherit; font-weight: 700; color: var(--metin); }
+.konsept-liste { margin-bottom: 6px; }
+.konsept-liste .hap small { color: inherit; opacity: .7; font-weight: 600; }
+.cekmece-ara { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--soluk); margin: 16px 0 8px; }
+.temel-grup { border-color: color-mix(in srgb, var(--yesil) 35%, var(--cizgi)); }
+.temel-grup h3 { display: flex; align-items: center; gap: 8px; }
+.temel-grup h3 .ikon { color: var(--yesil); }

@@ -261,7 +261,21 @@ export function menuAnalizi(menu, secenek = {}) {
   }
   puan += Math.min(ikiliSay, 2) * 6;
 
-  // 5) Elimdekiler: eksik malzeme başına puan düşer
+  // 5) Konsept: seçili mutfaktan olmayan yemekler puan kaybettirir (yakın mutfaktan olanlar daha az).
+  if (secenek.konsept && secenek.konsept !== 'hepsi') {
+    const yakin = YAKIN[secenek.konsept] ?? [];
+    let disari = 0;
+    for (const t of tarifler) {
+      if (konseptUygunMu(t, secenek.konsept)) continue;
+      disari++;
+      puan -= yakin.some((x) => konseptUygunMu(t, x)) ? 6 : 14;
+    }
+    notlar.push(disari
+      ? { iyi: disari <= 2, metin: `${tarifler.length - disari} yemek ${konseptAdi(secenek.konsept)} mutfağından; ${disari} yuvada bu mutfakta yeterli seçenek olmadığı için yakın mutfaklardan yemek önerildi.` }
+      : { iyi: true, metin: `Bütün yemekler ${konseptAdi(secenek.konsept)} mutfağından.` });
+  }
+
+  // 6) Elimdekiler: eksik malzeme başına puan düşer
   if (secenek.evde) {
     const evde = new Set(secenek.evde);
     const eksik = new Set(tarifler.flatMap((t) => tarifEslesmesi(t, evde).eksik));
@@ -271,7 +285,7 @@ export function menuAnalizi(menu, secenek = {}) {
       : { iyi: true, metin: 'Bütün malzemeler evde var; markete gitmeye gerek yok!' });
   }
 
-  // 6) Diyabet
+  // 7) Diyabet
   if (secenek.diyabet === 'uyarla') {
     let khKisi = 0;
     for (const t of tarifler) {
@@ -290,7 +304,20 @@ export function menuAnalizi(menu, secenek = {}) {
 }
 
 function yuvaAdaylari(sofra, i, secenek = {}) {
-  const l = TARIFLER.filter((t) => sofra.yuvalar[i].kat.includes(t.kat));
+  let l = TARIFLER.filter((t) => sofra.yuvalar[i].kat.includes(t.kat));
+  if (secenek.konsept && secenek.konsept !== 'hepsi') {
+    // Önce seçili mutfak; o yuvada hiç yemek yoksa yakın mutfaklar, sonra aynı grup (Türk/dünya), en son bütün tarifler.
+    const sirala = [[secenek.konsept], YAKIN[secenek.konsept] ?? []];
+    const grup = MUTFAKLAR.find((m) => m.id === secenek.konsept)?.grup;
+    if (grup) sirala.push([grup === 'osmanli' ? 'turk' : grup]);
+    // Katmanlar birikerek eklenir: yuvada en az 3 aday olana kadar (aynı yemek iki yuvaya konamaz).
+    const secilen = [];
+    for (const konseptler of sirala) {
+      for (const t of l) if (!secilen.includes(t) && konseptler.some((x) => konseptUygunMu(t, x))) secilen.push(t);
+      if (secilen.length >= 3) break;
+    }
+    if (secilen.length >= 2) l = secilen;
+  }
   // Diyabete göre kurulan menüde "dikkat" etiketli yemek hiç aday olmaz.
   let aday = l;
   if (secenek.diyabet === 'uyarla') {
@@ -321,6 +348,8 @@ export function sofraOlustur(sofra, secenek = {}, rnd = Math.random) {
     if (new Set(secilen).size !== secilen.length) continue;
     adaylar.push({ menu: secilen, puan: menuAnalizi(secilen, secenek).puan });
   }
+  // Konsept ya da diğer kısıtlar yüzünden geçerli menü çıkmadıysa konsept gözetilmeden kurulur.
+  if (!adaylar.length && secenek.konsept) return sofraOlustur(sofra, { ...secenek, konsept: 'hepsi' }, rnd);
   adaylar.sort((a, b) => b.puan - a.puan);
   const enIyi = adaylar.slice(0, 6);
   return enIyi[Math.floor(rnd() * enIyi.length)].menu;
@@ -349,6 +378,33 @@ export function diyabetAlternatifi(sofra, menu, i) {
   return adaylar[0]?.x ?? null;
 }
 
+// ── Konsept (mutfak) seçimi ──
+// konsept: 'hepsi' | 'turk' (bütün Türk bölgeleri + Osmanlı) | 'dunya' | bir mutfak kimliği (ör. 'karadeniz', 'italyan')
+export function konseptUygunMu(t, konsept = 'hepsi') {
+  if (!konsept || konsept === 'hepsi') return true;
+  const m = MUTFAKLAR.find((x) => x.id === t.mutfak);
+  if (konsept === 'turk') return m?.grup === 'turk' || m?.grup === 'osmanli';
+  if (konsept === 'dunya') return m?.grup === 'dunya';
+  return t.mutfak === konsept;
+}
+export const konseptTarifleri = (konsept, kat = null) =>
+  TARIFLER.filter((t) => konseptUygunMu(t, konsept) && (!kat || t.kat === kat));
+export function konseptAdi(konsept) {
+  if (!konsept || konsept === 'hepsi') return 'Tüm mutfaklar';
+  if (konsept === 'turk') return 'Türk mutfağı';
+  if (konsept === 'dunya') return 'Dünya mutfakları';
+  return MUTFAKLAR.find((m) => m.id === konsept)?.ad ?? 'Tüm mutfaklar';
+}
+// Konseptte uygun yemek yoksa önce bakılacak yakın mutfaklar
+const YAKIN = {
+  italyan: ['fransiz', 'ispanyol', 'yunan-balkan'], fransiz: ['italyan', 'ispanyol'], ispanyol: ['italyan', 'fransiz', 'yunan-balkan'],
+  'yunan-balkan': ['italyan', 'osmanli', 'ege'], ortadogu: ['hint', 'guneydogu', 'akdeniz'], hint: ['ortadogu'],
+  meksika: ['amerikan', 'ispanyol'], amerikan: ['meksika', 'diger-dunya'], 'diger-dunya': ['amerikan', 'fransiz'], uzakdogu: [],
+  osmanli: ['marmara', 'genel'], karadeniz: ['genel'], ege: ['marmara', 'genel'], akdeniz: ['guneydogu', 'genel'], marmara: ['osmanli', 'genel'],
+  'ic-anadolu': ['genel'], dogu: ['ic-anadolu', 'genel'], guneydogu: ['akdeniz', 'genel'], genel: [],
+};
+export const mutfakAdi = (t) => MUTFAKLAR.find((m) => m.id === t.mutfak)?.ad ?? '';
+
 // ── Dolabım: evdeki malzemeler ──
 /** Tarifin "önemli" malzemeleri: su ve baharatlar hariç (onlar eksik sayılmaz). */
 export function onemliMalzemeler(t) {
@@ -363,9 +419,9 @@ export function tarifEslesmesi(t, evde) {
 }
 
 /** Elimdekilerle yapılabilecek tarifler: en az eksikliden başlayarak, en fazla `enFazlaEksik` eksikli. */
-export function elimdekilerle(evde, enFazlaEksik = 2, kat = null) {
+export function elimdekilerle(evde, enFazlaEksik = 2, kat = null, konsept = 'hepsi') {
   return TARIFLER
-    .filter((t) => !kat || t.kat === kat)
+    .filter((t) => (!kat || t.kat === kat) && konseptUygunMu(t, konsept))
     .map((t) => ({ t, ...tarifEslesmesi(t, evde) }))
     .filter((x) => x.eksik.length <= enFazlaEksik)
     .sort((a, b) => a.eksik.length - b.eksik.length || b.oran - a.oran || a.t.ad.localeCompare(b.t.ad, 'tr'));

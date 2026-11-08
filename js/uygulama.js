@@ -4,7 +4,7 @@ import {
   alisverisListesi, rastgeleSec, sofraOlustur, yuvaYenile, menuToplami, aramaAdi,
   youtubeUrl, vikipediUrl, aramaUrl, listeMetni, hazimOnerisi,
   diyabetDurumu, menuAnalizi, diyabetAlternatifi, SIPARIS_ONERILERI, SIPARIS_SITELERI,
-  tarifEslesmesi, elimdekilerle, dolapMalzemeleri,
+  tarifEslesmesi, elimdekilerle, dolapMalzemeleri, MUTFAKLAR, konseptTarifleri, konseptAdi, mutfakAdi,
 } from './hesap.js';
 import { GORSELLER } from './veri/gorseller.js';
 import { ikon } from './ikonlar.js';
@@ -19,11 +19,12 @@ const D = {
   alindi: new Set(oku('cp_alindi', [])),
   fav: oku('cp_fav', []),
   kisi: oku('cp_kisi', {}),
-  sofra: oku('cp_sofra', {}),             // sofraId → { menu, kisi, diyabet, evde }
+  sofra: oku('cp_sofra', {}),             // sofraId → { menu, kisi, diyabet, evde, konsept }
+  konsept: oku('cp_konsept', 'hepsi'),    // seçili mutfak konsepti
 };
 const kaydet = () => {
   yaz('cp_liste', D.liste); yaz('cp_evde', [...D.evde]); yaz('cp_alindi', [...D.alindi]);
-  yaz('cp_fav', D.fav); yaz('cp_kisi', D.kisi); yaz('cp_sofra', D.sofra);
+  yaz('cp_fav', D.fav); yaz('cp_kisi', D.kisi); yaz('cp_sofra', D.sofra); yaz('cp_konsept', D.konsept);
 };
 
 // ───────── Yardımcılar ─────────
@@ -34,7 +35,7 @@ const yerli = window.Capacitor?.isNativePlatform?.() ?? false;
 const eklenti = (ad) => window.Capacitor?.Plugins?.[ad];
 const emojisiz = (s) => s.replace(/^[\p{Extended_Pictographic}\u{FE0F}\u{200D}\s]+/u, '');
 
-const KAT_IKON = { corba: 'soup', et: 'beef', tavuk: 'drumstick', sebze: 'leafy-green', garnitur: 'wheat', meze: 'salad', tatli: 'cake-slice' };
+const KAT_IKON = { corba: 'soup', et: 'beef', tavuk: 'drumstick', deniz: 'fish', sebze: 'leafy-green', hamur: 'croissant', garnitur: 'wheat', meze: 'salad', tatli: 'cake-slice' };
 const SOFRA_IKON = { davet: 'party-popper', iftar: 'moon', 'hafta-ici': 'house' };
 
 function bildir(metin) {
@@ -117,8 +118,8 @@ function gorselHtml(t, sinif = '') {
 }
 /** Kategoriyi temsil eden ilk fotoğraflı tarif (ana ekran kartları için). */
 function kategoriGorseli(katId) {
-  const tercih = { corba: 'mercimek-corbasi', et: 'karniyarik', tavuk: 'tavuk-sis', sebze: 'imam-bayildi', garnitur: 'pirinc-pilavi', meze: 'humus', tatli: 'firin-sutlac' };
-  const l = [tarifBul(tercih[katId]), ...kategoriTarifleri(katId)].filter(Boolean);
+  const tercih = { corba: 'mercimek-corbasi', et: 'karniyarik', tavuk: 'tavuk-sis', deniz: 'izgara-cipura', sebze: 'imam-bayildi', hamur: 'lahmacun', garnitur: 'pirinc-pilavi', meze: 'humus', tatli: 'firin-sutlac' };
+  const l = [tarifBul(tercih[katId]), ...konseptTarifleri(D.konsept, katId)].filter((t) => t && konseptTarifleri(D.konsept, katId).includes(t));
   return l.find((t) => GORSELLER[t.id]) ?? null;
 }
 
@@ -187,8 +188,9 @@ if (yerli) eklenti('App')?.addListener('backButton', cikisSor);
 // ───────── Ana ekran ─────────
 function anaEkran() {
   baslik('Çevir Pişir');
-  const hazir = elimdekilerle(D.evde, 0).length;
-  const birEksik = elimdekilerle(D.evde, 1).length - hazir;
+  const hazir = elimdekilerle(D.evde, 0, null, D.konsept).length;
+  const birEksik = elimdekilerle(D.evde, 1, null, D.konsept).length - hazir;
+  const katlar = KATEGORILER.filter((k) => konseptTarifleri(D.konsept, k.id).length);
   ekran.innerHTML = `
     <section class="kahraman">
       <p class="ust-yazi">${selam()}</p>
@@ -196,6 +198,7 @@ function anaEkran() {
       <p>Bir kategori seç, çark dönsün, ekrana dokun. Tarif, kalori ve alışveriş listesi hazır.</p>
       <a class="dugme ana buyuk" href="#/cevir/hepsi">${ikon('dices', 22)} Şansıma çevir</a>
     </section>
+    ${konseptDugmesi()}
 
     <a class="dolap-kart" href="#/elimdekiler">
       <span class="dolap-ikon">${ikon('refrigerator', 26)}</span>
@@ -204,14 +207,14 @@ function anaEkran() {
       ${ikon('chevron-right', 20, 'soluk-ikon')}
     </a>
 
-    <div class="bolum-baslik"><h3>Kategoriler</h3><span>${TARIFLER.length} tarif</span></div>
+    <div class="bolum-baslik"><h3>Kategoriler</h3><span>${konseptTarifleri(D.konsept).length} tarif</span></div>
     <section class="kategoriler">
-      ${KATEGORILER.map((k) => {
+      ${katlar.map((k) => {
         const g = kategoriGorseli(k.id);
         return `<a class="kat ${g ? 'fotolu' : ''}" href="#/cevir/${k.id}" style="--renk:${k.renk}">
           ${g ? `<img src="gorseller/yemek/${g.id}.webp" alt="" loading="lazy" decoding="async">` : ''}
           <span class="kat-ikon">${ikon(KAT_IKON[k.id], 20)}</span>
-          <span class="kat-alt"><b>${k.ad}</b><small>${kategoriTarifleri(k.id).length} tarif</small></span>
+          <span class="kat-alt"><b>${k.ad}</b><small>${konseptTarifleri(D.konsept, k.id).length} tarif</small></span>
         </a>`;
       }).join('')}
     </section>
@@ -219,6 +222,7 @@ function anaEkran() {
     <div class="bolum-baslik"><h3>Sofra kur</h3><a href="#/sofralar">Tümü</a></div>
     <section class="sofra-kartlar">${SOFRALAR.map(sofraKarti).join('')}</section>
     <p class="dipnot"><a href="#/hakkinda">${ikon('info', 16)} Kaynaklar ve hesaplama yöntemi</a></p>`;
+  $('#konseptSec').onclick = () => konseptCekmecesi(anaEkran);
 }
 function selam() {
   const s = new Date().getHours();
@@ -237,8 +241,10 @@ function cevirEkrani(katId) {
   const kat = katId === 'hepsi' ? { id: 'hepsi', ad: 'Şansıma', renk: '#d9480f' } : kategoriBul(katId);
   if (!kat) return (location.hash = '#/');
   const JOKER = { id: 'joker', ad: 'Dışarıdan sipariş!' };
-  const liste = [...(katId === 'hepsi' ? TARIFLER : kategoriTarifleri(katId)), JOKER];
-  baslik(kat.ad);
+  let yemekListesi = katId === 'hepsi' ? konseptTarifleri(D.konsept) : konseptTarifleri(D.konsept, katId);
+  if (!yemekListesi.length) yemekListesi = katId === 'hepsi' ? TARIFLER : kategoriTarifleri(katId);
+  const liste = [...yemekListesi, JOKER];
+  baslik(D.konsept === 'hepsi' ? kat.ad : `${kat.ad} · ${konseptAdi(D.konsept)}`);
 
   ekran.innerHTML = `
     <section class="cark" style="--renk:${kat.renk}">
@@ -372,7 +378,7 @@ function tarifEkrani(id) {
     <article class="tarif">
       <div class="kapak">
         ${gorselHtml(t, 'kapak-gorsel')}
-        <div class="kapak-yazi"><span class="kat-etiket">${ikon(KAT_IKON[t.kat], 14)} ${kat.ad}</span><h2>${esc(t.ad)}</h2></div>
+        <div class="kapak-yazi"><span class="kat-etiket">${ikon(KAT_IKON[t.kat], 14)} ${kat.ad}${t.mutfak !== 'genel' ? ` · ${esc(t.ulke ?? mutfakAdi(t))}` : ''}</span><h2>${esc(t.ad)}</h2></div>
       </div>
       <div class="istatistik">
         <div>${ikon('flame', 18)}<b>${d.kcal}</b><small>kcal / porsiyon</small></div>
@@ -540,7 +546,41 @@ function kapatCekmece() {
 }
 $('#perde').onclick = kapatCekmece;
 
+// ───────── Konsept (mutfak) seçici ─────────
+function konseptCekmecesi(sonra) {
+  const say = (k) => konseptTarifleri(k).length;
+  const hap = (k, ad) => `<button class="hap ${D.konsept === k ? 'secili' : ''}" data-konsept="${k}">${D.konsept === k ? ikon('check', 14) : ''}${esc(ad)} <small>${say(k)}</small></button>`;
+  const grup = (g) => MUTFAKLAR.filter((m) => m.grup === g);
+  acCekmece(`
+    <h3>Mutfak seç</h3>
+    <p class="kucuk">Çark, kategoriler, sofralar ve "Elimdekilerle" seçtiğin mutfağa göre çalışır.</p>
+    <div class="hap-liste konsept-liste">${hap('hepsi', 'Tüm mutfaklar')}</div>
+    <h4 class="cekmece-ara">Türk mutfağı</h4>
+    <div class="hap-liste konsept-liste">${hap('turk', 'Bütün Türk mutfağı')}${grup('turk').map((m) => hap(m.id, m.ad)).join('')}${grup('osmanli').map((m) => hap(m.id, m.ad)).join('')}</div>
+    <h4 class="cekmece-ara">Dünya mutfakları</h4>
+    <div class="hap-liste konsept-liste">${hap('dunya', 'Bütün dünya mutfakları')}${grup('dunya').map((m) => hap(m.id, m.ad)).join('')}</div>
+    <button class="dugme duz tam" id="cKapat">Kapat</button>`);
+  const c = $('#cekmece');
+  c.querySelectorAll('[data-konsept]').forEach((b) => (b.onclick = () => {
+    D.konsept = b.dataset.konsept; kaydet(); kapatCekmece(); titret();
+    bildir(`Mutfak: ${konseptAdi(D.konsept)}`);
+    sonra?.();
+  }));
+  $('#cKapat').onclick = kapatCekmece;
+}
+const konseptDugmesi = () => `<button class="konsept-kart" id="konseptSec">
+    <span class="yuvarlak-ikon">${ikon('utensils', 20)}</span>
+    <span class="konsept-yazi"><small>Mutfak</small><b>${esc(konseptAdi(D.konsept))}</b></span>
+    <span class="konsept-degistir">Değiştir ${ikon('chevron-right', 16)}</span>
+  </button>`;
+
 // ───────── Dolabım ─────────
+// Mutfakta genelde bulunan temel malzemeler: Dolabım'ın en üstünde tek tek işaretlenir.
+const TEMEL = ['tuz', 'karabiber', 'pul_biber', 'toz_biber', 'kimyon', 'kuru_nane', 'kekik', 'tarcin', 'sumak', 'defne',
+  'un', 'seker', 'sivi_yag', 'zeytinyagi', 'tereyagi', 'domates_salcasi', 'biber_salcasi', 'sirke', 'kabartma_tozu', 'maya',
+  'pirinc', 'bulgur', 'makarna', 'kirmizi_mercimek', 'sogan', 'sarimsak', 'patates', 'domates', 'limon', 'yumurta', 'sut', 'yogurt', 'beyaz_peynir', 'ekmek']
+  .filter((k) => BESINLER[k]);
+
 function dolabimEkrani() {
   baslik('Dolabım');
   const gruplar = dolapMalzemeleri();
@@ -555,33 +595,43 @@ function dolabimEkrani() {
     <div class="arama">${ikon('search', 18)}<input id="ara" type="search" placeholder="Malzeme ara (ör. patlıcan)" autocomplete="off"></div>
     <div class="dolap-ozet" id="ozet"></div>
     <div id="gruplar"></div>
-    <div class="dugme-satir">
-      <button class="dugme ikincil" id="temel">${ikon('sparkles', 18)} Temel malzemeleri seç</button>
-      <button class="dugme duz tehlike" id="bosalt">${ikon('trash-2', 18)} Hepsini kaldır</button>
-    </div>`;
+    <button class="dugme duz tehlike tam" id="bosalt">${ikon('trash-2', 18)} Dolabı boşalt</button>`;
   const ciz = () => {
     $('#ozet').innerHTML = `<b>${D.evde.size}</b> / ${toplam} malzeme evde`;
     const q = arama.toLocaleLowerCase('tr');
-    $('#gruplar').innerHTML = gruplar.map((g) => {
-      const l = g.malzemeler.filter((m) => !q || m.ad.toLocaleLowerCase('tr').includes(q));
+    const hapHtml = (k, ad) => `<button class="hap ${D.evde.has(k) ? 'secili' : ''}" data-k="${k}" aria-pressed="${D.evde.has(k)}">${D.evde.has(k) ? ikon('check', 14) : ''}${esc(ad)}</button>`;
+    const temelVar = TEMEL.filter((k) => D.evde.has(k)).length;
+    const temelHtml = q ? '' : `<section class="kart dolap-grup temel-grup">
+        <div class="kart-baslik"><h3>${ikon('sparkles', 18)} Temel malzemeler</h3><small>${temelVar} / ${TEMEL.length}</small></div>
+        <p class="kucuk">Mutfakta çoğu zaman bulunanlar. Evde olanlara tek tek dokun.</p>
+        <div class="hap-liste">${TEMEL.map((k) => hapHtml(k, BESINLER[k].ad)).join('')}</div>
+        <div class="dugme-satir">
+          <button class="dugme ikincil" data-temel="ekle">${ikon('check', 16)} Hepsini seç</button>
+          <button class="dugme ikincil" data-temel="kaldir">${ikon('x', 16)} Hepsini kaldır</button>
+        </div>
+      </section>`;
+    $('#gruplar').innerHTML = temelHtml + gruplar.map((g) => {
+      const l = g.malzemeler.filter((m) => (q ? m.ad.toLocaleLowerCase('tr').includes(q) : !TEMEL.includes(m.k)));
       if (!l.length) return '';
       const var_ = l.filter((m) => D.evde.has(m.k)).length;
       return `<section class="kart dolap-grup">
         <div class="kart-baslik"><h3>${g.ad}</h3><small>${var_} / ${l.length}</small></div>
-        <div class="hap-liste">${l.map((m) => `<button class="hap ${D.evde.has(m.k) ? 'secili' : ''}" data-k="${m.k}" aria-pressed="${D.evde.has(m.k)}">${D.evde.has(m.k) ? ikon('check', 14) : ''}${esc(m.ad)}</button>`).join('')}</div>
+        <div class="hap-liste">${l.map((m) => hapHtml(m.k, m.ad)).join('')}</div>
       </section>`;
     }).join('') || '<p class="bos-yazi">Bu adla bir malzeme yok.</p>';
   };
   $('#ara').oninput = (e) => { arama = e.target.value.trim(); ciz(); };
   $('#gruplar').onclick = (e) => {
+    const t = e.target.closest('[data-temel]');
+    if (t) {
+      TEMEL.forEach((k) => (t.dataset.temel === 'ekle' ? D.evde.add(k) : D.evde.delete(k)));
+      kaydet(); ciz(); bildir(t.dataset.temel === 'ekle' ? 'Temel malzemelerin hepsi işaretlendi' : 'Temel malzemelerin işareti kaldırıldı');
+      return;
+    }
     const b = e.target.closest('[data-k]'); if (!b) return;
     const k = b.dataset.k;
     if (D.evde.has(k)) D.evde.delete(k); else D.evde.add(k);
     titret(8); kaydet(); ciz();
-  };
-  $('#temel').onclick = () => {
-    Object.keys(BESINLER).filter((k) => BESINLER[k].d).forEach((k) => D.evde.add(k));
-    kaydet(); ciz(); bildir('Tuz, yağ, salça gibi temel malzemeler işaretlendi');
   };
   $('#bosalt').onclick = async () => {
     if (!await onayla({ baslik: 'Dolabı boşalt?', metin: 'Bütün "evde var" işaretleri kaldırılacak.', evet: 'Boşalt', tehlike: true })) return;
@@ -599,6 +649,7 @@ function elimdekilerEkrani() {
       <h2>Elimdekilerle ne pişirsem?</h2>
       <p>Dolabında <b>${D.evde.size}</b> malzeme işaretli. Tuz, baharat ve su eksik sayılmaz. <a href="#/dolabim">Dolabı düzenle</a></p>
     </section>
+    ${konseptDugmesi()}
     <div class="filtre" id="filtre">
       <button class="hap secili" data-kat="">Tümü</button>
       ${KATEGORILER.map((k) => `<button class="hap" data-kat="${k.id}">${k.ad}</button>`).join('')}
@@ -607,7 +658,7 @@ function elimdekilerEkrani() {
     <div class="bolum-baslik"><h3>Elimdekilerle sofra kur</h3></div>
     <section class="sofra-kartlar">${SOFRALAR.map((s) => sofraKarti(s).replace(`href="#/sofra/${s.id}"`, `href="#/sofra/${s.id}" data-evde-sofra="${s.id}"`)).join('')}</section>`;
   const ciz = () => {
-    const l = elimdekilerle(D.evde, 2, kat);
+    const l = elimdekilerle(D.evde, 2, kat, D.konsept);
     const grup = (n) => l.filter((x) => x.eksik.length === n);
     const blok = (baslikY, ogeler, aciklama) => ogeler.length ? `
       <div class="bolum-baslik"><h3>${baslikY}</h3><span>${ogeler.length}</span></div>
@@ -627,9 +678,11 @@ function elimdekilerEkrani() {
     const id = a.dataset.evdeSofra;
     const s = SOFRALAR.find((x) => x.id === id);
     const k = D.sofra[id] ?? { kisi: id === 'davet' ? 6 : 4, diyabet: 'yok' };
-    k.evde = true; k.menu = sofraOlustur(s, { diyabet: k.diyabet ?? 'yok', evde: [...D.evde] });
+    k.evde = true; k.konsept = D.konsept;
+    k.menu = sofraOlustur(s, { diyabet: k.diyabet ?? 'yok', evde: [...D.evde], konsept: D.konsept });
     D.sofra[id] = k; kaydet();
   }));
+  $('#konseptSec').onclick = () => konseptCekmecesi(elimdekilerEkrani);
   ciz();
 }
 
@@ -648,7 +701,10 @@ function sofraEkrani(id) {
   const kayit = D.sofra[s.id] ?? { kisi: s.id === 'davet' ? 6 : 4, diyabet: 'yok' };
   kayit.diyabet ??= 'yok';
   kayit.evde ??= false;
-  const sec = () => ({ diyabet: kayit.diyabet, ...(kayit.evde ? { evde: [...D.evde] } : {}) });
+  const sec = () => ({ diyabet: kayit.diyabet, konsept: D.konsept, ...(kayit.evde ? { evde: [...D.evde] } : {}) });
+  // Mutfak konsepti değiştiyse menü yeni konsepte göre yeniden kurulur.
+  if (kayit.menu && kayit.konsept !== D.konsept) kayit.menu = null;
+  kayit.konsept = D.konsept;
   if (!kayit.menu || kayit.menu.length !== s.yuvalar.length || kayit.menu.some((x) => !tarifBul(x))) kayit.menu = sofraOlustur(s, sec());
   D.sofra[s.id] = kayit; kaydet();
 
@@ -658,6 +714,10 @@ function sofraEkrani(id) {
       <h2>${s.ad}</h2><p>${s.aciklama}</p>${s.ek ? `<p class="kucuk">${esc(s.ek)}</p>` : ''}
     </section>
     <section class="kart ayarlar">
+      <button class="ayar-satir konsept-satir" id="konseptSec">
+        <span>${ikon('chef-hat', 18)} Mutfak</span>
+        <span class="konsept-degistir">${esc(konseptAdi(D.konsept))} ${ikon('chevron-right', 16)}</span>
+      </button>
       <div class="ayar-satir">
         <span>${ikon('utensils', 18)} Misafir sayısı</span>
         <div class="sayac"><button id="eksi" aria-label="Azalt">${ikon('minus', 18)}</button><span id="kisi"></span><button id="arti" aria-label="Artır">${ikon('plus', 18)}</button></div>
@@ -751,6 +811,7 @@ function sofraEkrani(id) {
     kayit.diyabet = r.value; kaydet();
     if (r.value === 'uyarla') { hepsiniCevir(); bildir('Menü diyabete göre yeniden kuruldu'); } else ciz();
   }));
+  $('#konseptSec').onclick = () => konseptCekmecesi(() => sofraEkrani(id));
   $('#evdeMod').onchange = (e) => {
     kayit.evde = e.target.checked; kaydet(); hepsiniCevir();
     bildir(kayit.evde ? 'Menü dolabındakilere göre kuruluyor' : 'Menü tüm tariflerden kuruluyor');
@@ -786,12 +847,13 @@ function favorilerEkrani() {
       <ul class="tarif-liste">${favler.map((t) => tarifSatiri(t)).join('')}</ul>` : `
       <div class="bos">${ikon('heart', 40)}<p>Henüz favorin yok.<br>Tarif sayfasının üstündeki kalbe dokunarak ekleyebilirsin.</p></div>`}
     <div class="bolum-baslik"><h3>Tüm tarifler</h3><span>${TARIFLER.length}</span></div>
-    <div class="arama">${ikon('search', 18)}<input id="ara" type="search" placeholder="Tarif ya da malzeme ara" autocomplete="off"></div>
+    <div class="arama">${ikon('search', 18)}<input id="ara" type="search" placeholder="Tarif, malzeme ya da mutfak ara (ör. İtalyan)" autocomplete="off"></div>
     <div id="tumu"></div>`;
   const ciz = () => {
     const q = arama.toLocaleLowerCase('tr');
     if (q) {
       const l = TARIFLER.filter((t) => t.ad.toLocaleLowerCase('tr').includes(q)
+        || mutfakAdi(t).toLocaleLowerCase('tr').includes(q) || (t.ulke ?? '').toLocaleLowerCase('tr').includes(q)
         || t.malz.some(([k]) => BESINLER[k].ad.toLocaleLowerCase('tr').includes(q)));
       $('#tumu').innerHTML = l.length ? `<ul class="tarif-liste">${l.map((t) => tarifSatiri(t)).join('')}</ul>` : '<p class="bos-yazi">Sonuç bulunamadı.</p>';
       return;
@@ -805,7 +867,7 @@ function favorilerEkrani() {
 function tarifSatiri(t, ek = '') {
   const d = besinDegeri(t);
   return `<li><a href="#/tarif/${t.id}">${gorselHtml(t, 'kucuk')}
-    <span class="menu-bilgi"><b>${esc(t.ad)}</b><em>${d.kcal} kcal · ${t.sure} dk</em>${ek}</span>${ikon('chevron-right', 18, 'soluk-ikon')}</a></li>`;
+    <span class="menu-bilgi"><b>${esc(t.ad)}</b><em>${d.kcal} kcal · ${t.sure} dk${t.mutfak !== 'genel' ? ` · ${esc(t.ulke ?? mutfakAdi(t))}` : ''}</em>${ek}</span>${ikon('chevron-right', 18, 'soluk-ikon')}</a></li>`;
 }
 
 // ───────── Alışveriş listesi ─────────

@@ -214,3 +214,19 @@ test('fotoğraflar: her kayıt gerçek bir tarife ve dosyaya karşılık gelir, 
   }
   assert.ok(Object.keys(GORSELLER).length >= 100);
 });
+
+test('konsept: bölge ve grup süzmesi, sofrada konsepte uygun yemekler', async () => {
+  const { konseptTarifleri, konseptUygunMu, sofraOlustur, tarifBul, SOFRALAR, MUTFAKLAR } = await import('../js/hesap.js');
+  const ka = konseptTarifleri('karadeniz');
+  assert.ok(ka.length >= 15 && ka.every((t) => t.mutfak === 'karadeniz'));
+  const turk = konseptTarifleri('turk'); const dunya = konseptTarifleri('dunya');
+  assert.equal(turk.length + dunya.length, TARIFLER.length);
+  assert.ok(turk.length >= 372, 'Türk tarifi en az 372: ' + turk.length);
+  for (const m of MUTFAKLAR) assert.ok(konseptTarifleri(m.id).length >= 5, 'az tarif: ' + m.id);
+  const s = SOFRALAR.find((x) => x.id === 'davet');
+  for (let n = 0; n < 5; n++) {
+    const menu = sofraOlustur(s, { konsept: 'italyan' });
+    const uygun = menu.filter((id) => konseptUygunMu(tarifBul(id), 'italyan')).length;
+    assert.ok(uygun >= 4, `İtalyan davet menüsünde ${uygun} İtalyan yemeği`);
+  }
+});
