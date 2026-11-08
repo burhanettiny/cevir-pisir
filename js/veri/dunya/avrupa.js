@@ -1,0 +1,231 @@
+// Avrupa: İtalyan, Fransız, İspanyol, Yunan & Balkan
+export const ITALYAN = [
+  {
+    id: 'spagetti-bolonez', ad: 'Spagetti Bolonez', ulke: 'İtalya', kat: 'et', emoji: '🍝', sure: 60, porsiyon: 4, wiki: 'Bolonez sos',
+    malz: [['makarna', 400, '400 g spagetti'], ['dana_kiyma', 400, '400 g'], ['sogan', 110, '1 adet'], ['havuc', 70, '1 adet'], ['kereviz', 50, 'küçük bir parça'],
+      ['sarimsak', 12, '3 diş'], ['domates', 600, '4 adet (ya da 1 kutu)'], ['domates_salcasi', 17, '1 yemek kaşığı'], ['zeytinyagi', 26, '2 yemek kaşığı'],
+      ['kuru_feslegen', 2, '1 tatlı kaşığı'], ['parmesan', 40, 'servis için'], ['su', 3000, 'haşlama için'], ['tuz', 10, '2 tatlı kaşığı']],
+    adim: ['Zeytinyağında ince doğranmış soğan, havuç ve kerevizi 8 dakika yumuşatın; sarımsağı ekleyin.', 'Kıymayı ekleyip suyunu çekene kadar kavurun.',
+      'Salça, rendelenmiş domates ve baharatları ekleyip kısık ateşte en az 30 dakika pişirin.', 'Spagettiyi tuzlu suda haşlayıp sosla harmanlayın; parmesanla servis edin.'],
+  },
+  {
+    id: 'karbonara', ad: 'Karbonara', ulke: 'İtalya', kat: 'garnitur', emoji: '🍝', sure: 25, porsiyon: 4, wiki: 'Carbonara',
+    not: 'Geleneksel tarifte guanciale (domuz yanağı) kullanılır; burada dana pastırması ile uyarlanmıştır.',
+    malz: [['makarna', 400, '400 g spagetti'], ['yumurta', 150, '1 bütün + 2 sarısı'], ['parmesan', 80, '¾ su bardağı rendelenmiş'], ['pastirma', 120, '120 g (şerit)'],
+      ['karabiber', 2, 'bolca'], ['su', 3000, 'haşlama için'], ['tuz', 8, '1,5 tatlı kaşığı']],
+    adim: ['Yumurta, sarılar, parmesan ve bol karabiberi çırpın.', 'Pastırmayı yağsız tavada hafifçe kızartın.', 'Spagettiyi haşlayıp bir bardak suyunu ayırın; makarnayı tavaya alın.',
+      'Ocaktan alıp yumurtalı karışımı ve az haşlama suyunu ekleyerek hızla karıştırın; kremamsı olunca servis edin (yumurta pişip topaklanmamalı).'],
+  },
+  {
+    id: 'lazanya', ad: 'Lazanya', ulke: 'İtalya', kat: 'et', emoji: '🍝', sure: 90, porsiyon: 8, wiki: 'Lazanya',
+    malz: [['makarna', 300, '12 yaprak lazanya'], ['dana_kiyma', 500, '500 g'], ['sogan', 110, '1 adet'], ['domates', 600, '4 adet'], ['domates_salcasi', 34, '2 yemek kaşığı'],
+      ['sut', 750, 'beşamel için 3,5 su bardağı'], ['tereyagi', 50, 'beşamel için'], ['un', 50, 'beşamel için'], ['mozzarella', 200, '200 g'], ['parmesan', 50, '½ su bardağı'],
+      ['zeytinyagi', 26, '2 yemek kaşığı'], ['kuru_feslegen', 2, '1 tatlı kaşığı'], ['tuz', 10, '2 tatlı kaşığı']],
+    adim: ['Kıymalı domates sosunu 30 dakika pişirin.', 'Tereyağında unu kavurup sütü ekleyerek beşamel yapın.', 'Kaba sırasıyla sos, lazanya yaprağı, beşamel ve mozzarella katlarını dizin.',
+      'En üste beşamel ve parmesan koyup 180 °C fırında 40 dakika pişirin; 10 dakika dinlendirip kesin.'],
+  },
+  {
+    id: 'mantarli-risotto', ad: 'Mantarlı Risotto', ulke: 'İtalya', kat: 'garnitur', emoji: '🍚', sure: 40, porsiyon: 4, wiki: 'Risotto',
+    malz: [['pirinc', 300, '1,5 su bardağı (arborio)'], ['mantar', 300, '300 g'], ['sogan', 60, '½ adet'], ['sarimsak', 8, '2 diş'], ['et_suyu', 1200, '6 su bardağı sıcak tavuk suyu'],
+      ['tereyagi', 40, '3 yemek kaşığı'], ['zeytinyagi', 13, '1 yemek kaşığı'], ['parmesan', 60, '½ su bardağı'], ['tuz', 4, '½ tatlı kaşığı'], ['karabiber', 1, '1 tutam']],
+    adim: ['Mantarları tereyağında kızartıp kenara alın.', 'Zeytinyağında soğan ve sarımsağı yumuşatıp pirinci 2 dakika kavurun.', 'Sıcak et suyunu kepçe kepçe, her seferinde çekmesini bekleyerek karıştırarak ekleyin (18–20 dakika).',
+      'Mantar, kalan tereyağı ve parmesanı ekleyip kremamsı olana kadar karıştırın.'],
+  },
+  {
+    id: 'pizza-margherita', ad: 'Pizza Margherita', ulke: 'İtalya', kat: 'hamur', emoji: '🍕', sure: 120, porsiyon: 4, wiki: 'Margherita pizza',
+    malz: [['un', 400, '3,5 su bardağı'], ['maya', 5, '1 tatlı kaşığı'], ['su', 260, '1,3 su bardağı ılık'], ['zeytinyagi', 26, '2 yemek kaşığı'], ['tuz', 8, '1,5 tatlı kaşığı'],
+      ['domates', 300, '2 adet (rendelenmiş)'], ['mozzarella', 250, '250 g'], ['feslegen', 10, 'birkaç yaprak']],
+    adim: ['Un, maya, su, tuz ve zeytinyağıyla hamuru yoğurup 1,5 saat mayalandırın; ikiye bölün.', 'Rendelenmiş domatesi tuz ve zeytinyağıyla sos yapın.',
+      'Hamuru ince açıp sos ve mozzarella dağıtın.', 'Fırının en yüksek ısısında (250 °C+) 8–10 dakika pişirin; fesleğenle servis edin.'],
+  },
+  {
+    id: 'minestrone', ad: 'Minestrone', ulke: 'İtalya', kat: 'corba', emoji: '🥣', sure: 50, porsiyon: 6, wiki: 'Minestrone',
+    malz: [['kabak', 200, '1 adet'], ['havuc', 70, '1 adet'], ['patates', 170, '1 adet'], ['sogan', 110, '1 adet'], ['taze_fasulye', 100, '100 g'], ['nohut_haslanmis', 150, '1 su bardağı'],
+      ['domates', 300, '2 adet'], ['makarna', 80, 'küçük makarna'], ['zeytinyagi', 40, '3 yemek kaşığı'], ['sarimsak', 8, '2 diş'], ['et_suyu', 1500, '7,5 su bardağı'],
+      ['parmesan', 30, 'servis için'], ['kuru_feslegen', 2, '1 tatlı kaşığı'], ['tuz', 8, '1,5 tatlı kaşığı']],
+    adim: ['Zeytinyağında soğan, havuç ve sarımsağı kavurun.', 'Diğer sebzeleri, domatesi ve et suyunu ekleyip 20 dakika pişirin.', 'Nohut ve makarnayı ekleyip makarna pişene kadar 10 dakika daha kaynatın.', 'Parmesanla servis edin.'],
+  },
+  {
+    id: 'tiramisu', ad: 'Tiramisu', ulke: 'İtalya', kat: 'tatli', emoji: '🍰', sure: 30, porsiyon: 8, wiki: 'Tiramisu',
+    not: 'Buzdolabında en az 6 saat dinlendirin.',
+    malz: [['mascarpone', 250, '250 g'], ['krema', 200, '1 kutu'], ['seker', 100, '½ su bardağı'], ['yumurta', 100, '2 sarısı ve beyazı'], ['kedi_dili', 200, '1 paket'],
+      ['su', 300, '1,5 su bardağı sert kahve'], ['kakao', 15, 'üzeri için']],
+    adim: ['Yumurta sarılarını şekerle krema kıvamına getirin; mascarponeyi ekleyin.', 'Kremayı ayrı çırpıp karışıma katlayın.', 'Kedi dillerini soğuk kahveye batırıp kaba dizin, üzerine krema yayın; bir kat daha tekrarlayın.',
+      'Buzdolabında dinlendirip servisten önce kakao eleyin.'],
+  },
+  {
+    id: 'panna-cotta', ad: 'Panna Cotta', ulke: 'İtalya', kat: 'tatli', emoji: '🍮', sure: 20, porsiyon: 6, wiki: 'Panna cotta',
+    not: 'Jelatin yerine nişasta kullanılan pratik bir uyarlamadır; en az 4 saat soğutun.',
+    malz: [['krema', 400, '2 kutu'], ['sut', 200, '1 su bardağı'], ['seker', 80, '⅓ su bardağı'], ['nisasta', 25, '2,5 yemek kaşığı'], ['vanilin', 1, '1 paket'],
+      ['cilek', 200, 'sos için'], ['seker', 30, 'sos için']],
+    adim: ['Krema, süt, şeker ve nişastayı karıştırıp koyulaşana kadar pişirin; vanilini ekleyin.', 'Kaselere döküp buzdolabında donmaya bırakın.', 'Çilekleri şekerle 5 dakika pişirip sos yapın; tatlının üzerine dökün.'],
+  },
+  {
+    id: 'pesto-makarna', ad: 'Pesto Soslu Makarna', ulke: 'İtalya', kat: 'garnitur', emoji: '🍝', sure: 20, porsiyon: 4, wiki: 'Pesto',
+    malz: [['makarna', 400, '400 g'], ['feslegen', 60, '2 demet'], ['cam_fistigi', 30, '3 yemek kaşığı'], ['parmesan', 50, '½ su bardağı'], ['sarimsak', 4, '1 diş'],
+      ['zeytinyagi', 80, '6 yemek kaşığı'], ['su', 3000, 'haşlama için'], ['tuz', 10, '2 tatlı kaşığı']],
+    adim: ['Fesleğen, çam fıstığı, sarımsak ve parmesanı rondoda çekip zeytinyağıyla pesto yapın.', 'Makarnayı haşlayıp biraz suyunu ayırın.', 'Makarnayı pesto ve az haşlama suyuyla harmanlayıp servis edin.'],
+  },
+  {
+    id: 'bruschetta', ad: 'Bruschetta', ulke: 'İtalya', kat: 'meze', emoji: '🍅', sure: 15, porsiyon: 6, wiki: 'Bruschetta',
+    malz: [['ekmek', 300, '12 dilim (baget)'], ['domates', 300, '2 adet'], ['sarimsak', 8, '2 diş'], ['feslegen', 10, 'birkaç yaprak'], ['zeytinyagi', 40, '3 yemek kaşığı'], ['tuz', 2, '1 tutam']],
+    adim: ['Ekmekleri kızartıp bir yüzüne sarımsak sürün.', 'Domatesi küp doğrayıp fesleğen, zeytinyağı ve tuzla karıştırın.', 'Ekmeklerin üzerine koyup hemen servis edin.'],
+  },
+  {
+    id: 'caprese', ad: 'Caprese Salatası', ulke: 'İtalya', kat: 'meze', emoji: '🍅', sure: 10, porsiyon: 6, wiki: 'Caprese salatası',
+    malz: [['domates', 450, '3 adet'], ['mozzarella', 250, '250 g'], ['feslegen', 10, 'bir avuç'], ['zeytinyagi', 26, '2 yemek kaşığı'], ['sirke', 10, 'balzamik, birkaç damla'], ['tuz', 2, '1 tutam'], ['karabiber', 1, '1 tutam']],
+    adim: ['Domates ve mozzarellayı dilimleyin.', 'Tabağa birer dilim, aralarına fesleğen koyarak dizin.', 'Zeytinyağı, sirke, tuz ve karabiberle servis edin.'],
+  },
+  {
+    id: 'fettuccine-alfredo', ad: 'Fettuccine Alfredo', ulke: 'İtalya', kat: 'garnitur', emoji: '🍝', sure: 20, porsiyon: 4, wiki: 'Fettuccine Alfredo',
+    malz: [['makarna', 350, '350 g fettuccine'], ['tereyagi', 50, '50 g'], ['krema', 200, '1 kutu'], ['parmesan', 80, '¾ su bardağı'], ['sarimsak', 4, '1 diş'],
+      ['su', 3000, 'haşlama için'], ['tuz', 8, '1,5 tatlı kaşığı'], ['karabiber', 1, '1 tutam']],
+    adim: ['Makarnayı haşlayın.', 'Tereyağında sarımsağı çevirip kremayı ekleyin, 2 dakika kaynatın.', 'Parmesanı ve makarnayı ekleyip sos makarnayı kaplayana kadar karıştırın; karabiberle servis edin.'],
+  },
+];
+
+export const FRANSIZ = [
+  {
+    id: 'ratatouille', ad: 'Ratatouille', ulke: 'Fransa', kat: 'sebze', emoji: '🍆', sure: 70, porsiyon: 4, wiki: 'Ratatouille',
+    malz: [['patlican', 250, '1 adet'], ['kabak', 400, '2 adet'], ['kapya_biber', 150, '1 adet'], ['domates', 450, '3 adet'], ['sogan', 110, '1 adet'], ['sarimsak', 12, '3 diş'],
+      ['zeytinyagi', 50, '4 yemek kaşığı'], ['kekik', 1, '1 tatlı kaşığı'], ['feslegen', 10, 'birkaç yaprak'], ['tuz', 6, '1 tatlı kaşığı']],
+    adim: ['Soğan, sarımsak, biber ve iki domatesle koyu bir sos pişirip fırın kabına yayın.', 'Patlıcan, kabak ve kalan domatesi ince halka dilimleyip sosun üzerine sırayla dizin.',
+      'Zeytinyağı, kekik ve tuz serpip üzerini yağlı kâğıtla kapatın; 180 °C fırında 45 dakika pişirin.', 'Fesleğenle servis edin.'],
+  },
+  {
+    id: 'sogan-corbasi', ad: 'Fransız Soğan Çorbası', ulke: 'Fransa', kat: 'corba', emoji: '🧅', sure: 70, porsiyon: 4, wiki: 'Soğan çorbası',
+    malz: [['sogan', 660, '6 adet'], ['tereyagi', 40, '3 yemek kaşığı'], ['un', 15, '1,5 yemek kaşığı'], ['et_suyu', 1200, '6 su bardağı dana suyu'], ['ekmek', 120, '4 dilim baget'],
+      ['kasar', 120, '1 su bardağı (gravyer)'], ['kekik', 1, '1 tutam'], ['tuz', 6, '1 tatlı kaşığı']],
+    adim: ['Soğanları ince piyazlık doğrayıp tereyağında, kısık ateşte karamelize olana kadar 40 dakika pişirin.', 'Unu ekleyip 2 dakika çevirin; et suyu ve kekikle 15 dakika kaynatın.',
+      'Çorbayı fırına dayanıklı kaselere koyup üzerine kızarmış ekmek ve peynir koyun.', 'Izgarada peynir eriyip kızarana kadar pişirin.'],
+  },
+  {
+    id: 'kis', ad: 'Ispanaklı Kiş', ulke: 'Fransa', kat: 'hamur', emoji: '🥧', sure: 70, porsiyon: 8, wiki: 'Kiş',
+    malz: [['un', 250, '2 su bardağı'], ['tereyagi', 125, '125 g (soğuk)'], ['su', 50, '3–4 yemek kaşığı'], ['ispanak', 300, '300 g'], ['yumurta', 150, '3 adet'],
+      ['krema', 200, '1 kutu'], ['sut', 100, '½ su bardağı'], ['kasar', 100, '¾ su bardağı'], ['tuz', 6, '1 tatlı kaşığı'], ['karabiber', 1, '1 tutam']],
+    adim: ['Un, soğuk tereyağı, tuz ve suyla hamur yapıp kalıba yayın; 15 dakika ön pişirin.', 'Ispanağı soteleyip suyunu çektirin.', 'Yumurta, krema, süt ve baharatı çırpın.',
+      'Ispanak ve peyniri tabana yayıp sosu dökün; 180 °C fırında 30 dakika pişirin.'],
+  },
+  {
+    id: 'krep', ad: 'Krep', ulke: 'Fransa', kat: 'tatli', emoji: '🥞', sure: 30, porsiyon: 4, wiki: 'Krep',
+    malz: [['un', 150, '1 su bardağı'], ['sut', 350, '1,75 su bardağı'], ['yumurta', 100, '2 adet'], ['tereyagi', 28, '2 yemek kaşığı'], ['seker', 15, '1 yemek kaşığı'],
+      ['bitter_cikolata', 60, 'servis için (ya da bal/reçel)'], ['tuz', 1, '1 tutam']],
+    adim: ['Un, süt, yumurta, eritilmiş tereyağı, şeker ve tuzu pürüzsüz çırpın; 15 dakika dinlendirin.', 'Yağlanmış tavaya bir kepçe döküp tavayı çevirerek ince yayın.', 'Kenarları kalkınca çevirip öbür yüzünü pişirin.', 'Eritilmiş çikolata, bal ya da reçelle servis edin.'],
+  },
+  {
+    id: 'creme-brulee', ad: 'Krem Brüle', ulke: 'Fransa', kat: 'tatli', emoji: '🍮', sure: 60, porsiyon: 6, wiki: 'Krem brüle',
+    malz: [['krema', 500, '2,5 kutu'], ['yumurta', 120, '6 sarısı'], ['seker', 100, 'krema için ½ su bardağı'], ['vanilin', 1, '1 paket'], ['seker', 40, 'üzeri için']],
+    adim: ['Kremayı vanilinle ısıtın (kaynatmayın).', 'Sarıları şekerle çırpıp sıcak kremayı azar azar ekleyin.', 'Kaplara paylaştırıp su dolu tepside 150 °C fırında 35 dakika pişirin; soğutun.',
+      'Servisten önce üzerine şeker serpip pürmüz ya da ızgarayla karamelize edin.'],
+  },
+  {
+    id: 'hachis-parmentier', ad: 'Hachis Parmentier', ulke: 'Fransa', kat: 'et', emoji: '🥔', sure: 60, porsiyon: 6, wiki: 'Hachis Parmentier',
+    malz: [['dana_kiyma', 500, '500 g'], ['sogan', 110, '1 adet'], ['havuc', 70, '1 adet'], ['domates_salcasi', 17, '1 yemek kaşığı'], ['patates', 1000, '6 adet'],
+      ['sut', 200, '1 su bardağı'], ['tereyagi', 40, '3 yemek kaşığı'], ['kasar', 80, '⅔ su bardağı'], ['tuz', 10, '2 tatlı kaşığı'], ['karabiber', 1, '1 tutam']],
+    adim: ['Kıymayı soğan ve havuçla kavurup salçayı ekleyin.', 'Patatesleri haşlayıp süt ve tereyağıyla püre yapın.', 'Kıymayı fırın kabına yayın, üzerini püreyle kapatıp peynir serpin.', '200 °C fırında 25 dakika pişirin.'],
+  },
+  {
+    id: 'nicoise-salata', ad: 'Niçoise Salata', ulke: 'Fransa', kat: 'garnitur', emoji: '🥗', sure: 25, porsiyon: 4, wiki: 'Niçoise salata',
+    malz: [['ton_baligi', 240, '1,5 kutu'], ['patates', 340, '2 adet (haşlanmış)'], ['taze_fasulye', 200, '200 g (haşlanmış)'], ['yumurta', 100, '2 adet (haşlanmış)'],
+      ['domates', 150, '1 adet'], ['marul', 150, 'birkaç yaprak'], ['zeytin', 50, 'birkaç tane'], ['zeytinyagi', 40, '3 yemek kaşığı'], ['hardal', 10, '1 tatlı kaşığı'], ['sirke', 15, '1 yemek kaşığı'], ['tuz', 2, '1 tutam']],
+    adim: ['Zeytinyağı, hardal, sirke ve tuzla sos çırpın.', 'Marulun üzerine patates, fasulye, domates, yumurta, zeytin ve ton balığını dizin.', 'Sosu gezdirip servis edin.'],
+  },
+  {
+    id: 'profiterol', ad: 'Profiterol', ulke: 'Fransa', kat: 'tatli', emoji: '🍫', sure: 80, porsiyon: 8, wiki: 'Profiterol',
+    malz: [['su', 250, 'hamur için'], ['tereyagi', 100, 'hamur için'], ['un', 150, '1 su bardağı'], ['yumurta', 200, '4 adet'], ['sut', 500, 'krema için'], ['seker', 100, 'krema için'],
+      ['nisasta', 40, 'krema için'], ['vanilin', 1, '1 paket'], ['bitter_cikolata', 150, 'sos için'], ['krema', 100, 'sos için']],
+    adim: ['Su ve tereyağını kaynatıp unu ekleyin; hamur toplanana kadar karıştırın, ılıyınca yumurtaları teker teker ekleyin.', 'Torbayla küçük toplar sıkıp 200 °C fırında 25 dakika pişirin (kapağı açmayın).',
+      'Süt, şeker ve nişastayla krema pişirip vanilin ekleyin; soğuyunca topların içine doldurun.', 'Çikolatayı sıcak kremada eritip üzerine dökün.'],
+  },
+];
+
+export const ISPANYOL = [
+  {
+    id: 'paella', ad: 'Deniz Ürünlü Paella', ulke: 'İspanya', kat: 'deniz', emoji: '🥘', sure: 60, porsiyon: 6, wiki: 'Paella',
+    malz: [['pirinc', 400, '2 su bardağı'], ['karides', 300, '300 g'], ['midye', 200, '200 g'], ['kalamar', 200, '200 g'], ['tavuk_but', 300, '300 g kemiksiz'],
+      ['kapya_biber', 150, '1 adet'], ['bezelye', 100, '½ su bardağı'], ['domates', 150, '1 adet'], ['sogan', 110, '1 adet'], ['sarimsak', 12, '3 diş'], ['safran', 1, '1 tutam'],
+      ['toz_biber', 2, '1 tatlı kaşığı (tatlı)'], ['et_suyu', 1000, '5 su bardağı'], ['zeytinyagi', 50, '4 yemek kaşığı'], ['limon', 80, 'servis için'], ['tuz', 8, '1,5 tatlı kaşığı']],
+    adim: ['Geniş tavada zeytinyağında tavuğu kızartın; soğan, sarımsak ve biberi ekleyin.', 'Rendelenmiş domates, toz biber ve pirinci ekleyip 2 dakika çevirin.',
+      'Safranlı sıcak et suyunu ekleyip karıştırmadan 15 dakika pişirin.', 'Deniz ürünlerini ve bezelyeyi pirincin üzerine bastırın; 10 dakika daha pişirin.', 'Örtüp 5 dakika dinlendirin; limonla servis edin.'],
+  },
+  {
+    id: 'gazpacho', ad: 'Gazpacho', ulke: 'İspanya', kat: 'corba', emoji: '🍅', sure: 15, porsiyon: 4, wiki: 'Gazpacho',
+    not: 'Soğuk servis edilir; buzdolabında en az 2 saat dinlendirin.',
+    malz: [['domates', 900, '6 olgun domates'], ['salatalik', 150, '1 adet'], ['kapya_biber', 75, '½ adet'], ['sogan', 30, '¼ adet'], ['sarimsak', 4, '1 diş'],
+      ['bayat_ekmek', 50, '2 dilim içi'], ['zeytinyagi', 50, '4 yemek kaşığı'], ['sirke', 20, '1,5 yemek kaşığı'], ['tuz', 6, '1 tatlı kaşığı']],
+    adim: ['Bütün sebzeleri iri doğrayıp ıslatılmış ekmekle blenderdan geçirin.', 'Zeytinyağı, sirke ve tuzu ekleyip pürüzsüz olana kadar çekin.', 'Soğutup küp salatalık ve zeytinyağıyla servis edin.'],
+  },
+  {
+    id: 'ispanyol-omleti', ad: 'İspanyol Omleti (Tortilla)', ulke: 'İspanya', kat: 'sebze', emoji: '🍳', sure: 40, porsiyon: 4, wiki: 'İspanyol omleti',
+    malz: [['patates', 500, '3 adet'], ['sogan', 110, '1 adet'], ['yumurta', 300, '6 adet'], ['zeytinyagi', 150, 'kızartmak için', 50], ['tuz', 6, '1 tatlı kaşığı']],
+    adim: ['Patates ve soğanı ince dilimleyip bol zeytinyağında kısık ateşte yumuşayana kadar pişirin; süzün.', 'Çırpılmış yumurta ve tuzla karıştırıp 10 dakika bekletin.',
+      'Az yağlı tavaya döküp kısık ateşte altı pişene kadar pişirin.', 'Tabak yardımıyla ters çevirip öbür yüzünü 3 dakika pişirin; dilimleyerek servis edin.'],
+  },
+  {
+    id: 'churros', ad: 'Churros', ulke: 'İspanya', kat: 'tatli', emoji: '🥖', sure: 30, porsiyon: 6, wiki: 'Churro',
+    malz: [['un', 200, '1,5 su bardağı'], ['su', 250, '1,25 su bardağı'], ['tereyagi', 30, '2 yemek kaşığı'], ['seker', 60, 'bulamak için'], ['tarcin', 2, '1 tatlı kaşığı'],
+      ['sivi_yag', 500, 'kızartmak için', 60], ['bitter_cikolata', 100, 'sos için'], ['sut', 100, 'sos için'], ['tuz', 1, '1 tutam']],
+    adim: ['Su, tereyağı ve tuzu kaynatıp unu ekleyin; pürüzsüz hamur olana kadar karıştırın.', 'Yıldız uçlu torbayla kızgın yağa uzun çubuklar sıkın, kızartın.', 'Tarçınlı şekere bulayın.', 'Sütte eritilmiş çikolatayla servis edin.'],
+  },
+  {
+    id: 'patatas-bravas', ad: 'Patatas Bravas', ulke: 'İspanya', kat: 'meze', emoji: '🥔', sure: 40, porsiyon: 6, wiki: 'Patatas bravas',
+    malz: [['patates', 800, '5 adet'], ['zeytinyagi', 40, '3 yemek kaşığı'], ['domates', 150, 'sos için'], ['domates_salcasi', 17, 'sos için'], ['toz_biber', 3, '1,5 tatlı kaşığı (tütsülü)'],
+      ['pul_biber', 2, '1 tatlı kaşığı'], ['sarimsak', 8, '2 diş'], ['mayonez', 40, 'servis için'], ['tuz', 6, '1 tatlı kaşığı']],
+    adim: ['Patatesleri küp doğrayıp zeytinyağıyla 220 °C fırında 35 dakika çıtır pişirin.', 'Domates, salça, sarımsak ve biberle acılı sos pişirin.', 'Patatesleri sos ve sarımsaklı mayonezle servis edin.'],
+  },
+];
+
+export const YUNAN_BALKAN = [
+  {
+    id: 'yunan-salatasi', ad: 'Yunan Salatası', ulke: 'Yunanistan', kat: 'garnitur', emoji: '🥗', sure: 15, porsiyon: 4, wiki: 'Yunan salatası',
+    malz: [['domates', 450, '3 adet'], ['salatalik', 300, '2 adet'], ['kapya_biber', 75, '½ adet (yeşil)'], ['sogan', 60, '½ adet (mor)'], ['zeytin', 60, 'kalamata zeytini'],
+      ['beyaz_peynir', 150, '150 g (feta)'], ['zeytinyagi', 40, '3 yemek kaşığı'], ['kekik', 1, '1 tutam'], ['sirke', 10, 'birkaç damla']],
+    adim: ['Domates ve salatalığı iri, biber ve soğanı halka doğrayın.', 'Zeytinleri ekleyin; peyniri dilim halinde üzerine koyun.', 'Zeytinyağı, kekik ve sirke gezdirip servis edin.'],
+  },
+  {
+    id: 'spanakopita', ad: 'Spanakopita', ulke: 'Yunanistan', kat: 'hamur', emoji: '🥧', sure: 70, porsiyon: 8, wiki: 'Spanakopita',
+    malz: [['yufka', 500, '3 adet (filo)'], ['ispanak', 600, '600 g'], ['beyaz_peynir', 250, '250 g (feta)'], ['taze_sogan', 60, '4 dal'], ['dereotu', 15, '½ demet'],
+      ['yumurta', 100, '2 adet'], ['zeytinyagi', 80, '6 yemek kaşığı'], ['karabiber', 1, '1 tutam']],
+    adim: ['Ispanağı doğrayıp tuzla ovun, suyunu sıkın; peynir, yeşillikler ve yumurtayla karıştırın.', 'Yufkaları zeytinyağı sürerek kalıba katlayın, içi yayın.', 'Üstü yufkayla kapatıp zeytinyağı sürün ve dilimleyin.', '180 °C fırında 45 dakika pişirin.'],
+  },
+  {
+    id: 'souvlaki', ad: 'Tavuk Souvlaki', ulke: 'Yunanistan', kat: 'tavuk', emoji: '🍢', sure: 40, porsiyon: 4, wiki: 'Suvlaki',
+    malz: [['tavuk_gogus', 700, '700 g'], ['zeytinyagi', 40, '3 yemek kaşığı'], ['limon', 80, '1 adet'], ['sarimsak', 12, '3 diş'], ['kekik', 2, '2 tatlı kaşığı'],
+      ['lavas', 300, 'servis için pide'], ['yogurt', 200, 'sos için'], ['salatalik', 100, 'sos için'], ['tuz', 6, '1 tatlı kaşığı']],
+    adim: ['Tavuğu zeytinyağı, limon, sarımsak ve kekikle 1 saat marine edin.', 'Şişlere dizip ızgarada pişirin.', 'Yoğurtla rendelenmiş salatalığı karıştırıp sos yapın; pide ve sosla servis edin.'],
+  },
+  {
+    id: 'yunan-musakasi', ad: 'Yunan Musakası', ulke: 'Yunanistan', kat: 'et', emoji: '🍆', sure: 100, porsiyon: 6, wiki: 'Musakka',
+    malz: [['patlican', 750, '3 adet'], ['patates', 340, '2 adet'], ['dana_kiyma', 500, '500 g'], ['sogan', 110, '1 adet'], ['domates', 300, '2 adet'], ['tarcin', 1, '1 tutam'],
+      ['sut', 500, 'beşamel için'], ['tereyagi', 40, 'beşamel için'], ['un', 40, 'beşamel için'], ['yumurta', 50, '1 adet'], ['kasar', 60, '½ su bardağı'], ['zeytinyagi', 40, '3 yemek kaşığı'], ['tuz', 10, '2 tatlı kaşığı']],
+    adim: ['Patlıcan ve patatesleri dilimleyip zeytinyağı sürerek fırında yumuşatın.', 'Kıymayı soğan, domates ve tarçınla pişirin.', 'Beşamel yapıp yumurta ve peyniri ekleyin.',
+      'Kaba patates, patlıcan, kıyma katlarını dizip beşamelle kapatın; 180 °C fırında 45 dakika pişirin.'],
+  },
+  {
+    id: 'cevapi', ad: 'Ćevapi (Boşnak Köftesi)', ulke: 'Bosna', kat: 'et', emoji: '🧆', sure: 30, porsiyon: 4, wiki: 'Ćevapi',
+    malz: [['kiyma_karisik', 600, '600 g'], ['sarimsak', 8, '2 diş'], ['kabartma_tozu', 2, '1 çay kaşığı'], ['tuz', 8, '1,5 tatlı kaşığı'], ['karabiber', 1, '1 tutam'],
+      ['lavas', 300, 'somun ekmeği'], ['sogan', 110, '1 adet'], ['kaymak', 60, 'servis için']],
+    adim: ['Kıymayı sarımsak, kabartma tozu ve baharatlarla yoğurup 1 saat dinlendirin.', 'Parmak kalınlığında küçük köfteler yapın.', 'Izgarada pişirip ekmek, doğranmış soğan ve kaymakla servis edin.'],
+  },
+  {
+    id: 'trilece', ad: 'Trileçe', ulke: 'Balkanlar', kat: 'tatli', emoji: '🍰', sure: 60, porsiyon: 10, wiki: 'Trileçe',
+    malz: [['yumurta', 200, '4 adet'], ['seker', 150, '¾ su bardağı'], ['un', 150, '1 su bardağı'], ['kabartma_tozu', 10, '1 paket'], ['sut', 500, 'sütlü karışım için'],
+      ['krema', 200, '1 kutu'], ['seker', 60, 'sütlü karışım için'], ['seker', 80, 'karamel için'], ['krema', 100, 'karamel için']],
+    adim: ['Yumurta ve şekeri köpürtüp un ve kabartma tozunu ekleyin; 180 °C fırında 25 dakika pandispanya pişirin.', 'Süt, krema ve şekeri karıştırıp ılık keke dökün; çekmesini bekleyin.',
+      'Şekeri karamelize edip kremayla sos yapın, tatlının üzerine yayın.', 'Buzdolabında dinlendirip dilimleyin.'],
+  },
+  {
+    id: 'bosnak-boregi', ad: 'Boşnak Böreği', ulke: 'Bosna', kat: 'hamur', emoji: '🥧', sure: 90, porsiyon: 8, wiki: 'Burek',
+    malz: [['un', 500, '4 su bardağı'], ['su', 300, '1,5 su bardağı'], ['tuz', 6, '1 tatlı kaşığı'], ['dana_kiyma', 400, '400 g'], ['sogan', 220, '2 adet'],
+      ['sivi_yag', 80, '½ su bardağı'], ['karabiber', 1, '1 tutam']],
+    adim: ['Un, su ve tuzla yumuşak hamur yoğurup yağlayarak 1 saat dinlendirin.', 'Kıymayı ince doğranmış soğan, tuz ve karabiberle karıştırın.',
+      'Hamuru masada kâğıt inceliğinde çekerek açın; kenarına iç koyup rulo yapın.', 'Ruloyu spiral şeklinde tepsiye sarın, yağ sürüp 200 °C fırında 40 dakika pişirin.'],
+  },
+  {
+    id: 'gyros', ad: 'Tavuk Gyros', ulke: 'Yunanistan', kat: 'tavuk', emoji: '🌯', sure: 40, porsiyon: 4, wiki: 'Gyros',
+    malz: [['tavuk_but', 700, '700 g kemiksiz'], ['yogurt', 100, 'marine için'], ['zeytinyagi', 26, '2 yemek kaşığı'], ['sarimsak', 8, '2 diş'], ['kekik', 1, '1 tatlı kaşığı'],
+      ['toz_biber', 2, '1 tatlı kaşığı'], ['lavas', 300, '4 pide'], ['domates', 150, '1 adet'], ['sogan', 60, '½ adet'], ['patates', 300, 'yanına kızartma', 300],
+      ['sivi_yag', 300, 'kızartmak için', 30], ['tuz', 6, '1 tatlı kaşığı']],
+    adim: ['Tavuğu yoğurt, zeytinyağı ve baharatlarla marine edin.', 'Kızgın tavada ya da ızgarada pişirip ince dilimleyin.', 'Patatesleri kızartın.', 'Pideye tavuk, domates, soğan ve patates koyup sarın.'],
+  },
+];

@@ -198,6 +198,10 @@ export const BESINLER = {
   hardal: B('Hardal', 66, 4.4, 5.8, 4, 'temel'),
   nori: B('Nori (deniz yosunu)', 35, 5.8, 5.1, 0.3, 'temel'),
   koru_ezmesi: B('Köri ezmesi (Tay)', 120, 3, 12, 7, 'temel'),
+  miso: B('Miso ezmesi', 199, 12, 26, 6, 'temel'),
+  pirinc_kagidi: B('Pirinç kâğıdı', 330, 6, 80, 0.3, 'temel'),
+  milfoy: B('Milföy hamuru', 558, 7.4, 46, 38, 'temel'),
+  yulaf: B('Yulaf ezmesi', 389, 17, 66, 7, 'bakliyat'),
 
   // — Baharat (miktarı küçük; besin katkısı ihmal edilir)
   tuz: B('Tuz', 0, 0, 0, 0, 'baharat', true),
