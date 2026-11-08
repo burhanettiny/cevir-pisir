@@ -8,5 +8,6 @@ import { ADIM_6 } from './adimlar/adim-6.js';
 import { ADIM_7 } from './adimlar/adim-7.js';
 import { ADIM_8 } from './adimlar/adim-8.js';
 import { ADIM_9 } from './adimlar/adim-9.js';
+import { ADIM_10 } from './adimlar/adim-10.js';
 
-export const AYRINTILI_ADIMLAR = { ...ADIM_1, ...ADIM_2, ...ADIM_3, ...ADIM_4, ...ADIM_5, ...ADIM_6, ...ADIM_7, ...ADIM_8, ...ADIM_9 };
+export const AYRINTILI_ADIMLAR = { ...ADIM_1, ...ADIM_2, ...ADIM_3, ...ADIM_4, ...ADIM_5, ...ADIM_6, ...ADIM_7, ...ADIM_8, ...ADIM_9, ...ADIM_10 };
