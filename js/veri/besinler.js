@@ -198,6 +198,9 @@ export const BESINLER = {
   koru_ezmesi: B('Köri ezmesi (Tay)', 120, 3, 12, 7, 'temel'),
   miso: B('Miso ezmesi', 199, 12, 26, 6, 'temel'),
   pirinc_kagidi: B('Pirinç kâğıdı', 330, 6, 80, 0.3, 'temel'),
+  nohut_unu: B('Nohut unu', 387, 22, 58, 6.7, 'bakliyat'),
+  kaju: B('Kaju', 553, 18, 30, 44, 'temel'),
+  mango: B('Mango', 60, 0.8, 15, 0.4, 'sebze'),
 
   // — Baharat (miktarı küçük; besin katkısı ihmal edilir)
   tuz: B('Tuz', 0, 0, 0, 0, 'baharat', true),
