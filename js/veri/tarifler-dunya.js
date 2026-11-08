@@ -7,11 +7,12 @@ import { HINT_EK } from './dunya/hint-ek.js';
 import { FRANSIZ_EK, ISPANYOL_EK } from './dunya/fransiz-ispanyol-ek.js';
 import { YUNAN_BALKAN_EK, ORTADOGU_EK } from './dunya/yunan-ortadogu-ek.js';
 import { MEKSIKA_EK, AMERIKAN_EK } from './dunya/amerika-ek.js';
+import { UZAKDOGU_EK } from './dunya/uzakdogu-ek.js';
 
 const etiketle = (mutfak, l) => l.map((t) => ({ mutfak, ...t }));
 
 export const DUNYA_TARIFLERI = [
-  ...etiketle('uzakdogu', UZAKDOGU),
+  ...etiketle('uzakdogu', [...UZAKDOGU, ...UZAKDOGU_EK]),
   ...etiketle('italyan', [...ITALYAN, ...ITALYAN_EK]),
   ...etiketle('fransiz', [...FRANSIZ, ...FRANSIZ_EK]),
   ...etiketle('ispanyol', [...ISPANYOL, ...ISPANYOL_EK]),
