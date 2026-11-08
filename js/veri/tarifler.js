@@ -4,12 +4,16 @@
 // wiki: görsel ve kaynak için Türkçe Vikipedi madde adı.
 import { EK_TARIFLER } from './tarifler-ek.js';
 import { EK_TARIFLER_2 } from './tarifler-ek2.js';
+import { BOLGE_TARIFLERI } from './tarifler-bolge.js';
+import { DUNYA_TARIFLERI } from './tarifler-dunya.js';
 
 export const KATEGORILER = [
   { id: 'corba', ad: 'Çorba', emoji: '🍲', renk: '#e8833a' },
   { id: 'et', ad: 'Et Yemeği', emoji: '🥩', renk: '#b23a3a' },
   { id: 'tavuk', ad: 'Tavuk Yemeği', emoji: '🍗', renk: '#d9a21b' },
+  { id: 'deniz', ad: 'Deniz Ürünleri', emoji: '🐟', renk: '#1f7a8c' },
   { id: 'sebze', ad: 'Sebze Yemeği', emoji: '🥦', renk: '#3f8f4a' },
+  { id: 'hamur', ad: 'Hamur İşleri', emoji: '🥟', renk: '#b5651d' },
   { id: 'garnitur', ad: 'Garnitür', emoji: '🍚', renk: '#8a6d3b' },
   { id: 'meze', ad: 'Meze', emoji: '🫒', renk: '#6b5b95' },
   { id: 'tatli', ad: 'Tatlı', emoji: '🍮', renk: '#c2577a' },
@@ -932,7 +936,49 @@ const ANA_TARIFLER = [
   },
 ];
 
-export const TARIFLER = [...ANA_TARIFLER, ...EK_TARIFLER, ...EK_TARIFLER_2];
+// Mutfaklar (konsept): Türk mutfağı bölgeleri, Osmanlı saray mutfağı ve dünya mutfakları.
+export const MUTFAKLAR = [
+  { id: 'genel', ad: 'Türk ev mutfağı', grup: 'turk' },
+  { id: 'karadeniz', ad: 'Karadeniz', grup: 'turk' },
+  { id: 'ege', ad: 'Ege', grup: 'turk' },
+  { id: 'akdeniz', ad: 'Akdeniz', grup: 'turk' },
+  { id: 'marmara', ad: 'Marmara & İstanbul', grup: 'turk' },
+  { id: 'ic-anadolu', ad: 'İç Anadolu', grup: 'turk' },
+  { id: 'dogu', ad: 'Doğu Anadolu', grup: 'turk' },
+  { id: 'guneydogu', ad: 'Güneydoğu', grup: 'turk' },
+  { id: 'osmanli', ad: 'Osmanlı saray mutfağı', grup: 'osmanli' },
+  { id: 'uzakdogu', ad: 'Uzak Doğu', grup: 'dunya' },
+  { id: 'italyan', ad: 'İtalyan', grup: 'dunya' },
+  { id: 'fransiz', ad: 'Fransız', grup: 'dunya' },
+  { id: 'ispanyol', ad: 'İspanyol', grup: 'dunya' },
+  { id: 'yunan-balkan', ad: 'Yunan & Balkan', grup: 'dunya' },
+  { id: 'ortadogu', ad: 'Orta Doğu', grup: 'dunya' },
+  { id: 'hint', ad: 'Hint', grup: 'dunya' },
+  { id: 'meksika', ad: 'Meksika', grup: 'dunya' },
+  { id: 'amerikan', ad: 'Amerikan & İngiliz', grup: 'dunya' },
+  { id: 'diger-dunya', ad: 'Rus, Macar, Fas ve diğerleri', grup: 'dunya' },
+];
+
+// Mevcut tariflerin bölgeleri (belirtilmeyenler: Türk ev mutfağı)
+const BOLGE = {
+  'izmir-kofte': 'ege', 'zeytinyagli-taze-fasulye': 'ege', 'zeytinyagli-enginar': 'ege', 'zeytinyagli-pirasa': 'ege',
+  'girit-ezmesi': 'ege', 'semizotu-salatasi': 'ege', 'zeytinyagli-kereviz': 'ege', 'kabak-yemegi': 'ege',
+  'haydari': 'marmara', 'fava': 'ege', 'mucver': 'ege', 'yaprak-sarmasi': 'ege', 'zeytinyagli-biber-dolmasi': 'ege',
+  'zeytinyagli-barbunya': 'ege', 'fasulye-pilaki': 'marmara', 'kisir': 'akdeniz', 'piyaz': 'akdeniz', 'acili-ezme': 'akdeniz',
+  'humus': 'akdeniz', 'muhammara': 'akdeniz', 'mercimek-koftesi': 'guneydogu', 'ali-nazik': 'guneydogu', 'ezogelin-corbasi': 'guneydogu',
+  'yayla-corbasi': 'ic-anadolu', 'tarhana-corbasi': 'ic-anadolu', 'dugun-corbasi': 'ic-anadolu', 'etli-kuru-fasulye': 'ic-anadolu',
+  'kuzu-tandir': 'ic-anadolu', 'toyga-corbasi': 'ic-anadolu', 'tepsi-kebabi': 'guneydogu', 'babagannus': 'guneydogu',
+  'hunkar-begendi': 'osmanli', 'cerkez-tavugu': 'marmara', 'kadinbudu-kofte': 'osmanli', 'imam-bayildi': 'osmanli',
+  'firin-sutlac': 'marmara', 'kazandibi': 'osmanli', 'keskul': 'osmanli', 'gullac': 'osmanli', 'ayva-tatlisi': 'marmara',
+  'kabak-tatlisi': 'marmara', 'tas-kebabi': 'osmanli', 'hasanpasa-kofte': 'osmanli', 'sekerpare': 'osmanli', 'revani': 'osmanli',
+  'tel-kadayif': 'guneydogu', 'irmik-helvasi': 'genel', 'lokma': 'ege', 'atom': 'ege', 'kopoglu': 'ege', 'karniyarik': 'genel',
+  'musakka': 'genel', 'saksuka': 'ege', 'cacik': 'genel', 'havuc-tarator': 'ege', 'patlican-salatasi': 'ege',
+  'eksili-kofte': 'marmara', 'orman-kebabi': 'genel', 'tavuk-sis': 'guneydogu', 'gavurdagi-salatasi': 'guneydogu',
+  'etli-nohut': 'ic-anadolu', 'kori-soslu-tavuk': 'hint', 'tavuk-sinitzel': 'diger-dunya', 'domatesli-makarna': 'italyan',
+};
+
+export const TARIFLER = [...ANA_TARIFLER, ...EK_TARIFLER, ...EK_TARIFLER_2, ...BOLGE_TARIFLERI, ...DUNYA_TARIFLERI]
+  .map((t) => ({ ...t, mutfak: t.mutfak ?? BOLGE[t.id] ?? 'genel' }));
 
 // Sofra menüleri: her satır bir yemek yuvası; uygun kategorilerden rastgele seçilir.
 export const SOFRALAR = [
@@ -941,7 +987,7 @@ export const SOFRALAR = [
     aciklama: 'Misafir için eksiksiz bir sofra: çorbadan tatlıya.',
     yuvalar: [
       { ad: 'Çorba', kat: ['corba'] },
-      { ad: 'Ana yemek', kat: ['et', 'tavuk'] },
+      { ad: 'Ana yemek', kat: ['et', 'tavuk', 'deniz'] },
       { ad: 'Zeytinyağlı / sebze', kat: ['sebze'] },
       { ad: 'Garnitür', kat: ['garnitur'] },
       { ad: 'Meze', kat: ['meze'] },
@@ -955,7 +1001,7 @@ export const SOFRALAR = [
     ek: 'Geleneksel olarak oruç hurma ya da suyla açılır; sofraya pide, zeytin ve peynir eklenir.',
     yuvalar: [
       { ad: 'Çorba', kat: ['corba'] },
-      { ad: 'Ana yemek', kat: ['et', 'tavuk'] },
+      { ad: 'Ana yemek', kat: ['et', 'tavuk', 'deniz'] },
       { ad: 'Pilav / garnitür', kat: ['garnitur'] },
       { ad: 'Meze', kat: ['meze'] },
       { ad: 'Tatlı', kat: ['tatli'] },
@@ -966,7 +1012,7 @@ export const SOFRALAR = [
     aciklama: 'Pratik üçlü: çorba, ana yemek ve yanına bir garnitür.',
     yuvalar: [
       { ad: 'Çorba', kat: ['corba'] },
-      { ad: 'Ana yemek', kat: ['et', 'tavuk', 'sebze'] },
+      { ad: 'Ana yemek', kat: ['et', 'tavuk', 'deniz', 'sebze', 'hamur'] },
       { ad: 'Garnitür', kat: ['garnitur'] },
     ],
   },

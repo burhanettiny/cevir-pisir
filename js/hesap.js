@@ -1,8 +1,8 @@
 // Saf hesaplama işlevleri (DOM'a bağlı değil; test edilir).
 import { BESINLER, REYONLAR } from './veri/besinler.js';
-import { TARIFLER, KATEGORILER, SOFRALAR } from './veri/tarifler.js';
+import { TARIFLER, KATEGORILER, SOFRALAR, MUTFAKLAR } from './veri/tarifler.js';
 
-export { BESINLER, REYONLAR, TARIFLER, KATEGORILER, SOFRALAR };
+export { BESINLER, REYONLAR, TARIFLER, KATEGORILER, SOFRALAR, MUTFAKLAR };
 
 export const tarifBul = (id) => TARIFLER.find((t) => t.id === id);
 export const kategoriBul = (id) => KATEGORILER.find((k) => k.id === id);
