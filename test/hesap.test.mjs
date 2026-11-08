@@ -230,3 +230,14 @@ test('konsept: bölge ve grup süzmesi, sofrada konsepte uygun yemekler', async 
     assert.ok(uygun >= 4, `İtalyan davet menüsünde ${uygun} İtalyan yemeği`);
   }
 });
+
+test('ayrıntılı adımlar: her kimlik bir tarife ait, adımlar dolu ve kısa adımdan uzun', async () => {
+  const { AYRINTILI_ADIMLAR } = await import('../js/veri/adimlar.js');
+  const ids = new Set(TARIFLER.map((t) => t.id));
+  for (const [id, adim] of Object.entries(AYRINTILI_ADIMLAR)) {
+    assert.ok(ids.has(id), 'tarifi olmayan adım: ' + id);
+    assert.ok(Array.isArray(adim) && adim.length >= 4, 'az adım: ' + id);
+    assert.ok(adim.every((a) => typeof a === 'string' && a.length > 15), 'boş/kısa adım: ' + id);
+    assert.deepEqual(TARIFLER.find((t) => t.id === id).adim, adim, 'uygulanmamış: ' + id);
+  }
+});

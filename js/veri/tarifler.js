@@ -6,6 +6,7 @@ import { EK_TARIFLER } from './tarifler-ek.js';
 import { EK_TARIFLER_2 } from './tarifler-ek2.js';
 import { BOLGE_TARIFLERI } from './tarifler-bolge.js';
 import { DUNYA_TARIFLERI } from './tarifler-dunya.js';
+import { AYRINTILI_ADIMLAR } from './adimlar.js';
 
 export const KATEGORILER = [
   { id: 'corba', ad: 'Çorba', emoji: '🍲', renk: '#e8833a' },
@@ -978,7 +979,7 @@ const BOLGE = {
 };
 
 export const TARIFLER = [...ANA_TARIFLER, ...EK_TARIFLER, ...EK_TARIFLER_2, ...BOLGE_TARIFLERI, ...DUNYA_TARIFLERI]
-  .map((t) => ({ ...t, mutfak: t.mutfak ?? BOLGE[t.id] ?? 'genel' }));
+  .map((t) => ({ ...t, mutfak: t.mutfak ?? BOLGE[t.id] ?? 'genel', adim: AYRINTILI_ADIMLAR[t.id] ?? t.adim }));
 
 // Sofra menüleri: her satır bir yemek yuvası; uygun kategorilerden rastgele seçilir.
 export const SOFRALAR = [
