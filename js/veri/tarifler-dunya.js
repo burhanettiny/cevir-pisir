@@ -8,6 +8,7 @@ import { FRANSIZ_EK, ISPANYOL_EK } from './dunya/fransiz-ispanyol-ek.js';
 import { YUNAN_BALKAN_EK, ORTADOGU_EK } from './dunya/yunan-ortadogu-ek.js';
 import { MEKSIKA_EK, AMERIKAN_EK } from './dunya/amerika-ek.js';
 import { UZAKDOGU_EK } from './dunya/uzakdogu-ek.js';
+import { DIGER_DUNYA_EK } from './dunya/diger-ek.js';
 
 const etiketle = (mutfak, l) => l.map((t) => ({ mutfak, ...t }));
 
@@ -21,5 +22,5 @@ export const DUNYA_TARIFLERI = [
   ...etiketle('hint', [...HINT, ...HINT_EK]),
   ...etiketle('meksika', [...MEKSIKA, ...MEKSIKA_EK]),
   ...etiketle('amerikan', [...AMERIKAN, ...AMERIKAN_EK]),
-  ...etiketle('diger-dunya', DIGER_DUNYA),
+  ...etiketle('diger-dunya', [...DIGER_DUNYA, ...DIGER_DUNYA_EK]),
 ];
