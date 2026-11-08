@@ -4,9 +4,10 @@ import {
   alisverisListesi, rastgeleSec, sofraOlustur, yuvaYenile, menuToplami, aramaAdi,
   youtubeUrl, vikipediUrl, aramaUrl, listeMetni, hazimOnerisi,
   diyabetDurumu, menuAnalizi, diyabetAlternatifi, SIPARIS_ONERILERI, SIPARIS_SITELERI,
-  tarifEslesmesi, elimdekilerle, dolapMalzemeleri, MUTFAKLAR, konseptTarifleri, konseptAdi, mutfakAdi,
+  tarifEslesmesi, elimdekilerle, dolapMalzemeleri, MUTFAKLAR, konseptTarifleri, konseptAdi, mutfakAdi, konseptListesi,
 } from './hesap.js';
 import { GORSELLER } from './veri/gorseller.js';
+import { HAZIRLIK, firinNotu } from './veri/hazirlik.js';
 import { ikon } from './ikonlar.js';
 
 // ───────── Kalıcı durum (yalnızca bu cihazda) ─────────
@@ -20,12 +21,14 @@ const D = {
   fav: oku('cp_fav', []),
   kisi: oku('cp_kisi', {}),
   sofra: oku('cp_sofra', {}),             // sofraId → { menu, kisi, diyabet, evde, konsept }
-  konsept: oku('cp_konsept', 'hepsi'),    // seçili mutfak konsepti
+  konsept: konseptListesi(oku('cp_konsept', [])), // seçili mutfaklar (boş = tüm mutfaklar; birden çok seçilebilir)
+  carkModu: oku('cp_cark_modu', 'tek'),   // Şansıma çarkı: 'tek' yemek ya da 'menu'
 };
 const kaydet = () => {
   yaz('cp_liste', D.liste); yaz('cp_evde', [...D.evde]); yaz('cp_alindi', [...D.alindi]);
-  yaz('cp_fav', D.fav); yaz('cp_kisi', D.kisi); yaz('cp_sofra', D.sofra); yaz('cp_konsept', D.konsept);
+  yaz('cp_fav', D.fav); yaz('cp_kisi', D.kisi); yaz('cp_sofra', D.sofra); yaz('cp_konsept', D.konsept); yaz('cp_cark_modu', D.carkModu);
 };
+const ayniKonsept = (a, b) => konseptListesi(a).slice().sort().join() === konseptListesi(b).slice().sort().join();
 
 // ───────── Yardımcılar ─────────
 const $ = (s, el = document) => el.querySelector(s);
@@ -133,6 +136,7 @@ const kucukSayi = (n) => n.toLocaleString('tr-TR');
 const rotalar = [
   [/^#?\/?$/, anaEkran, 'ana'],
   [/^#\/cevir\/([\w-]+)$/, cevirEkrani, 'ana'],
+  [/^#\/menu-cevir$/, menuCevirEkrani, 'ana'],
   [/^#\/tarif\/([\w-]+)$/, tarifEkrani, null],
   [/^#\/dolabim$/, dolabimEkrani, 'dolabim'],
   [/^#\/elimdekiler$/, elimdekilerEkrani, 'dolabim'],
@@ -196,7 +200,10 @@ function anaEkran() {
       <p class="ust-yazi">${selam()}</p>
       <h2>Bugün ne yiyoruz?</h2>
       <p>Bir kategori seç, çark dönsün, ekrana dokun. Tarif, kalori ve alışveriş listesi hazır.</p>
-      <a class="dugme ana buyuk" href="#/cevir/hepsi">${ikon('dices', 22)} Şansıma çevir</a>
+      <div class="kahraman-dugmeler">
+        <a class="dugme ana buyuk" href="#/cevir/hepsi" data-mod="tek">${ikon('dices', 22)} Tek yemek çevir</a>
+        <a class="dugme ikincil buyuk" href="#/menu-cevir" data-mod="menu">${ikon('utensils', 22)} Menü çevir</a>
+      </div>
     </section>
     ${konseptDugmesi()}
 
@@ -223,6 +230,7 @@ function anaEkran() {
     <section class="sofra-kartlar">${SOFRALAR.map(sofraKarti).join('')}</section>
     <p class="dipnot"><a href="#/hakkinda">${ikon('info', 16)} Kaynaklar ve hesaplama yöntemi</a></p>`;
   $('#konseptSec').onclick = () => konseptCekmecesi(anaEkran);
+  ekran.querySelectorAll('[data-mod]').forEach((a) => (a.onclick = () => { D.carkModu = a.dataset.mod; kaydet(); }));
 }
 function selam() {
   const s = new Date().getHours();
@@ -244,10 +252,11 @@ function cevirEkrani(katId) {
   let yemekListesi = katId === 'hepsi' ? konseptTarifleri(D.konsept) : konseptTarifleri(D.konsept, katId);
   if (!yemekListesi.length) yemekListesi = katId === 'hepsi' ? TARIFLER : kategoriTarifleri(katId);
   const liste = [...yemekListesi, JOKER];
-  baslik(D.konsept === 'hepsi' ? kat.ad : `${kat.ad} · ${konseptAdi(D.konsept)}`);
+  baslik(!D.konsept.length ? kat.ad : `${kat.ad} · ${konseptAdi(D.konsept)}`);
 
   ekran.innerHTML = `
     <section class="cark" style="--renk:${kat.renk}">
+      ${katId === 'hepsi' ? modSecici('tek') : ''}
       <div class="makara" id="makara">
         <div class="makara-pencere">
           ${[0, 1, 2, 3, 4].map((k) => `<div class="satir ${k === 2 ? 'orta' : ''}" id="s${k}"></div>`).join('')}
@@ -354,11 +363,224 @@ function cevirEkrani(katId) {
     $('#tekrar').onclick = (e) => { e.stopPropagation(); baslat(); };
   };
 
+  ekran.querySelectorAll('[data-mod]').forEach((a) => (a.onclick = () => { D.carkModu = a.dataset.mod; kaydet(); }));
   ciz(); baslat();
   const dokun = (e) => { if (!e.target.closest('a, button') && durum === 'donuyor') durdur(); };
   ekran.addEventListener('click', dokun);
   temizle = () => { clearInterval(zaman); clearTimeout(zaman); ekran.removeEventListener('click', dokun); };
 }
+
+// ───────── Çark modu: tek yemek / menü ─────────
+function modSecici(aktif) {
+  return `<div class="mod-secici" role="tablist">
+    <a href="#/cevir/hepsi" class="${aktif === 'tek' ? 'secili' : ''}" data-mod="tek" role="tab">${ikon('dices', 17)} Tek yemek</a>
+    <a href="#/menu-cevir" class="${aktif === 'menu' ? 'secili' : ''}" data-mod="menu" role="tab">${ikon('utensils', 17)} Menü</a>
+  </div>`;
+}
+// Çarkın menüsü: çorba, ana yemek, yanında (garnitür/meze) ve tatlı; besin dengesine göre kurulur.
+const CARK_MENU = {
+  id: 'cark-menu', ad: 'Çarkın menüsü',
+  yuvalar: [
+    { ad: 'Çorba', kat: ['corba'] },
+    { ad: 'Ana yemek', kat: ['et', 'tavuk', 'deniz', 'sebze', 'hamur'] },
+    { ad: 'Yanında', kat: ['garnitur', 'meze'] },
+    { ad: 'Tatlı', kat: ['tatli'] },
+  ],
+};
+function menuCevirEkrani() {
+  baslik(D.konsept.length ? `Menü · ${konseptAdi(D.konsept)}` : 'Menü çevir');
+  const sec = () => ({ konsept: D.konsept, kcalUst: 1100 });
+  const havuz = CARK_MENU.yuvalar.map((y) => {
+    const l = TARIFLER.filter((t) => y.kat.includes(t.kat));
+    const k = l.filter((t) => konseptTarifleri(D.konsept).includes(t));
+    return k.length >= 3 ? k : l;
+  });
+  ekran.innerHTML = `
+    <section class="cark menu-cark">
+      ${modSecici('menu')}
+      <div class="makaralar" id="makaralar">
+        ${CARK_MENU.yuvalar.map((y, i) => `<div class="mini-makara" id="m${i}" style="--renk:${kategoriBul(havuz[i][0].kat).renk}">
+          <small>${y.ad}</small><b id="mt${i}"></b></div>`).join('')}
+      </div>
+      <p class="ipucu" id="ipucu">Durdurmak için ekrana dokun</p>
+      <div id="sonuc" class="sonuc" aria-live="polite"></div>
+    </section>`;
+  ekran.querySelectorAll('[data-mod]').forEach((a) => (a.onclick = () => { D.carkModu = a.dataset.mod; kaydet(); }));
+
+  let durum = 'donuyor', menu = null;
+  const sayac = CARK_MENU.yuvalar.map(() => 0);
+  const donus = [];          // makara döndürme aralıkları (setInterval)
+  const zamanlar = new Set(); // durma ve yavaşlama gecikmeleri (setTimeout)
+  const sonla = () => { donus.forEach(clearInterval); zamanlar.forEach(clearTimeout); zamanlar.clear(); };
+  const gecikmeli = (fn, ms) => { const z = setTimeout(() => { zamanlar.delete(z); fn(); }, ms); zamanlar.add(z); };
+  const yaz = (i, t) => { const el = $(`#mt${i}`); if (el) el.textContent = t.ad; };
+  const dondur = (i) => { sayac[i] = (sayac[i] + 1) % havuz[i].length; yaz(i, havuz[i][sayac[i]]); };
+  const baslat = () => {
+    durum = 'donuyor'; menu = null;
+    $('#sonuc').innerHTML = ''; $('#ipucu').hidden = false;
+    sonla();
+    CARK_MENU.yuvalar.forEach((_, i) => {
+      sayac[i] = Math.floor(Math.random() * havuz[i].length);
+      $(`#m${i}`).classList.add('donuyor');
+      donus[i] = setInterval(() => dondur(i), 65 + i * 7);
+    });
+  };
+  // Makara i, hedef yemeğe yavaşlayarak durur; hepsi durunca sonuç gösterilir.
+  const durdurMakara = (i, hedef, bitince) => {
+    clearInterval(donus[i]);
+    let kalan = 9, gecikme = 70;
+    const l = havuz[i].includes(hedef) ? havuz[i] : [...havuz[i], hedef];
+    let j = ((l.indexOf(hedef) - kalan) % l.length + l.length) % l.length;
+    const adim = () => {
+      j = (j + 1) % l.length; yaz(i, l[j]); titret(4);
+      if (--kalan <= 0) { $(`#m${i}`).classList.remove('donuyor'); $(`#m${i}`).classList.add('durdu'); return bitince(); }
+      gecikme *= 1.2; gecikmeli(adim, gecikme);
+    };
+    adim();
+  };
+  const durdur = () => {
+    if (durum !== 'donuyor') return;
+    durum = 'duruyor';
+    menu = sofraOlustur(CARK_MENU, sec());
+    let biten = 0;
+    menu.forEach((id, i) => {
+      gecikmeli(() => durdurMakara(i, tarifBul(id), () => { if (++biten === menu.length) bitti(); }), i * 380);
+    });
+  };
+  const bitti = () => {
+    durum = 'durdu'; titret([30, 40, 60]); $('#ipucu').hidden = true;
+    CARK_MENU.yuvalar.forEach((_, i) => $(`#m${i}`).classList.remove('durdu'));
+    sonucCiz();
+  };
+  const sonucCiz = () => {
+    const a = menuAnalizi(menu, sec());
+    const top = a.toplam;
+    menu.forEach((id, i) => yaz(i, tarifBul(id)));
+    $('#sonuc').innerHTML = `
+      <div class="kart menu-sonuc">
+        <div class="menu-ozet">
+          <span class="cip">${ikon('flame', 15)} ${Math.round(top.kcal)} kcal/kişi</span>
+          <span class="cip">P %${a.oran.p} · K %${a.oran.k} · Y %${a.oran.y}</span>
+          <span class="cip">${ikon('sparkles', 15)} Denge ${a.puan}/100</span>
+        </div>
+        ${menu.map((id, i) => { const t = tarifBul(id); return `
+          <div class="menu-satir">
+            <a href="#/tarif/${t.id}">${gorselHtml(t, 'mini')}<span><small class="yuva-ad">${CARK_MENU.yuvalar[i].ad}</small><br>${esc(t.ad)}</span></a>
+            <span class="kucuk">${besinDegeri(t).kcal} kcal</span>
+            <button class="yenile" data-yenile="${i}" aria-label="${CARK_MENU.yuvalar[i].ad} değiştir">${ikon('rotate-cw', 18)}</button>
+          </div>`; }).join('')}
+      </div>
+      <div class="dugme-satir">
+        <button class="dugme ikincil" id="tekrar">${ikon('rotate-cw', 18)} Tekrar çevir</button>
+        <button class="dugme ana" id="listeEkle">${ikon('shopping-cart', 18)} Listeye ekle</button>
+      </div>
+      <button class="dugme duz tam" id="sonucPaylas">${ikon('share-2', 18)} Menüyü paylaş</button>`;
+    $('#sonuc').querySelectorAll('[data-yenile]').forEach((b) => (b.onclick = (e) => {
+      e.stopPropagation(); titret();
+      menu = yuvaYenile(CARK_MENU, menu, +b.dataset.yenile, sec()); sonucCiz();
+    }));
+    $('#tekrar').onclick = (e) => { e.stopPropagation(); baslat(); };
+    $('#listeEkle').onclick = (e) => {
+      e.stopPropagation();
+      for (const id of menu) {
+        const t = tarifBul(id); const kisi = D.kisi[id] ?? t.porsiyon;
+        const v = D.liste.find((x) => x.tarifId === id);
+        if (v) v.kisi = kisi; else D.liste.push({ tarifId: id, kisi });
+      }
+      kaydet(); listeSayisi(); titret(); bildir('Menünün malzemeleri alışveriş listesine eklendi');
+    };
+    $('#sonucPaylas').onclick = (e) => {
+      e.stopPropagation();
+      const satirlar = menu.map((id, i) => `• ${CARK_MENU.yuvalar[i].ad}: ${tarifBul(id).ad}`).join('\n');
+      paylas('Çarkın menüsü', `Çevir Pişir çarkı bugünkü menüyü kurdu! 🎡\n${satirlar}\n(~${Math.round(a.toplam.kcal)} kcal/kişi)\n\nSen de çevir: ${MAGAZA}`);
+    };
+  };
+
+  baslat();
+  const dokun = (e) => { if (!e.target.closest('a, button') && durum === 'donuyor') durdur(); };
+  ekran.addEventListener('click', dokun);
+  temizle = () => { sonla(); ekran.removeEventListener('click', dokun); };
+}
+
+// ───────── Hazırlık ve adım sayaçları ─────────
+/** Tarifin malzemelerinden "başlamadan önce" listesi (önceden yapılacaklar en üstte). */
+function hazirlikHtml(t) {
+  const anahtarlar = [...new Set(t.malz.map((m) => m[0]))];
+  const l = anahtarlar.map((k) => HAZIRLIK[k]).filter((x) => x && (!x.kat || x.kat.includes(t.kat)));
+  const once = l.filter((x) => x.once).map((x) => x.metin);
+  const diger = l.filter((x) => !x.once).map((x) => x.metin);
+  const firin = firinNotu(t);
+  if (firin) diger.push(firin);
+  if (!once.length && !diger.length) return '';
+  const li = (m, sinif = '') => `<li class="${sinif}"><span class="kutucuk">${ikon('check', 14)}</span><span>${esc(m)}</span></li>`;
+  return `<section class="kart">
+    <div class="kart-baslik"><h3>Başlamadan önce</h3><span class="kucuk">${once.length + diger.length} hazırlık</span></div>
+    <ul class="hazirlik" id="hazirlik">
+      ${once.map((m) => li(m, 'once')).join('')}
+      ${diger.map((m) => li(m)).join('')}
+    </ul>
+    ${once.length ? `<p class="kucuk">${ikon('clock', 14)} Turuncu işaretliler önceden (çoğu bir gece önce) yapılmalı.</p>` : ''}
+  </section>`;
+}
+/** Adım metnindeki süreleri ("25–30 dakika", "1 saat") dokunulabilir sayaç düğmesine çevirir. */
+function sureliMetin(a) {
+  return esc(a).replace(/(\d+(?:,\d+)?)(?:\s*[–-]\s*(\d+(?:,\d+)?))?\s*(dakika|dk\b|saat)/g, (tam, x, y, birim) => {
+    const sayi = parseFloat(x.replace(',', '.'));
+    const dk = birim === 'saat' ? sayi * 60 : sayi;
+    if (!dk || dk > 600) return tam;
+    return `<button class="sure-dugme" data-sn="${Math.round(dk * 60)}" data-ad="${tam}">${ikon('clock', 14)}${tam}</button>`;
+  });
+}
+const SAYACLAR = [];
+function sayacBaslat(sn, ad) {
+  SAYACLAR.push({ id: Date.now() + Math.random(), ad, bitis: Date.now() + sn * 1000 });
+  titret(); bildir(`Sayaç başladı: ${Math.round(sn / 60)} dakika`);
+  sayacCiz();
+}
+function sayacCiz() {
+  let k = $('#sayaclar');
+  if (!k) {
+    k = document.createElement('div'); k.id = 'sayaclar'; k.className = 'sayaclar'; document.body.append(k);
+    k.onclick = (e) => {
+      const b = e.target.closest('[data-sil]'); if (!b) return;
+      const i = SAYACLAR.findIndex((x) => String(x.id) === b.dataset.sil); if (i >= 0) SAYACLAR.splice(i, 1); sayacCiz();
+    };
+  }
+  k.hidden = !SAYACLAR.length;
+  // Sayaç çubuğu varken sayfanın altı çubuğun altında kalmasın.
+  document.body.style.setProperty('--sayac-boslugu', `${SAYACLAR.length * 52}px`);
+  document.body.classList.toggle('sayac-var', SAYACLAR.length > 0);
+  k.innerHTML = SAYACLAR.map((x) => `<div class="sayac-satir" data-id="${x.id}">${ikon('clock', 16)}<span class="sayac-ad">${esc(x.ad)}</span>
+      <b></b><button data-sil="${x.id}" aria-label="Sayacı kapat">${ikon('x', 16)}</button></div>`).join('');
+  sayacGuncelle();
+}
+/** Yalnızca kalan süre yazılarını günceller (düğmeler yerinde kalır, dokunmak kolay olur). */
+function sayacGuncelle() {
+  const simdi = Date.now();
+  for (const x of SAYACLAR) {
+    const el = document.querySelector(`.sayac-satir[data-id="${x.id}"]`); if (!el) continue;
+    const kalan = Math.max(0, Math.round((x.bitis - simdi) / 1000));
+    el.querySelector('b').textContent = kalan ? `${Math.floor(kalan / 60)}:${String(kalan % 60).padStart(2, '0')}` : 'Süre doldu!';
+    el.classList.toggle('bitti', !kalan);
+  }
+}
+function sesCal() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    [0, 0.35, 0.7].forEach((t) => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.frequency.value = 880; o.connect(g); g.connect(ctx.destination);
+      g.gain.setValueAtTime(0.25, ctx.currentTime + t); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + 0.3);
+      o.start(ctx.currentTime + t); o.stop(ctx.currentTime + t + 0.3);
+    });
+  } catch { /* ses yok */ }
+}
+// Bitiş zamanına göre hesaplandığı için uygulama arka plana gidip dönse de doğru gösterir.
+setInterval(() => {
+  if (!SAYACLAR.length) return;
+  for (const x of SAYACLAR) if (!x.calindi && x.bitis <= Date.now()) { x.calindi = true; titret([300, 150, 300, 150, 300]); sesCal(); bildir(`Süre doldu: ${x.ad}`); }
+  sayacGuncelle();
+}, 1000);
 
 // ───────── Tarif ─────────
 function tarifEkrani(id) {
@@ -416,9 +638,12 @@ function tarifEkrani(id) {
 
       ${t.not ? `<p class="not">${ikon('info', 18)}<span>${esc(t.not)}</span></p>` : ''}
 
+      ${hazirlikHtml(t)}
+
       <section class="kart">
-        <h3>Hazırlanışı</h3>
-        <ol class="adimlar">${t.adim.map((a) => `<li>${esc(a)}</li>`).join('')}</ol>
+        <div class="kart-baslik"><h3>Hazırlanışı</h3><span class="kucuk">${t.adim.length} adım · ${t.sure} dk</span></div>
+        <p class="kucuk">Bitirdiğin adıma dokun, işaretlensin. Süreye dokununca sayaç başlar.</p>
+        <ol class="adimlar" id="adimlar">${t.adim.map((a, i) => `<li data-adim="${i}">${sureliMetin(a)}</li>`).join('')}</ol>
       </section>
 
       <section class="kart">
@@ -448,6 +673,9 @@ function tarifEkrani(id) {
     bildir(fav() ? 'Favorilere eklendi' : 'Favorilerden çıkarıldı');
   };
   $('#siparis').onclick = () => marketAc('yemeksepeti', t.ad);
+  ekran.querySelectorAll('[data-sn]').forEach((b) => (b.onclick = (e) => { e.stopPropagation(); sayacBaslat(+b.dataset.sn, `${t.ad}: ${b.dataset.ad}`); }));
+  $('#adimlar').onclick = (e) => { const li = e.target.closest('li'); if (li && !e.target.closest('.sure-dugme')) { li.classList.toggle('bitti'); titret(); } };
+  $('#hazirlik')?.addEventListener('click', (e) => { const li = e.target.closest('li'); if (li) { li.classList.toggle('bitti'); titret(); } });
 
   const ciz = () => {
     $('#kisi').textContent = `${kisi} kişi`;
@@ -546,27 +774,51 @@ function kapatCekmece() {
 }
 $('#perde').onclick = kapatCekmece;
 
-// ───────── Konsept (mutfak) seçici ─────────
+// ───────── Konsept (mutfak) seçici: birden çok mutfak seçilebilir ─────────
 function konseptCekmecesi(sonra) {
-  const say = (k) => konseptTarifleri(k).length;
-  const hap = (k, ad) => `<button class="hap ${D.konsept === k ? 'secili' : ''}" data-konsept="${k}">${D.konsept === k ? ikon('check', 14) : ''}${esc(ad)} <small>${say(k)}</small></button>`;
+  let secim = [...D.konsept];
   const grup = (g) => MUTFAKLAR.filter((m) => m.grup === g);
+  const hap = (k, ad) => `<button class="hap" data-konsept="${k}">${esc(ad)} <small>${konseptTarifleri(k).length}</small></button>`;
   acCekmece(`
     <h3>Mutfak seç</h3>
-    <p class="kucuk">Çark, kategoriler, sofralar ve "Elimdekilerle" seçtiğin mutfağa göre çalışır.</p>
+    <p class="kucuk">Birden çok mutfak seçebilirsin. Çark, kategoriler, sofralar ve "Elimdekilerle" seçtiklerine göre çalışır.</p>
     <div class="hap-liste konsept-liste">${hap('hepsi', 'Tüm mutfaklar')}</div>
     <h4 class="cekmece-ara">Türk mutfağı</h4>
     <div class="hap-liste konsept-liste">${hap('turk', 'Bütün Türk mutfağı')}${grup('turk').map((m) => hap(m.id, m.ad)).join('')}${grup('osmanli').map((m) => hap(m.id, m.ad)).join('')}</div>
     <h4 class="cekmece-ara">Dünya mutfakları</h4>
     <div class="hap-liste konsept-liste">${hap('dunya', 'Bütün dünya mutfakları')}${grup('dunya').map((m) => hap(m.id, m.ad)).join('')}</div>
-    <button class="dugme duz tam" id="cKapat">Kapat</button>`);
+    <div class="cekmece-alt"><button class="dugme ana tam" id="cUygula"></button></div>`);
   const c = $('#cekmece');
+  const ciz = () => {
+    c.querySelectorAll('[data-konsept]').forEach((b) => {
+      const k = b.dataset.konsept;
+      const on = k === 'hepsi' ? !secim.length : secim.includes(k);
+      b.classList.toggle('secili', on);
+      b.querySelector('.ikon')?.remove();
+      if (on) b.insertAdjacentHTML('afterbegin', ikon('check', 14));
+    });
+    const n = konseptTarifleri(secim).length;
+    $('#cUygula').innerHTML = `${ikon('check', 18)} Uygula · ${konseptAdi(secim)} (${n} tarif)`;
+  };
   c.querySelectorAll('[data-konsept]').forEach((b) => (b.onclick = () => {
-    D.konsept = b.dataset.konsept; kaydet(); kapatCekmece(); titret();
+    const k = b.dataset.konsept;
+    if (k === 'hepsi') secim = [];
+    else if (secim.includes(k)) secim = secim.filter((x) => x !== k);
+    else {
+      secim.push(k);
+      // "Bütün Türk / dünya" seçilince o gruptaki tek tek seçimler gereksizleşir (ve tersi).
+      const grupOf = (x) => (x === 'turk' || x === 'dunya' ? x : (MUTFAKLAR.find((m) => m.id === x)?.grup === 'dunya' ? 'dunya' : 'turk'));
+      if (k === 'turk' || k === 'dunya') secim = secim.filter((x) => x === k || grupOf(x) !== k);
+      else secim = secim.filter((x) => x !== grupOf(k));
+    }
+    titret(); ciz();
+  }));
+  $('#cUygula').onclick = () => {
+    D.konsept = secim; kaydet(); kapatCekmece();
     bildir(`Mutfak: ${konseptAdi(D.konsept)}`);
     sonra?.();
-  }));
-  $('#cKapat').onclick = kapatCekmece;
+  };
+  ciz();
 }
 const konseptDugmesi = () => `<button class="konsept-kart" id="konseptSec">
     <span class="yuvarlak-ikon">${ikon('utensils', 20)}</span>
@@ -703,7 +955,7 @@ function sofraEkrani(id) {
   kayit.evde ??= false;
   const sec = () => ({ diyabet: kayit.diyabet, konsept: D.konsept, ...(kayit.evde ? { evde: [...D.evde] } : {}) });
   // Mutfak konsepti değiştiyse menü yeni konsepte göre yeniden kurulur.
-  if (kayit.menu && kayit.konsept !== D.konsept) kayit.menu = null;
+  if (kayit.menu && !ayniKonsept(kayit.konsept, D.konsept)) kayit.menu = null;
   kayit.konsept = D.konsept;
   if (!kayit.menu || kayit.menu.length !== s.yuvalar.length || kayit.menu.some((x) => !tarifBul(x))) kayit.menu = sofraOlustur(s, sec());
   D.sofra[s.id] = kayit; kaydet();

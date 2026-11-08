@@ -1,7 +1,7 @@
 // Web sürümü için çevrimdışı önbellek. Uygulama dosyaları önbellekten, görseller ağdan gelir.
-const SURUM = 'cevir-pisir-v4';
+const SURUM = 'cevir-pisir-v5';
 const DOSYALAR = ['./', 'index.html', 'css/stil.css', 'js/uygulama.js', 'js/hesap.js',
-  'js/veri/besinler.js', 'js/veri/tarifler.js', 'js/veri/tarifler-ek.js', 'js/veri/tarifler-ek2.js', 'js/veri/gorseller.js', 'js/ikonlar.js',
+  'js/veri/besinler.js', 'js/veri/tarifler.js', 'js/veri/tarifler-ek.js', 'js/veri/tarifler-ek2.js', 'js/veri/gorseller.js', 'js/veri/hazirlik.js', 'js/ikonlar.js',
   'js/veri/bolge/akdeniz-marmara.js', 'js/veri/bolge/ek-turk.js', 'js/veri/bolge/genel-1.js', 'js/veri/bolge/genel-2.js', 'js/veri/bolge/guneydogu-osmanli.js', 'js/veri/bolge/icanadolu-dogu.js', 'js/veri/bolge/karadeniz-ege.js', 'js/veri/dunya/avrupa.js', 'js/veri/dunya/diger.js', 'js/veri/dunya/uzakdogu.js', 'js/veri/tarifler-bolge.js', 'js/veri/tarifler-dunya.js', 'manifest.webmanifest', 'ikon/ikon.svg'];
 self.addEventListener('install', (e) => e.waitUntil(caches.open(SURUM).then((c) => c.addAll(DOSYALAR)).then(() => self.skipWaiting())));
 self.addEventListener('activate', (e) => e.waitUntil(

@@ -242,6 +242,13 @@ export function menuAnalizi(menu, secenek = {}) {
     if (oran.p < HEDEF.p[0]) notlar.push({ iyi: false, metin: `Protein düşük (%${oran.p}); et, tavuk, baklagil ya da yoğurt ekleyin.` });
   }
 
+  // 1b) Toplam enerji üst sınırı (ör. çarkın tek kişilik akşam menüsü için ~1100 kcal)
+  if (secenek.kcalUst && top.kcal > secenek.kcalUst) {
+    const fazla = Math.round(top.kcal - secenek.kcalUst);
+    puan -= fazla / 15;
+    notlar.push({ iyi: false, metin: `Menü kişi başı ~${Math.round(top.kcal)} kcal; önerilen ${secenek.kcalUst} kcal'nin ${fazla} kcal üzerinde. Porsiyonları küçültmek ya da bir yemeği hafifletmek dengeler.` });
+  } else if (secenek.kcalUst) notlar.push({ iyi: true, metin: `Kişi başı ~${Math.round(top.kcal)} kcal: bir akşam öğünü için makul.` });
+
   // 2) Baskın malzeme tekrarı
   const sayac = {};
   for (const t of tarifler) for (const b of baskinlar(t)) sayac[b] = (sayac[b] ?? 0) + 1;
@@ -262,8 +269,8 @@ export function menuAnalizi(menu, secenek = {}) {
   puan += Math.min(ikiliSay, 2) * 6;
 
   // 5) Konsept: seçili mutfaktan olmayan yemekler puan kaybettirir (yakın mutfaktan olanlar daha az).
-  if (secenek.konsept && secenek.konsept !== 'hepsi') {
-    const yakin = YAKIN[secenek.konsept] ?? [];
+  if (konseptListesi(secenek.konsept).length) {
+    const yakin = yakinMutfaklar(secenek.konsept);
     let disari = 0;
     for (const t of tarifler) {
       if (konseptUygunMu(t, secenek.konsept)) continue;
@@ -271,8 +278,8 @@ export function menuAnalizi(menu, secenek = {}) {
       puan -= yakin.some((x) => konseptUygunMu(t, x)) ? 6 : 14;
     }
     notlar.push(disari
-      ? { iyi: disari <= 2, metin: `${tarifler.length - disari} yemek ${konseptAdi(secenek.konsept)} mutfağından; ${disari} yuvada bu mutfakta yeterli seçenek olmadığı için yakın mutfaklardan yemek önerildi.` }
-      : { iyi: true, metin: `Bütün yemekler ${konseptAdi(secenek.konsept)} mutfağından.` });
+      ? { iyi: disari <= 2, metin: `${tarifler.length - disari} yemek seçili mutfaktan (${konseptAdi(secenek.konsept)}); ${disari} yuvada yeterli seçenek olmadığı için yakın mutfaklardan yemek önerildi.` }
+      : { iyi: true, metin: `Bütün yemekler seçili mutfaktan: ${konseptAdi(secenek.konsept)}.` });
   }
 
   // 6) Elimdekiler: eksik malzeme başına puan düşer
@@ -305,11 +312,12 @@ export function menuAnalizi(menu, secenek = {}) {
 
 function yuvaAdaylari(sofra, i, secenek = {}) {
   let l = TARIFLER.filter((t) => sofra.yuvalar[i].kat.includes(t.kat));
-  if (secenek.konsept && secenek.konsept !== 'hepsi') {
-    // Önce seçili mutfak; o yuvada hiç yemek yoksa yakın mutfaklar, sonra aynı grup (Türk/dünya), en son bütün tarifler.
-    const sirala = [[secenek.konsept], YAKIN[secenek.konsept] ?? []];
-    const grup = MUTFAKLAR.find((m) => m.id === secenek.konsept)?.grup;
-    if (grup) sirala.push([grup === 'osmanli' ? 'turk' : grup]);
+  const secili = konseptListesi(secenek.konsept);
+  if (secili.length) {
+    // Önce seçili mutfaklar; o yuvada yemek yoksa yakın mutfaklar, sonra aynı grup (Türk/dünya), en son bütün tarifler.
+    const sirala = [secili, yakinMutfaklar(secili)];
+    const gruplar = [...new Set(secili.map((k) => (['turk', 'dunya'].includes(k) ? k : MUTFAKLAR.find((m) => m.id === k)?.grup)).filter(Boolean))];
+    if (gruplar.length) sirala.push(gruplar.map((g) => (g === 'osmanli' ? 'turk' : g)));
     // Katmanlar birikerek eklenir: yuvada en az 3 aday olana kadar (aynı yemek iki yuvaya konamaz).
     const secilen = [];
     for (const konseptler of sirala) {
@@ -349,9 +357,16 @@ export function sofraOlustur(sofra, secenek = {}, rnd = Math.random) {
     adaylar.push({ menu: secilen, puan: menuAnalizi(secilen, secenek).puan });
   }
   // Konsept ya da diğer kısıtlar yüzünden geçerli menü çıkmadıysa konsept gözetilmeden kurulur.
-  if (!adaylar.length && secenek.konsept) return sofraOlustur(sofra, { ...secenek, konsept: 'hepsi' }, rnd);
-  adaylar.sort((a, b) => b.puan - a.puan);
-  const enIyi = adaylar.slice(0, 6);
+  if (!adaylar.length && konseptListesi(secenek.konsept).length) return sofraOlustur(sofra, { ...secenek, konsept: 'hepsi' }, rnd);
+  // Mutfak seçiliyse önce o mutfaktan en çok yemek içeren menüler kalır (kullanıcının açık tercihi), sonra denge puanı.
+  let havuz = adaylar;
+  if (konseptListesi(secenek.konsept).length) {
+    const say = (m) => m.filter((id) => konseptUygunMu(tarifBul(id), secenek.konsept)).length;
+    const enCok = Math.max(...adaylar.map((x) => say(x.menu)));
+    havuz = adaylar.filter((x) => say(x.menu) === enCok);
+  }
+  havuz.sort((a, b) => b.puan - a.puan);
+  const enIyi = havuz.slice(0, 6);
   return enIyi[Math.floor(rnd() * enIyi.length)].menu;
 }
 
@@ -380,20 +395,38 @@ export function diyabetAlternatifi(sofra, menu, i) {
 
 // ── Konsept (mutfak) seçimi ──
 // konsept: 'hepsi' | 'turk' (bütün Türk bölgeleri + Osmanlı) | 'dunya' | bir mutfak kimliği (ör. 'karadeniz', 'italyan')
-export function konseptUygunMu(t, konsept = 'hepsi') {
-  if (!konsept || konsept === 'hepsi') return true;
+// ya da bunların dizisi (birden çok mutfak seçimi; boş dizi = tüm mutfaklar).
+export function konseptListesi(konsept) {
+  if (!konsept || konsept === 'hepsi') return [];
+  return (Array.isArray(konsept) ? konsept : [konsept]).filter((k) => k && k !== 'hepsi');
+}
+function tekKonseptUygun(t, konsept) {
   const m = MUTFAKLAR.find((x) => x.id === t.mutfak);
   if (konsept === 'turk') return m?.grup === 'turk' || m?.grup === 'osmanli';
   if (konsept === 'dunya') return m?.grup === 'dunya';
   return t.mutfak === konsept;
 }
+export function konseptUygunMu(t, konsept = 'hepsi') {
+  const l = konseptListesi(konsept);
+  return !l.length || l.some((k) => tekKonseptUygun(t, k));
+}
 export const konseptTarifleri = (konsept, kat = null) =>
   TARIFLER.filter((t) => konseptUygunMu(t, konsept) && (!kat || t.kat === kat));
-export function konseptAdi(konsept) {
-  if (!konsept || konsept === 'hepsi') return 'Tüm mutfaklar';
+function tekKonseptAdi(konsept) {
   if (konsept === 'turk') return 'Türk mutfağı';
   if (konsept === 'dunya') return 'Dünya mutfakları';
-  return MUTFAKLAR.find((m) => m.id === konsept)?.ad ?? 'Tüm mutfaklar';
+  return MUTFAKLAR.find((m) => m.id === konsept)?.ad ?? konsept;
+}
+export function konseptAdi(konsept) {
+  const l = konseptListesi(konsept);
+  if (!l.length) return 'Tüm mutfaklar';
+  const adlar = l.map(tekKonseptAdi);
+  return adlar.length <= 2 ? adlar.join(' + ') : `${adlar.slice(0, 2).join(', ')} +${adlar.length - 2}`;
+}
+/** Seçili mutfakların yakın mutfakları (seçilenler hariç). */
+function yakinMutfaklar(konsept) {
+  const l = konseptListesi(konsept);
+  return [...new Set(l.flatMap((k) => YAKIN[k] ?? []))].filter((k) => !l.includes(k));
 }
 // Konseptte uygun yemek yoksa önce bakılacak yakın mutfaklar
 const YAKIN = {
