@@ -1,5 +1,5 @@
 """Seçilen aday fotoğrafları webp'ye çevirip gorseller/yemek/ altına koyar ve js/veri/gorseller.js'i üretir.
-Kullanım: python3 -I scripts/gorsel-sec.py <1. tur aday dizini> <2. tur aday dizini> <3. tur aday dizini>
+Kullanım: python3 -I scripts/gorsel-sec.py <1. tur aday dizini> <2. tur aday dizini> <3. tur aday dizini> <4. tur aday dizini>
 Seçimler elle, adayların gözle incelenmesiyle yapıldı (yanlış yemeği gösteren fotoğraflar alınmadı)."""
 import json, sys, os
 from PIL import Image, ImageOps
@@ -66,11 +66,22 @@ SECIM3 = {
   'coleslaw': 1, 'cheesecake': 2, 'bors': 1, 'stroganoff': 1, 'gulas': 1, 'sebzeli-kuskus': 1, 'hacapuri': 1,
   'pelmeni': 1, 'rus-salatasi': 2, 'alman-patates-salatasi': 1,
 }
+# Dördüncü tur: genişletilmiş dünya mutfağı tarifleri
+SECIM4 = {
+  'kagit-kebabi': 3, 'oyakodon': 1, 'okonomiyaki': 1, 'udon-corbasi': 2, 'tavuk-satay': 1, 'penne-arrabbiata': 1,
+  'patlican-parmigiana': 2, 'ossobuco-kuzu': 1, 'gnocchi': 1, 'focaccia': 2, 'calzone': 1, 'frittata': 1,
+  'biscotti': 1, 'panzanella': 2, 'croque-madame': 3, 'cikolatali-mus': 1, 'clafoutis': 1, 'crema-catalana': 1,
+  'salmorejo': 1, 'arroz-con-pollo': 1, 'kleftiko': 1, 'galaktoboureko': 1, 'ajvar': 2, 'tabule': 1,
+  'tavuk-shawarma': 1, 'mansaf': 1, 'foul-medames': 1, 'koshari': 2, 'labneh': 1, 'pakora': 1, 'gulab-jamun': 3,
+  'fajitas': 1, 'sopa-tortilla': 2, 'pico-de-gallo': 2, 'chilaquiles': 1, 'huevos-rancheros': 2, 'carne-asada': 2,
+  'ceviche': 1, 'elmali-turta': 1, 'cikolatali-cookie': 2, 'harira': 1, 'rosti': 1, 'apfelstrudel': 2,
+  'isvec-koftesi': 1, 'empanada': 2,
+}
 UYGUN_DEGIL = ('GFDL',)
 
 os.makedirs('gorseller/yemek', exist_ok=True)
 kayit, toplam = {}, 0
-for kok, secim in ((sys.argv[1], SECIM), (sys.argv[2], SECIM2), (sys.argv[3], SECIM3)):
+for kok, secim in ((sys.argv[1], SECIM), (sys.argv[2], SECIM2), (sys.argv[3], SECIM3), (sys.argv[4], SECIM4)):
   bilgi = json.load(open(os.path.join(kok, 'aday', 'bilgi.json')))
   for tid, n in secim.items():
     assert tid not in kayit, tid

@@ -1830,5 +1830,275 @@ export const GORSELLER = {
   "lisans": "CC BY-SA 3.0",
   "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "sayfa": "https://commons.wikimedia.org/wiki/File:Kartoffelsalat_als_Specksalat.jpg"
+ },
+ "kagit-kebabi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Ka%C4%9F%C4%B1t_kebab%C4%B1_and_pilav.jpg"
+ },
+ "oyakodon": {
+  "yazar": "Ocdp",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Oyakodon_003.jpg"
+ },
+ "okonomiyaki": {
+  "yazar": "ume-y",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Okonomiyaki_001.jpg"
+ },
+ "udon-corbasi": {
+  "yazar": "加茂川の民",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%E9%B6%8F%E5%A4%A9%E3%81%AE%E3%81%86%E3%81%A9%E3%82%93.jpg"
+ },
+ "tavuk-satay": {
+  "yazar": "Gunawan Kartapranata",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Sate_Ponorogo.jpg"
+ },
+ "penne-arrabbiata": {
+  "yazar": "Petar Milošević",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Penne_Arrabbiata.jpg"
+ },
+ "patlican-parmigiana": {
+  "yazar": "Schellenberg",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Parmigiana_di_melanzane.jpg"
+ },
+ "ossobuco-kuzu": {
+  "yazar": "Mogens Engelund",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Ossobuco.jpg"
+ },
+ "gnocchi": {
+  "yazar": "Paoletta S.",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Gnocchi_di_ricotta_burro_e_salvia.jpg"
+ },
+ "focaccia": {
+  "yazar": "Fred Benenson",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Focaccia_with_Crumb.jpg"
+ },
+ "calzone": {
+  "yazar": "Kobako",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Calzone04.jpg"
+ },
+ "frittata": {
+  "yazar": "Renee Comet (photographer)",
+  "lisans": "Public domain",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:FoodOmelete.jpg"
+ },
+ "biscotti": {
+  "yazar": "Gwang17-Blog: intoafoodcoma.wordpress.com",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Cantuccini-Toscani.jpg"
+ },
+ "panzanella": {
+  "yazar": "Heather Katsoulis",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Italian_Panzanella.jpg"
+ },
+ "croque-madame": {
+  "yazar": "Kykk wiki",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Croque-madame_at_cafe_kocsi.jpg"
+ },
+ "cikolatali-mus": {
+  "yazar": "Lu from Seattle, USA",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Chocolate_coffee_mousse.jpg"
+ },
+ "clafoutis": {
+  "yazar": "Rotem Danzig",
+  "lisans": "Attribution",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Clafoutis3.jpg"
+ },
+ "crema-catalana": {
+  "yazar": "Lindsey40186",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Cr%C3%A8me_br%C3%BBl%C3%A9e_w._whipped_cream.jpg"
+ },
+ "salmorejo": {
+  "yazar": "P.Lechien",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Salmorejo_cordouan.JPG"
+ },
+ "arroz-con-pollo": {
+  "yazar": "Kobako",
+  "lisans": "CC BY-SA 2.5",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Arroz-con-Pollo.jpg"
+ },
+ "kleftiko": {
+  "yazar": "Lord Mountbatten",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kleftiko.JPG"
+ },
+ "galaktoboureko": {
+  "yazar": "Laz",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Lazboregi.jpg"
+ },
+ "ajvar": {
+  "yazar": "Off-shell",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Ajvar1_bright.jpg"
+ },
+ "tabule": {
+  "yazar": "cyclonebill",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Flickr_-_cyclonebill_-_Tabbouleh.jpg"
+ },
+ "tavuk-shawarma": {
+  "yazar": "Vera Yu and David Li",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Shawarma-sandwich-01.jpg"
+ },
+ "mansaf": {
+  "yazar": "EvanCarroll",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Traditional_Mansaf_served_on_flatbread.jpg"
+ },
+ "foul-medames": {
+  "yazar": "Abdullah Geelah",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Ful_medames_(arabic_meal).jpg"
+ },
+ "koshari": {
+  "yazar": "Dina Said",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg"
+ },
+ "labneh": {
+  "yazar": "ProtoplasmaKid",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Jocoque_para_acompa%C3%B1ar_tacos_%C3%A1rabes,_Puebla.jpg"
+ },
+ "pakora": {
+  "yazar": "Babu iyer",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Onion_pakora_-_a.jpg"
+ },
+ "gulab-jamun": {
+  "yazar": "Suyash.dwivedi",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Two_Gulab_Jamun_in_a_plate_01.jpg"
+ },
+ "fajitas": {
+  "yazar": "Elisa Arteaga from Caracas, Venezuela",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Flickr_elisart_324248450--Beef_and_chicken_fajitas.jpg"
+ },
+ "sopa-tortilla": {
+  "yazar": "Elizabethcasasola",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Sopa_de_tortilla_con_chicharron_de_real_del_monte.jpg"
+ },
+ "pico-de-gallo": {
+  "yazar": "jeffreyw",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Mmm..._Pico_de_Gallo_(5923456035).jpg"
+ },
+ "chilaquiles": {
+  "yazar": "Chris Woodrich",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Chilaquiles_at_the_Grand_Cantina,_Windsor,_Ontario,_2025-09-01_04.jpg"
+ },
+ "huevos-rancheros": {
+  "yazar": "jeffreyw",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Mmm...huevos_rancheros.jpg"
+ },
+ "carne-asada": {
+  "yazar": "Daniel R. Blume from Toledo, Ohio, USA",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Carne_asada_(4472586086).jpg"
+ },
+ "ceviche": {
+  "yazar": "Picanteria karol",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Cebiche_de_corvina.JPG"
+ },
+ "elmali-turta": {
+  "yazar": "Dan Parsons",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Apple_pie.jpg"
+ },
+ "cikolatali-cookie": {
+  "yazar": "Mshuang2",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Chocolate_chip_cookies_on_cutting_board.jpg"
+ },
+ "harira": {
+  "yazar": "Kattusa24",
+  "lisans": "Public domain",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Harira.png"
+ },
+ "rosti": {
+  "yazar": "Benutzer:Mussklprozz",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Roesti.jpg"
+ },
+ "apfelstrudel": {
+  "yazar": "Burkhard Mücke",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Wiener_Apfelstrudel.jpg"
+ },
+ "isvec-koftesi": {
+  "yazar": "Steffen Wurzel",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Koettbullar_stockholm2006.jpg"
+ },
+ "empanada": {
+  "yazar": "Tamorlan",
+  "lisans": "CC BY 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tapa_de_empanadillitas.JPG"
  }
 };
