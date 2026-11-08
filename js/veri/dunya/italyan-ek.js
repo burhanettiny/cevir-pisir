@@ -170,7 +170,7 @@ export const ITALYAN_EK = [
   },
   {
     id: 'tavuk-cacciatore', ad: 'Tavuk Cacciatore', ulke: 'İtalya', kat: 'tavuk', emoji: '🍗', sure: 60, porsiyon: 4, wiki: 'Cacciatore',
-    malz: [['tavuk_but', 900, '6 adet but'], ['un', 20, '2 yemek kaşığı'], ['zeytinyagi', 39, '3 yemek kaşığı'], ['sogan', 110, '1 adet'], ['kapya_biber', 200, '2 adet'],
+    malz: [['tavuk_but', 900, '6 adet but', 630], ['un', 20, '2 yemek kaşığı'], ['zeytinyagi', 39, '3 yemek kaşığı'], ['sogan', 110, '1 adet'], ['kapya_biber', 200, '2 adet'],
       ['mantar', 200, '200 g'], ['sarimsak', 12, '3 diş'], ['domates', 500, '3–4 adet'], ['zeytin', 50, '1 avuç'], ['et_suyu', 200, '1 su bardağı'],
       ['kekik', 1, '1 tatlı kaşığı'], ['defne', 1, '1 yaprak'], ['tuz', 8, '1,5 tatlı kaşığı'], ['karabiber', 1, '1 tutam']],
     adim: [
