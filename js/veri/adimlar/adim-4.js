@@ -24,7 +24,7 @@ export const ADIM_4 = {
   ],
   'semizotu-salatasi': [
     'Semizotunun kalın saplarını ayıklayın; yapraklı ince dalları bol suda 2–3 kez yıkayıp süzün.',
-    'İri doğrayın.',
+    'Semizotunu iyice süzdürüp iri doğrayın; ıslak kalırsa yoğurdu sulandırır.',
     'Yoğurdu ezilmiş sarımsak ve tuzla pürüzsüz olana kadar çırpın.',
     'Semizotunu yoğurtla harmanlayın.',
     'Üzerine zeytinyağı gezdirip soğuk servis edin; servisten hemen önce karıştırın ki semizotu sulanmasın.',
