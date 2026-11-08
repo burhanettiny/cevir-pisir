@@ -1,5 +1,5 @@
 """Seçilen aday fotoğrafları webp'ye çevirip gorseller/yemek/ altına koyar ve js/veri/gorseller.js'i üretir.
-Kullanım: python3 -I scripts/gorsel-sec.py <1. tur aday dizini> <2. tur aday dizini>
+Kullanım: python3 -I scripts/gorsel-sec.py <1. tur aday dizini> <2. tur aday dizini> <3. tur aday dizini>
 Seçimler elle, adayların gözle incelenmesiyle yapıldı (yanlış yemeği gösteren fotoğraflar alınmadı)."""
 import json, sys, os
 from PIL import Image, ImageOps
@@ -29,11 +29,48 @@ SECIM2 = {
   'gavurdagi-salatasi': 2, 'domatesli-makarna': 5, 'roka-salatasi': 3, 'havuc-tarator': 2, 'kopoglu': 5,
   'patlican-salatasi': 7, 'patates-corbasi': 7, 'sehriye-corbasi': 2, 'pirasa-corbasi': 6,
 }
+# Üçüncü tur: bölge ve dünya mutfağı tarifleri (EKSIK=1 ile toplanan adaylar)
+SECIM3 = {
+  'fava': 3, 'hamsi-tava': 1, 'hamsili-pilav': 1, 'karalahana-corbasi': 1, 'karalahana-sarmasi': 1, 'laz-boregi': 2,
+  'akcaabat-kofte': 1, 'hamsi-kayganasi': 1, 'karadeniz-pidesi': 3, 'hamsikoy-sutlaci': 1, 'misir-ekmegi': 2,
+  'tokat-kebabi': 1, 'kalamar-tava': 3, 'midye-dolma': 1, 'midye-tava': 1, 'ahtapot-salatasi': 2,
+  'levrek-bugulama': 3, 'kabak-cicegi-dolmasi': 3, 'keskek': 1, 'cokertme-kebabi': 1, 'kumru': 3, 'sambali': 1,
+  'ayvalik-tostu': 2, 'kuzu-kapama': 2, 'ekmek-kadayifi': 3, 'cop-sis': 3, 'adana-kebap': 2, 'tantuni': 1,
+  'kunefe': 2, 'cezerye': 1, 'batirik': 1, 'anali-kizli': 1, 'belen-tava': 2, 'bici-bici': 1, 'antalya-sis-kofte': 1,
+  'fellah-koftesi': 1, 'tereyagli-karides': 4, 'oruk': 1, 'iskender': 1, 'inegol-kofte': 1, 'kuru-kofte': 1,
+  'tekirdag-koftesi': 1, 'balik-ekmek': 3, 'balik-corbasi': 1, 'karides-guvec': 3, 'pideli-kofte': 1,
+  'etli-lahana-sarmasi': 1, 'pisi': 1, 'pacanga-boregi': 1, 'uskumru-izgara': 3, 'islama-kofte': 1,
+  'kayseri-mantisi': 2, 'pastirmali-kuru-fasulye': 1, 'kayseri-yaglamasi': 1, 'etli-ekmek': 1, 'firin-kebabi': 1,
+  'bamya-corbasi': 1, 'testi-kebabi': 1, 'tirit': 1, 'sac-tava': 3, 'gozleme': 2, 'su-boregi': 3, 'ciborek': 1,
+  'arabasi-corbasi': 1, 'asure': 1, 'tutmac-corbasi': 1, 'kuzu-haslama': 4, 'cag-kebabi': 3, 'kadayif-dolmasi': 2,
+  'ayran-asi': 2, 'kete': 1, 'abdigor-koftesi': 1, 'bozbas': 1, 'lahmacun': 1, 'icli-kofte': 2,
+  'cig-kofte': 1, 'beyran': 1, 'yuvarlama': 3, 'firikli-pilav': 1, 'kaburga-dolmasi': 2, 'baklava': 1, 'katmer': 1,
+  'sillik': 1, 'urfa-kebabi': 2, 'perde-pilavi': 1, 'lebeniye': 1, 'mutancana': 1, 'ayva-dolmasi': 1,
+  'kuzu-incik': 1, 'elbasan-tava': 3, 'ic-pilav': 1, 'levzine': 1, 'tavuk-gogsu-tatlisi': 1, 'zerde': 2,
+  'havuc-corbasi': 4, 'tavuklu-eriste-corbasi': 2, 'izgara-kofte': 3, 'kuzu-pirzola': 1, 'kuzu-sis': 2,
+  'etli-kabak-dolmasi': 2, 'etli-biber-dolmasi': 1, 'et-kavurma': 2, 'dalyan-kofte': 1, 'etli-bamya': 3,
+  'kuzu-yahni': 1, 'sulu-kofte': 2, 'etli-kapuska': 1, 'tavuk-durum': 1, 'balik-koftesi': 1, 'mezgit-tava': 4,
+  'menemen': 2, 'zeytinyagli-bamya': 3, 'ispanakli-yumurta': 2, 'zeytinyagli-kabak-dolmasi': 1, 'kabak-kalye': 4,
+  'kiymali-pide': 2, 'kusbasili-pide': 3, 'kiymali-tepsi-boregi': 2, 'ispanakli-borek': 3, 'bazlama': 1, 'pogaca': 1,
+  'sigara-boregi': 1, 'tepsi-mantisi': 3, 'pirasali-borek': 3, 'puf-boregi': 1, 'acma': 4, 'domatesli-pilav': 3,
+  'sehriyeli-bulgur': 4, 'sutlu-nuriye': 1, 'tulumba': 3, 'kalburabasti': 4, 'islak-kek': 1, 'mozaik-pasta': 2,
+  'tahinli-corek': 2, 'cevizli-kurabiye': 1, 'pastirmali-yumurta': 2, 'mapo-tofu': 2, 'miso-corbasi': 1,
+  'teriyaki-tavuk': 1, 'sushi-maki': 1, 'ramen': 2, 'tempura': 1, 'yakitori': 4, 'gyoza': 2, 'bibimbap': 1,
+  'bulgogi': 1, 'japchae': 1, 'pad-thai': 1, 'tom-kha': 1, 'karbonara': 1, 'lazanya': 2, 'mantarli-risotto': 1,
+  'pizza-margherita': 2, 'minestrone': 1, 'tiramisu': 1, 'panna-cotta': 1, 'bruschetta': 5, 'fettuccine-alfredo': 3,
+  'ratatouille': 2, 'krep': 1, 'hachis-parmentier': 2, 'profiterol': 2, 'paella': 1, 'gazpacho': 1,
+  'ispanyol-omleti': 2, 'churros': 1, 'patatas-bravas': 3, 'yunan-salatasi': 3, 'souvlaki': 1, 'yunan-musakasi': 1,
+  'cevapi': 2, 'trilece': 5, 'gyros': 1, 'falafel': 1, 'maklube': 1, 'tikka-masala': 3, 'butter-chicken': 1,
+  'samosa': 1, 'chana-masala': 2, 'naan': 1, 'tacos': 1, 'burrito': 1, 'guacamole': 2, 'chili-con-carne': 2,
+  'quesadilla': 3, 'enchilada': 1, 'hamburger': 2, 'sezar-salata': 3, 'pancake': 1, 'mac-cheese': 3, 'fish-chips': 1,
+  'coleslaw': 1, 'cheesecake': 2, 'bors': 1, 'stroganoff': 1, 'gulas': 1, 'sebzeli-kuskus': 1, 'hacapuri': 1,
+  'pelmeni': 1, 'rus-salatasi': 2, 'alman-patates-salatasi': 1,
+}
 UYGUN_DEGIL = ('GFDL',)
 
 os.makedirs('gorseller/yemek', exist_ok=True)
 kayit, toplam = {}, 0
-for kok, secim in ((sys.argv[1], SECIM), (sys.argv[2], SECIM2)):
+for kok, secim in ((sys.argv[1], SECIM), (sys.argv[2], SECIM2), (sys.argv[3], SECIM3)):
   bilgi = json.load(open(os.path.join(kok, 'aday', 'bilgi.json')))
   for tid, n in secim.items():
     assert tid not in kayit, tid

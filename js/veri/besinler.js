@@ -172,14 +172,12 @@ export const BESINLER = {
   pazi: B('Pazı', 19, 1.8, 3.7, 0.2, 'sebze'),
   taze_borulce: B('Taze börülce', 36, 2.5, 7, 0.3, 'sebze'),
   fasulye_filizi: B('Fasulye filizi', 30, 3, 6, 0.2, 'sebze'),
-  kestane: B('Kestane (kabuksuz)', 213, 2.4, 46, 2.3, 'sebze'),
   portakal: B('Portakal', 47, 0.9, 11.8, 0.1, 'sebze'),
   kavun: B('Kavun', 34, 0.8, 8.2, 0.2, 'sebze'),
   zeytin: B('Zeytin', 145, 1, 3.8, 15, 'temel'),
   kuru_kayisi: B('Kuru kayısı', 241, 3.4, 63, 0.5, 'temel'),
   kuru_uzum: B('Kuru üzüm', 299, 3.1, 79, 0.5, 'temel'),
   kuru_incir: B('Kuru incir', 249, 3.3, 64, 0.9, 'temel'),
-  hurma: B('Hurma', 282, 2.5, 75, 0.4, 'temel'),
   antep_fistigi: B('Antep fıstığı', 560, 20, 28, 45, 'temel'),
   cam_fistigi: B('Çam fıstığı', 673, 14, 13, 68, 'temel'),
   findik: B('Fındık', 628, 15, 17, 61, 'temel'),
@@ -200,8 +198,6 @@ export const BESINLER = {
   koru_ezmesi: B('Köri ezmesi (Tay)', 120, 3, 12, 7, 'temel'),
   miso: B('Miso ezmesi', 199, 12, 26, 6, 'temel'),
   pirinc_kagidi: B('Pirinç kâğıdı', 330, 6, 80, 0.3, 'temel'),
-  milfoy: B('Milföy hamuru', 558, 7.4, 46, 38, 'temel'),
-  yulaf: B('Yulaf ezmesi', 389, 17, 66, 7, 'bakliyat'),
 
   // — Baharat (miktarı küçük; besin katkısı ihmal edilir)
   tuz: B('Tuz', 0, 0, 0, 0, 'baharat', true),
@@ -231,7 +227,6 @@ export const BESINLER = {
   mahlep: B('Mahlep', 0, 0, 0, 0, 'baharat'),
   damla_sakizi: B('Damla sakızı', 0, 0, 0, 0, 'baharat'),
   kuru_feslegen: B('Kuru fesleğen / İtalyan baharatı', 0, 0, 0, 0, 'baharat'),
-  aci_biber: B('Acı kırmızı biber (taze/kuru)', 0, 0, 0, 0, 'baharat'),
 
   // — Sıvılar (listeye girmez)
   su: B('Su', 0, 0, 0, 0, 'su', true),

@@ -624,5 +624,1211 @@ export const GORSELLER = {
   "lisans": "CC BY 2.0",
   "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
   "sayfa": "https://commons.wikimedia.org/wiki/File:Potato_Leek_Soup_(4258747258).jpg"
+ },
+ "fava": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Fava_amb_carxofa.jpg"
+ },
+ "hamsi-tava": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Hamsi_tava,_roka,_lemon_and_red_onions.jpg"
+ },
+ "hamsili-pilav": {
+  "yazar": "gülin vardar",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Hamsili_pilav_-_Flickr_-_gulinvardar.jpg"
+ },
+ "karalahana-corbasi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Pancar_soup.jpg"
+ },
+ "karalahana-sarmasi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kara_lahana_sarma.jpg"
+ },
+ "laz-boregi": {
+  "yazar": "Badseed",
+  "lisans": "CC BY 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Galaktoboureko.jpg"
+ },
+ "akcaabat-kofte": {
+  "yazar": "Original uploader was Cemertem at tr.wikipedia",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Akcaabatkofte.jpg"
+ },
+ "hamsi-kayganasi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kaygana.jpg"
+ },
+ "karadeniz-pidesi": {
+  "yazar": "kardeşler karadeniz …",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:KIYMAL%C4%B0_YUMUTAL%C4%B0_-_panoramio.jpg"
+ },
+ "hamsikoy-sutlaci": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:S%C3%BCtla%C3%A7_(Hamsik%C3%B6y).jpg"
+ },
+ "misir-ekmegi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:M%C4%B1s%C4%B1r_ekme%C4%9Fi_-_tereya%C4%9F%C4%B1.jpg"
+ },
+ "tokat-kebabi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tokat_kebap.jpg"
+ },
+ "kalamar-tava": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kalamar_tava_and_tartar_sauce.jpg"
+ },
+ "midye-dolma": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:A_plate_of_%22midye_dolma%22.jpg"
+ },
+ "midye-tava": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Fried_mussels_in_Ankara.jpg"
+ },
+ "ahtapot-salatasi": {
+  "yazar": "Benreis",
+  "lisans": "CC BY 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Ahtapot_Salatas%C4%B1_Octopus_salad.JPG"
+ },
+ "levrek-bugulama": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Levrek_bugulama.jpg"
+ },
+ "kabak-cicegi-dolmasi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Etli_kabak_%C3%A7i%C3%A7e%C4%9Fi_dolmas%C4%B1.jpg"
+ },
+ "keskek": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tokat_keshkek.jpg"
+ },
+ "cokertme-kebabi": {
+  "yazar": "Jwslubbock",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%C3%87%C3%B6kertme_kebab%C4%B1_(cropped).jpg"
+ },
+ "kumru": {
+  "yazar": "Satirdan kahraman",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tezg%C3%A2hta_kumru.jpg"
+ },
+ "sambali": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%C5%9Eambali.jpg"
+ },
+ "ayvalik-tostu": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Ayval%C4%B1k_tostu_-_Ankara.jpg"
+ },
+ "kuzu-kapama": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kuzu_kapama_with_lamb_shank.jpg"
+ },
+ "ekmek-kadayifi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kaymakl%C4%B1_ekmek_kaday%C4%B1f%C4%B1.jpg"
+ },
+ "cop-sis": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%C3%87%C3%B6p_%C5%9Fi%C5%9F_(lamb).jpg"
+ },
+ "adana-kebap": {
+  "yazar": "Anatolianpride",
+  "lisans": "Public domain",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Adana_kebab.jpg"
+ },
+ "tantuni": {
+  "yazar": "Joquee",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tantuni_sokak_yeme%C4%9Fi.jpg"
+ },
+ "kunefe": {
+  "yazar": "elif ayse",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:K%C3%BCnefe.jpg"
+ },
+ "cezerye": {
+  "yazar": "Nightstallion03 (talk) (Transfered by Diádoco/Original uploaded by Nightstallion03)",
+  "lisans": "Public domain",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Cezerye.jpg"
+ },
+ "batirik": {
+  "yazar": "Intension at English Wikipedia",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bat%C4%B1rma.jpg"
+ },
+ "anali-kizli": {
+  "yazar": "Yemekta",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Anal%C4%B1_K%C4%B1zl%C4%B1_K%C3%B6fte.jpg"
+ },
+ "belen-tava": {
+  "yazar": "Camomile007",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Belen_Tava.jpg"
+ },
+ "bici-bici": {
+  "yazar": "Myrat",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bici_bici.jpg"
+ },
+ "antalya-sis-kofte": {
+  "yazar": "Merbrandehof",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Delicious_dinner.JPG"
+ },
+ "fellah-koftesi": {
+  "yazar": "Fatih Sarsılmaz",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Fellah_K%C3%B6ftesi.png"
+ },
+ "tereyagli-karides": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kiremitte_tereya%C4%9Fl%C4%B1_karides.jpg"
+ },
+ "oruk": {
+  "yazar": "Bazel",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kibbeh3.jpg"
+ },
+ "iskender": {
+  "yazar": "Garrett Ziegler",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%C4%B0skender_Kebap.jpg"
+ },
+ "inegol-kofte": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%C4%B0neg%C3%B6l_k%C3%B6fte.jpg"
+ },
+ "kuru-kofte": {
+  "yazar": "Tarihi Sultanahmet Köftecisi",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Sultanahmet_K%C3%B6ftesi.jpg"
+ },
+ "tekirdag-koftesi": {
+  "yazar": "CeeGee",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tekirda%C4%9FKofte.JPG"
+ },
+ "balik-ekmek": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bal%C4%B1k-ekmek_in_Ankara.jpg"
+ },
+ "balik-corbasi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bal%C4%B1k_%C3%A7orbasi.jpg"
+ },
+ "karides-guvec": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Karides_g%C3%BCve%C3%A7_from_the_Turkish_cuisine.jpg"
+ },
+ "pideli-kofte": {
+  "yazar": "Selimoloji",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Pideli_K%C3%B6fte.jpg"
+ },
+ "etli-lahana-sarmasi": {
+  "yazar": "Lahana_sarma.JPG: Vitaan26 (probably) derivative work: Vearthy (talk)",
+  "lisans": "Public domain",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Lahana_sarma.png"
+ },
+ "pisi": {
+  "yazar": "Vidor",
+  "lisans": "Public domain",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Boortsog.JPG"
+ },
+ "pacanga-boregi": {
+  "yazar": "Gökçe Yörük",
+  "lisans": "Public domain",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Pa%C3%A7anga_b%C3%B6re%C4%9Fi.jpg"
+ },
+ "uskumru-izgara": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Fish_shaped_plates.jpg"
+ },
+ "islama-kofte": {
+  "yazar": "Bahar",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Islama_k%C3%B6fte.jpg"
+ },
+ "kayseri-mantisi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Manti_in_a_metal_plate.jpg"
+ },
+ "pastirmali-kuru-fasulye": {
+  "yazar": "Miansari66",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kuru_Fasulye...JPG"
+ },
+ "kayseri-yaglamasi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kayseri_ya%C4%9Flamas%C4%B1_in_Ankara.jpg"
+ },
+ "etli-ekmek": {
+  "yazar": "Intension",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Etliekmek.jpg"
+ },
+ "firin-kebabi": {
+  "yazar": "Muratkkara",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:F%C4%B1r%C4%B1n_Kebab%C4%B1.jpg"
+ },
+ "bamya-corbasi": {
+  "yazar": "Kadı",
+  "lisans": "CC BY 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bamya_%C3%87orbas%C4%B1,_Konya.jpg"
+ },
+ "testi-kebabi": {
+  "yazar": "Niels Elgaard Larsen",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:TestiKebabGoreme.jpg"
+ },
+ "tirit": {
+  "yazar": "Puterakahaku1",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tirit_Kofte.jpg"
+ },
+ "sac-tava": {
+  "yazar": "sabit ince",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tava_kavurma_-_panoramio.jpg"
+ },
+ "gozleme": {
+  "yazar": "Maderibeyza",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:G%C3%B6zleme.JPG"
+ },
+ "su-boregi": {
+  "yazar": "Samizambak",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Su_b%C3%B6re%C4%9Fi_2025.jpg"
+ },
+ "ciborek": {
+  "yazar": "Eaeeae",
+  "lisans": "CC BY 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Ayran%2B%C3%87ib%C3%B6rek.jpg"
+ },
+ "arabasi-corbasi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Araba%C5%9F%C4%B1_soup.jpg"
+ },
+ "asure": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:A%C5%9Fure.jpg"
+ },
+ "tutmac-corbasi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bacakl%C4%B1_a%C5%9F_(details).jpg"
+ },
+ "kuzu-haslama": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kuzu_ha%C5%9Flama_at_a_restaurant_in_Ankara.jpg"
+ },
+ "cag-kebabi": {
+  "yazar": "İmmortalance",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Ca%C4%9F_Kebab_in_Marmaris.jpg"
+ },
+ "kadayif-dolmasi": {
+  "yazar": "Eğitmen Mahmut",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kaday%C4%B1f_Dolmas%C4%B1_porsiyon.jpg"
+ },
+ "ayran-asi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Ayran_soup_in_Ankara.jpg"
+ },
+ "kete": {
+  "yazar": "Ömer Fadıl USTA",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Baked_kete_photo.jpg"
+ },
+ "abdigor-koftesi": {
+  "yazar": "Muhammed Bulut",
+  "lisans": "CC BY 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Abdig%C3%B6r.jpg"
+ },
+ "bozbas": {
+  "yazar": "NurlanLalaev",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tik%C9%99_(chunky_meat)_Bozbash.png"
+ },
+ "lahmacun": {
+  "yazar": "No machine-readable author provided. Rainer Zenz assumed (based on copyright claims).",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Lahmacun.jpg"
+ },
+ "icli-kofte": {
+  "yazar": "Garrett Ziegler",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%C4%B0%C3%A7li_k%C3%B6fte_(Oruk).jpg"
+ },
+ "cig-kofte": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Turkish_%C3%A7i%C4%9F_k%C3%B6fte.jpg"
+ },
+ "beyran": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Beyran_again.jpg"
+ },
+ "yuvarlama": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Yuvalama_or_yuvarlama_(details).jpg"
+ },
+ "firikli-pilav": {
+  "yazar": "Kristen Taylor",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Freekeh_with_roasted_vegetables.jpg"
+ },
+ "kaburga-dolmasi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kaburga_dolma.jpg"
+ },
+ "baklava": {
+  "yazar": "Sakaman",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Baklava(1).png"
+ },
+ "katmer": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Katmer_(Antep).jpg"
+ },
+ "sillik": {
+  "yazar": "Kutlusafa",
+  "lisans": "CC BY 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%C5%9E%C4%B1ll%C4%B1k_dessert_served_at_Hac%C4%B1baba_in_%C5%9Eanl%C4%B1urfa,_full_plate_view.jpg"
+ },
+ "urfa-kebabi": {
+  "yazar": "Amin Noubahar",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kebab_Gerashi.jpg"
+ },
+ "perde-pilavi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Perde_pilav.jpg"
+ },
+ "lebeniye": {
+  "yazar": "Amacz12",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:K7AU_Lebeniye_Soup.jpg"
+ },
+ "mutancana": {
+  "yazar": "Garrett Ziegler",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Mutancana.jpg"
+ },
+ "ayva-dolmasi": {
+  "yazar": "MrArifnajafov",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Heyva_dolmas%C4%B1_Azerbaijani_cuisine.jpg"
+ },
+ "kuzu-incik": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:F%C4%B1r%C4%B1nda_kuzu_incik.jpg"
+ },
+ "elbasan-tava": {
+  "yazar": "fugzu",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:TAVE_KOSI-_agnello_allo_yogurt_albanese.jpg"
+ },
+ "ic-pilav": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%C4%B0%C3%A7_pilav.jpg"
+ },
+ "levzine": {
+  "yazar": "Vikiçizer",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bademezmesi.JPG"
+ },
+ "tavuk-gogsu-tatlisi": {
+  "yazar": "Garrett Ziegler",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tavuk_G%C3%B6%C4%9Fs%C3%BC_Dessert.jpg"
+ },
+ "zerde": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Zerde_in_Istanbul.jpg"
+ },
+ "havuc-corbasi": {
+  "yazar": "jules / stone soup",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Carrot_soup_spoon.jpg"
+ },
+ "tavuklu-eriste-corbasi": {
+  "yazar": "Firespeaker",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bowl_of_kesme_2.jpg"
+ },
+ "izgara-kofte": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Izgara_k%C3%B6fte.jpg"
+ },
+ "kuzu-pirzola": {
+  "yazar": "Tarquin Binary",
+  "lisans": "CC BY-SA 2.5",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Pirzola_stoke_newington.jpg"
+ },
+ "kuzu-sis": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%C5%9Ei%C5%9F_kebap_and_pilav.jpg"
+ },
+ "etli-kabak-dolmasi": {
+  "yazar": "Mira &amp; Neša",
+  "lisans": "Copyrighted free use",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Punjene_tikvice.jpg"
+ },
+ "etli-biber-dolmasi": {
+  "yazar": "User:Zserghei",
+  "lisans": "Public domain",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Farshirovannyi_peretz.jpg"
+ },
+ "et-kavurma": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kavurma_(lamb).jpg"
+ },
+ "dalyan-kofte": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Dalyan_k%C3%B6fte_with_pilav.jpg"
+ },
+ "etli-bamya": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Etli_bamya.jpg"
+ },
+ "kuzu-yahni": {
+  "yazar": "АннаМариа (original image); derived version by Off-shell",
+  "lisans": "CC BY 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%D0%9F%D1%80%D0%B8%D0%BB%D0%B5%D0%BF%D1%81%D0%BA%D0%B0_%D1%98%D0%B0%D0%BD%D0%B8%D1%98%D0%B0_-_%D0%BB%D1%83%D1%82%D0%B0_%D1%98%D0%B0%D0%B2%D0%BD%D0%B8%D1%98%D0%B0_(cropped).jpg"
+ },
+ "sulu-kofte": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Sulu_koftes.jpg"
+ },
+ "etli-kapuska": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kapuska.jpg"
+ },
+ "tavuk-durum": {
+  "yazar": "Takeaway",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Smoked_chicken_and_avocado_wrap.jpg"
+ },
+ "balik-koftesi": {
+  "yazar": "Luca Nebuloni from Milan, Italy",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Fishballs_with_crab_and_corguette_(6340237273).jpg"
+ },
+ "mezgit-tava": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Mezgit_taba%C4%9F%C4%B1.jpg"
+ },
+ "menemen": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Menemen_in_a_sahan.jpg"
+ },
+ "zeytinyagli-bamya": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bamya_(okra_dish).jpg"
+ },
+ "ispanakli-yumurta": {
+  "yazar": "Anagoria",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:20240812_Ispanakl%C4%B1_Yumurta_Restaurant_LaFemme_Berlin_anagoria.jpg"
+ },
+ "zeytinyagli-kabak-dolmasi": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kabak_dolma.jpg"
+ },
+ "kabak-kalye": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kabak_kalye_in_Ankara.jpg"
+ },
+ "kiymali-pide": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Turkish_pide_with_ground_beef.jpg"
+ },
+ "kusbasili-pide": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Veal_and_egg_pide.jpg"
+ },
+ "kiymali-tepsi-boregi": {
+  "yazar": "Bilinmiyor",
+  "lisans": "CC BY-SA 2.5",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Burek_trokut_1.png"
+ },
+ "ispanakli-borek": {
+  "yazar": "Alpha",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Spanakopita.jpg"
+ },
+ "bazlama": {
+  "yazar": "Manaurum0123",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bazlama_cooked.jpg"
+ },
+ "pogaca": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Turkish_pogachas.jpg"
+ },
+ "sigara-boregi": {
+  "yazar": "CMoi",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Sigara_B%C3%B6re%C4%9Fi.JPG"
+ },
+ "tepsi-mantisi": {
+  "yazar": "Thomas Steiner",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Manti.jpg"
+ },
+ "pirasali-borek": {
+  "yazar": "Samizambak",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Pirasali_b%C3%B6rek.jpg"
+ },
+ "puf-boregi": {
+  "yazar": "Petar Milošević",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Meat_burek_(GAK_bakery,_Belgrade,_Serbia).jpg"
+ },
+ "acma": {
+  "yazar": "Andy Li",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Acma_with_feta_cheese_-_Simit_Palace_2024-04-01.jpg"
+ },
+ "domatesli-pilav": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Domatesli_pilav_from_Turkey.jpg"
+ },
+ "sehriyeli-bulgur": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Sehriyeli_bulgur_pilav.jpg"
+ },
+ "sutlu-nuriye": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:S%C3%BCtl%C3%BC_nuriye.jpg"
+ },
+ "tulumba": {
+  "yazar": "Maderibeyza",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tulumba_tatl%C4%B1s%C4%B1.JPG"
+ },
+ "kalburabasti": {
+  "yazar": "Miomir Magdevski",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tutinske_hurma%C5%A1ice_01.jpg"
+ },
+ "islak-kek": {
+  "yazar": "Kimberly Vardeman",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Chocolate_Sour_Cream_Bundt_Cake,_March_2008.jpg"
+ },
+ "mozaik-pasta": {
+  "yazar": "jppaguilar",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Salame_de_chocolate_-_Chocolat_Salami.jpg"
+ },
+ "tahinli-corek": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tahinli_%C3%A7%C3%B6rek_from_Ankara.jpg"
+ },
+ "cevizli-kurabiye": {
+  "yazar": "Petar Milošević",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Gurabija_(%D0%B3%D1%83%D1%80%D0%B0%D0%B1%D0%B8%D1%98%D0%B0,Qurabiya;_Cuisine_of_Serbia).jpg"
+ },
+ "pastirmali-yumurta": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Past%C4%B1rmal%C4%B1_yumurta.jpg"
+ },
+ "mapo-tofu": {
+  "yazar": "Sichuanfoodlover",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Authentic_Mapo_Tofu.jpg"
+ },
+ "miso-corbasi": {
+  "yazar": "Ocdp",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Miso_Soup_001.jpg"
+ },
+ "teriyaki-tavuk": {
+  "yazar": "Flickr.com user \"Blue Lotus\"",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Chicken_teriyaki.jpg"
+ },
+ "sushi-maki": {
+  "yazar": "chidorian from Japan",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Sushi_platter.jpg"
+ },
+ "ramen": {
+  "yazar": "Quercus acuta",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Shoyu_Ramen%EF%BC%88Tokyo_Ramen%EF%BC%89_-_01.jpg"
+ },
+ "tempura": {
+  "yazar": "Ryusuke",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tempura_02.jpg"
+ },
+ "yakitori": {
+  "yazar": "Francesc Fort",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Yakitori_-_Tora.jpg"
+ },
+ "gyoza": {
+  "yazar": "Enming Yan / 闫恩铭",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Gyoza_no_Antei_-_3.jpg"
+ },
+ "bibimbap": {
+  "yazar": "Sous Chef",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Dolsot-bibimbap.jpg"
+ },
+ "bulgogi": {
+  "yazar": "국립국어원",
+  "lisans": "CC BY-SA 2.0 kr",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0/kr/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bulgogi_2.jpg"
+ },
+ "japchae": {
+  "yazar": "최광모",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Japchae.jpg"
+ },
+ "pad-thai": {
+  "yazar": "Takeaway",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Phat_Thai_kung_Chang_Khien_street_stall.jpg"
+ },
+ "tom-kha": {
+  "yazar": "lydiajoy1",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tom_kha_gai2.jpg"
+ },
+ "karbonara": {
+  "yazar": "Javier Somoza",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Espaguetis_carbonara.jpg"
+ },
+ "lazanya": {
+  "yazar": "jules / stonesoup",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Lasagne_-_stonesoup.jpg"
+ },
+ "mantarli-risotto": {
+  "yazar": "Luca Nebuloni from Milan, Italy",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Risotto_with_speck_and_goat_cheese_(6101067436).jpg"
+ },
+ "pizza-margherita": {
+  "yazar": "Fabryx98",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Pizza-napoletana.jpg"
+ },
+ "minestrone": {
+  "yazar": "Katrin Morenz from Aachen, Deutschland",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Minestrone_soup.jpg"
+ },
+ "tiramisu": {
+  "yazar": "Raffaele Diomede from Pordenone, ITALIA",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tiramisu_-_Raffaele_Diomede.jpg"
+ },
+ "panna-cotta": {
+  "yazar": "hiro",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Panna_Cotta_with_cream_and_garnish.jpg"
+ },
+ "bruschetta": {
+  "yazar": "Missvain",
+  "lisans": "CC BY 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bruschetta_at_The_Bar_at_MacArthur_Place_-_Sarah_Stierch.jpg"
+ },
+ "fettuccine-alfredo": {
+  "yazar": "Dllu",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Chicken_fettuccine_alfredo.JPG"
+ },
+ "ratatouille": {
+  "yazar": "Jack145945",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Ratatouille_home_cooked.jpg"
+ },
+ "krep": {
+  "yazar": "David Monniaux",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Crepes_dsc07085.jpg"
+ },
+ "hachis-parmentier": {
+  "yazar": "Bycro",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Hachis_parmentier_01.jpg"
+ },
+ "profiterol": {
+  "yazar": "Romainbehar",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Paris_2e_-_Rue_Vivienne_-_Restaurant_Le_Vaudeville_-_Profiteroles_au_chocolat.jpg"
+ },
+ "paella": {
+  "yazar": "Jan Harenburg",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:01_Paella_Valenciana_original.jpg"
+ },
+ "gazpacho": {
+  "yazar": "Bocadorada",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Gazpacho_Cazuela_Barro.jpg"
+ },
+ "ispanyol-omleti": {
+  "yazar": "Kent Wang",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tortilla_de_patata_-_San_Sebasti%C3%A1n.jpg"
+ },
+ "churros": {
+  "yazar": "Krista",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Churros_Madrid.jpg"
+ },
+ "patatas-bravas": {
+  "yazar": "Francesc Fort",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Taberna_Che_-_Braves.jpg"
+ },
+ "yunan-salatasi": {
+  "yazar": "https://www.flickr.com/photos/zone41/",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Greek_Salad_Choriatiki.jpg"
+ },
+ "souvlaki": {
+  "yazar": "Miyagawa",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Souvlaki_in_Athens.JPG"
+ },
+ "yunan-musakasi": {
+  "yazar": "Robert Kindermann aka RobertK",
+  "lisans": "CC BY-SA 2.5",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:MussakasMeMelitsanesKePatates01.JPG"
+ },
+ "cevapi": {
+  "yazar": "Christian Paul from Vancouver, Canada",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Cevapi_s_kajmakom.jpg"
+ },
+ "trilece": {
+  "yazar": "E4024",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Trileche.jpg"
+ },
+ "gyros": {
+  "yazar": "Antonio Fajardo i López",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Pita_giros.JPG"
+ },
+ "falafel": {
+  "yazar": "The original uploader was Jerem at French Wikipedia.",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Falafel.JPG"
+ },
+ "maklube": {
+  "yazar": "Arafataslan",
+  "lisans": "Public domain",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Makluba.JPG"
+ },
+ "tikka-masala": {
+  "yazar": "Kelly Sue",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Chicken_Tikka_Masala_KellySue.JPG"
+ },
+ "butter-chicken": {
+  "yazar": "stu_spivack",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Chicken_makhani.jpg"
+ },
+ "samosa": {
+  "yazar": "Moheen Reeyad",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Samosas,_snack_food_at_Wikipedia%27s_16th_Birthday_celebration_in_Chittagong_(01).jpg"
+ },
+ "chana-masala": {
+  "yazar": "Parzeus",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Chana_Masala_in_Paul%C3%ADnia,_2023-10-16.jpg"
+ },
+ "naan": {
+  "yazar": "Lillottama",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Stuffed_Tandoori_Naan.jpg"
+ },
+ "tacos": {
+  "yazar": "Evgeny Krivosheev",
+  "lisans": "Public domain",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Tacos_on_a_plate.jpg"
+ },
+ "burrito": {
+  "yazar": "samuelfernandezrivera",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Burrito.JPG"
+ },
+ "guacamole": {
+  "yazar": "Nikodem Nijaki",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Guacamole_IMGP1271.jpg"
+ },
+ "chili-con-carne": {
+  "yazar": "Carstor",
+  "lisans": "CC BY-SA 2.5",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bowl_of_chili.jpg"
+ },
+ "quesadilla": {
+  "yazar": "Photograph by Mike Peel (www.mikepeel.net).",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:At_Long_Island_2023_267.jpg"
+ },
+ "enchilada": {
+  "yazar": "Jon Sullivan",
+  "lisans": "Public domain",
+  "lisansUrl": "",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Enchilada_Rice_Beans.jpg"
+ },
+ "hamburger": {
+  "yazar": "Hongreddotbrewhouse",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:RedDot_Burger.jpg"
+ },
+ "sezar-salata": {
+  "yazar": "Banej",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Caesar_Salad_from_Tony_Roma_Restaurant-_March_2024_02.jpg"
+ },
+ "pancake": {
+  "yazar": "Mae Mu",
+  "lisans": "CC0",
+  "lisansUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Foodiesfeed.com_pouring-honey-on-pancakes-with-walnuts.jpg"
+ },
+ "mac-cheese": {
+  "yazar": "Texasfoodgawker",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Original_Mac_n_Cheese_.jpg"
+ },
+ "fish-chips": {
+  "yazar": "Matthias Meckel",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Fish_and_chips_blackpool.jpg"
+ },
+ "coleslaw": {
+  "yazar": "Bilinmiyor",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Bowl%27o%27Coleslaw_modified.jpg"
+ },
+ "cheesecake": {
+  "yazar": "zingyyellow",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Baked_cheesecake_with_raspberries_and_blueberries.jpg"
+ },
+ "bors": {
+  "yazar": "liz west from Boxborough, MA",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Borscht_served.jpg"
+ },
+ "stroganoff": {
+  "yazar": "Pittaya Sroilong (original file) ; cropped and retouched by Off-shell",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Beef_Stroganoff-02_cropped.jpg"
+ },
+ "gulas": {
+  "yazar": "Lily15",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Gulyas080.jpg"
+ },
+ "sebzeli-kuskus": {
+  "yazar": "Rainer Zenz",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Couscous-1.jpg"
+ },
+ "hacapuri": {
+  "yazar": "Rorschach11",
+  "lisans": "CC BY-SA 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:%D0%92%D0%BA%D1%83%D1%81%D0%BD%D1%8B%D0%B9_%D0%B3%D1%80%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D1%85%D0%B0%D1%87%D0%B0%D0%BF%D1%83%D1%80%D0%B8.jpg"
+ },
+ "pelmeni": {
+  "yazar": "Eugene Kim @ Flickr",
+  "lisans": "CC BY 2.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Pelmeni_Russian.jpg"
+ },
+ "rus-salatasi": {
+  "yazar": "Jacek Halicki",
+  "lisans": "CC BY-SA 4.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:2023_Sa%C5%82atka_jarzynowa_(1).jpg"
+ },
+ "alman-patates-salatasi": {
+  "yazar": "Oxfordian Kissuth",
+  "lisans": "CC BY-SA 3.0",
+  "lisansUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sayfa": "https://commons.wikimedia.org/wiki/File:Kartoffelsalat_als_Specksalat.jpg"
  }
 };

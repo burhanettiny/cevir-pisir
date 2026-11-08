@@ -4,15 +4,20 @@
 Çevir Pişir: Bugün Ne Yesek?
 
 ## Kısa açıklama (en fazla 80 karakter)
-Çarkı çevir, yemeğini seç! 124 tarif, kalori, dolabındakilerle tarif ve menü
+Çarkı çevir, yemeğini seç! 475 tarif: Türk bölgeleri ve dünya mutfakları
 
 ## Tam açıklama (en fazla 4000 karakter)
 "Akşama ne pişirsem?" sorusuna en eğlenceli cevap: Çevir Pişir! 🎡
 
 Kategori seç, çark dönsün, ekrana dokun — yemeğin, tarifi, kalorisi ve alışveriş listesi hazır.
 
-🍲 124 TARİF, 7 KATEGORİ
-Çorbalar, et yemekleri, tavuk yemekleri, sebze ve zeytinyağlılar, garnitürler (pilav, salata), mezeler ve tatlılar. Mercimek çorbasından hünkâr beğendiye, kısırdan güllaça Türk mutfağının sevilen lezzetleri. "Şansıma" ile tüm kategorilerden seçim.
+🍲 475 TARİF, 9 KATEGORİ
+Çorbalar, et, tavuk, deniz ürünleri, sebze ve zeytinyağlılar, hamur işleri (pide, börek, mantı, lahmacun), garnitürler, mezeler ve tatlılar.
+
+🗺️ TÜRKİYE'NİN BÜTÜN BÖLGELERİ + DÜNYA MUTFAKLARI
+375 Türk tarifi: Karadeniz (hamsili pilav, kuymak), Ege (zeytinyağlılar, midye dolma), Akdeniz (Adana kebap, künefe), Marmara ve İstanbul (İskender, balık ekmek), İç Anadolu (Kayseri mantısı, etli ekmek), Doğu (cağ kebabı, kadayıf dolması), Güneydoğu (lahmacun, baklava, içli köfte) ve Osmanlı saray mutfağı (mutancana, talaş kebabı, zerde).
+100 dünya tarifi: Uzak Doğu (suşi, ramen, pad thai), İtalyan, Fransız, İspanyol, Yunan ve Balkan, Orta Doğu, Hint, Meksika, Amerikan ve daha fazlası.
+Mutfağını seç: çark, kategoriler ve sofralar yalnızca o mutfaktan önersin. "Şansıma" ile hepsinden seçim.
 
 🛵 JOKER: "BUGÜN SENİN GÜNÜN!"
 Çark arada bir mutfağı kapatır: dışarıdan sipariş ver! Lahmacun, pide, mantı… Tek dokunuşla sipariş uygulamasına geç.
@@ -27,13 +32,13 @@ Kategori seç, çark dönsün, ekrana dokun — yemeğin, tarifi, kalorisi ve al
 • Tarifi ya da çarkın seçimini tek dokunuşla paylaş
 
 🧊 DOLABIM: ELİMDEKİLERLE NE PİŞİRSEM?
-Evdeki malzemeleri bir kez işaretle; "hemen yapabileceklerin", "1 malzeme eksik" ve "2 malzeme eksik" tarifler listelensin. Sofra menüsünü de dolabındakilerle kurabilirsin.
+Evdeki malzemeleri bir kez işaretle (tuz, yağ, salça gibi temel malzemeler dahil, tek tek); "hemen yapabileceklerin", "1 malzeme eksik" ve "2 malzeme eksik" tarifler listelensin. Sofra menüsünü de dolabındakilerle kurabilirsin.
 
 🛒 ALIŞVERİŞ LİSTESİ
 Eksik malzemeler kendiliğinden listelenir. Tek dokunuşla alışveriş listesine ekle; birden çok yemeğin malzemeleri birleşir, reyonlara ayrılır. Listeyi WhatsApp'tan paylaş ya da Getir, Migros Hemen gibi marketlerde ara.
 
 🎉 DAVET VE İFTAR SOFRASI
-Çorbadan tatlıya eksiksiz menü tek dokunuşla hazır. Menü rastgele değil, bilimsel ölçütlerle kurulur:
+Çorbadan tatlıya eksiksiz menü tek dokunuşla hazır; istersen Karadeniz, Osmanlı ya da İtalyan sofrası. Menü rastgele değil, bilimsel ölçütlerle kurulur:
 • Türkiye Beslenme Rehberi'nin önerdiği protein–karbonhidrat–yağ dağılımı
 • Aynı ana malzemenin tekrarından kaçınma (üç patlıcan yemeği yok!)
 • Türk damak tadının klasik ikilileri: kuru fasulye–pilav, karnıyarık–cacık, köfte–piyaz…
@@ -64,7 +69,16 @@ Tarifler, Yemek planlama, Alışveriş listesi
 - Web sitesi: boş bırakın (zorunlu değil)
 - Gizlilik politikası URL'si: https://docs.google.com/document/d/e/2PACX-1vQxUrGB0b-bzoYG0epzfQbkriecKW6-AjEIWcPvlrsZ_imxQW-sPEFZ0Kf4hC_rWerRD4O1-DLTtlCr/pub
 
-## Sürüm notları (en fazla 500 karakter) — güncelleme (1.0.x, yeni tasarım)
+## Sürüm notları (en fazla 500 karakter) — güncelleme (çok geniş menü)
+Menü 4 katına çıktı! 🎡
+• 475 tarif: Türkiye'nin bütün bölgeleri, Osmanlı saray mutfağı
+• Dünya mutfakları: Uzak Doğu, İtalyan, Fransız, Hint, Meksika…
+• Yeni kategoriler: Deniz Ürünleri ve Hamur İşleri
+• Mutfak seç: çark ve sofralar seçtiğin mutfaktan
+• Dolabım'da temel malzemeler tek tek
+• Tarif ve çark sonucunu paylaş
+
+## Sürüm notları — güncelleme (1.0.x, yeni tasarım)
 Yeni görünüm ve yeni özellikler! 🎡
 • Tariflerde gerçek yemek fotoğrafları, yenilenen şık tasarım
 • Dolabım: evdekileri işaretle, "Elimdekilerle ne pişirsem?" ile yapabileceklerini gör
