@@ -4,20 +4,26 @@
 Çevir Pişir: Bugün Ne Yesek?
 
 ## Kısa açıklama (en fazla 80 karakter)
-Çarkı çevir, yemeğini seç! 475 tarif: Türk bölgeleri ve dünya mutfakları
+Çarkı çevir, yemeğini seç! 613 tarif: Türk bölgeleri ve dünya mutfakları
 
 ## Tam açıklama (en fazla 4000 karakter)
 "Akşama ne pişirsem?" sorusuna en eğlenceli cevap: Çevir Pişir! 🎡
 
 Kategori seç, çark dönsün, ekrana dokun — yemeğin, tarifi, kalorisi ve alışveriş listesi hazır.
 
-🍲 475 TARİF, 9 KATEGORİ
+🍲 613 TARİF, 9 KATEGORİ
 Çorbalar, et, tavuk, deniz ürünleri, sebze ve zeytinyağlılar, hamur işleri (pide, börek, mantı, lahmacun), garnitürler, mezeler ve tatlılar.
 
 🗺️ TÜRKİYE'NİN BÜTÜN BÖLGELERİ + DÜNYA MUTFAKLARI
 375 Türk tarifi: Karadeniz (hamsili pilav, kuymak), Ege (zeytinyağlılar, midye dolma), Akdeniz (Adana kebap, künefe), Marmara ve İstanbul (İskender, balık ekmek), İç Anadolu (Kayseri mantısı, etli ekmek), Doğu (cağ kebabı, kadayıf dolması), Güneydoğu (lahmacun, baklava, içli köfte) ve Osmanlı saray mutfağı (mutancana, talaş kebabı, zerde).
-100 dünya tarifi: Uzak Doğu (suşi, ramen, pad thai), İtalyan, Fransız, İspanyol, Yunan ve Balkan, Orta Doğu, Hint, Meksika, Amerikan ve daha fazlası.
-Mutfağını seç: çark, kategoriler ve sofralar yalnızca o mutfaktan önersin. "Şansıma" ile hepsinden seçim.
+238 dünya tarifi: Uzak Doğu (suşi, ramen, pad thai, bibimbap), İtalyan (risotto, lazanya, gnocchi), Hint (butter chicken, biryani, dal), Fransız, İspanyol, Yunan ve Balkan, Orta Doğu, Meksika, Amerikan, Afrika ve Güney Amerika.
+Birden çok mutfak seç: örneğin Karadeniz + İtalyan; çark, kategoriler ve sofralar yalnızca seçtiklerinden önersin.
+
+🎡 TEK YEMEK YA DA KOMPLE MENÜ
+Çarkı tek yemek için çevir ya da "Menü" moduna geç: çorba, ana yemek, yanında ve tatlı makaraları birlikte döner; çıkan menü kalori ve besin dengesine göre kurulur.
+
+👩‍🍳 ADIM ADIM, AYRINTILI TARİF
+Her tarifte ateş ayarı, süre ve kıvam ipuçlarıyla 6–7 adım. "Başlamadan önce" listesi (ör. fasulyeyi geceden ıslat), bitirdiğin adımı işaretleme ve adımdaki süreye dokununca çalışan mutfak sayacı.
 
 🛵 JOKER: "BUGÜN SENİN GÜNÜN!"
 Çark arada bir mutfağı kapatır: dışarıdan sipariş ver! Lahmacun, pide, mantı… Tek dokunuşla sipariş uygulamasına geç.
@@ -69,7 +75,16 @@ Tarifler, Yemek planlama, Alışveriş listesi
 - Web sitesi: boş bırakın (zorunlu değil)
 - Gizlilik politikası URL'si: https://docs.google.com/document/d/e/2PACX-1vQxUrGB0b-bzoYG0epzfQbkriecKW6-AjEIWcPvlrsZ_imxQW-sPEFZ0Kf4hC_rWerRD4O1-DLTtlCr/pub
 
-## Sürüm notları (en fazla 500 karakter) — güncelleme (çok geniş menü)
+## Sürüm notları (en fazla 500 karakter) — güncelleme (613 tarif)
+Büyük güncelleme! 🎡
+• 613 tarif: dünya mutfakları 238'e çıktı (İtalyan 34, Hint 30, Uzak Doğu 39…)
+• Birden çok mutfak seç (ör. Karadeniz + İtalyan)
+• Çarkta Menü modu: çorba, ana yemek, yanında, tatlı
+• Tüm tariflerde ayrıntılı, adım adım hazırlanış
+• Başlamadan önce listesi ve adım sayaçları
+• 350 yemek fotoğrafı
+
+## Sürüm notları — güncelleme (çok geniş menü)
 Menü 4 katına çıktı! 🎡
 • 475 tarif: Türkiye'nin bütün bölgeleri, Osmanlı saray mutfağı
 • Dünya mutfakları: Uzak Doğu, İtalyan, Fransız, Hint, Meksika…
