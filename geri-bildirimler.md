@@ -5,3 +5,4 @@ Gelen yorum ve istekler buraya eklenir; toplanınca birlikte ele alınıp yeni s
 | # | İstek / yorum | Tür | Not | Durum |
 |---|---|---|---|---|
 | 1 | Favori yemekler içerisinden çark çevirebilme | Özellik | Favoriler ekranına "Favorilerimden çevir" düğmesi; Şansıma çarkında "yalnızca favoriler" seçeneği | Bekliyor |
+| 2 | Kullanıcı istediği yemeği aratıp tarifine bakabilsin | Özellik | Ana ekranda arama kutusu: yemek adı, malzeme ve mutfağa göre anında sonuç (Türkçe karakter/aksan duyarsız, ör. "kofte" → köfte); sonuçtan tarife gitme | Bekliyor |
